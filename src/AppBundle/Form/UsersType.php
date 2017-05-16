@@ -3,8 +3,13 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class UsersType extends AbstractType
 {
@@ -13,7 +18,17 @@ class UsersType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombreCompleto')->add('username')->add('email')->add('contrasenya')->add('fechaRegistro')->add('creditos')->add('sexo')->add('activo')->add('noActivo')->add('imagen')->add('rol')->add('ciudad');
+        $builder->add('nombreCompleto')
+            ->add('username' , EmailType::class)
+            ->add('email', TextType::class)
+            ->add('contrasenya',RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password')))
+            ->add('sexo',TextType::class)
+            ->add('imagen' ,IntegerType::class)
+            ->add('rol', IntegerType::class)
+            ->add('ciudad',IntegerType::class);
     }
     
     /**

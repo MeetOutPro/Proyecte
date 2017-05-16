@@ -2,12 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\UsersType;
 use AppBundle\Entity\Users;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class HomeController extends Controller
 {
@@ -16,31 +15,43 @@ class HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $form = $this->new_user();
+        $form_register = $this->registerAction($request);
 
         // replace this example code with whatever you need
-        return $this->render('home/index.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render('home/index.html.twig',
+            array('form' => $form_register->createView())
+        );
     }
 
-    public function new_user(Request $request){
+    /**
+     * @Route("/register", name="user_registration")
+     */
+    public function registerAction(Request $request){
 
-        //instanciamos un objeto de tipo usuario
-        $user = new User();
+        // 1) build the form
+        $user = new Users();
+        $form = $this->createForm(UsersType::class, $user);
 
-        //nos basamos en el objeto usuario para crear el formulario de registro de usuarios
-        $form = $this->createFormBuilder($user)
-            ->add('nombrecompleto', TextType::class)
-            ->add('username', TextType::class)
-            ->add('contrasenya', TextType::class)
-            ->add('email', TextType::class)
-            ->add('ciudad', TextType::class)
-            ->add('imagen', TextType::class)
-            ->add('sexo', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Registrate'))
-            ->getForm();
+        // 2) handle the submit (will only happen on POST)
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+
+            // 4) save the User!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
+
+            return $this->redirectToRoute('replace_with_some_route');
+        }
         return $form;
     }
 
