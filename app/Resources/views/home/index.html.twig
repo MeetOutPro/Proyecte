@@ -2,14 +2,44 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}MeetOUT - Home{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}{% endblock %}
-        {% block javascripts %}asdasd{% endblock %}
+        {% block body %}
+
+            <header class="home-head">
+                {% block header %}
+                    <ul class="header-home">
+                        <li><img src="{{ asset('img/logo.jpg') }}"/></li>
+                        <li><button type="button" id="b-isesion">Iniciar sesión</button></li>
+                    </ul>
+
+                {% endblock %}
+            </header>
+
+            <div class="content">
+                <img src="{{ asset('img/fondo-home.jpg') }}"/>
+            </div>
+
+        <footer>
+        {% block footer %}
+            <ul class="footer-home">
+                <li><img src="{{ asset('img/logo.jpg') }}"/></li>
+                <li><p>Política de privacidad</p></li>
+                <li><p>Condiciones de uso</p></li>
+                <li><p>Política de cookies</p></li>
+                <li><p>Política de copyright</p></li>
+            </ul>
+
+            {% block javascripts %}
+
+            {% endblock %}
+        {% endblock %}
+        </footer>
+        {% endblock %}
     </body>
 </html>
