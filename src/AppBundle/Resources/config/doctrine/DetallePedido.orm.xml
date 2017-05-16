@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\DetallePedido" table="detalle_pedido">
+    <unique-constraints>
+      <unique-constraint name="pedido" columns="pedido"/>
+      <unique-constraint name="credito" columns="credito"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cantidad" type="integer" column="cantidad" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <many-to-one field="credito" target-entity="Creditos" fetch="LAZY">
+      <join-columns>
+        <join-column name="credito" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="pedido" target-entity="Pedidos" fetch="LAZY">
+      <join-columns>
+        <join-column name="pedido" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

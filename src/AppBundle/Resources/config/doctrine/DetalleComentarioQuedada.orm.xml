@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\DetalleComentarioQuedada" table="detalle_comentario_quedada">
+    <indexes>
+      <index name="FK_detalle_comentario_quedada" columns="quedada"/>
+      <index name="FK_detalle_comentario_quedadacomentario" columns="comentario"/>
+      <index name="FK_detalle_comentario_quedada_user" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="user" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="comentario" target-entity="Comentarios" fetch="LAZY">
+      <join-columns>
+        <join-column name="comentario" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="quedada" target-entity="Quedadas" fetch="LAZY">
+      <join-columns>
+        <join-column name="quedada" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

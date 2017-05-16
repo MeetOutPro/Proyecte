@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Users" table="Users">
+    <indexes>
+      <index name="FK_users_municipios" columns="ciudad"/>
+      <index name="FK_users_roles" columns="rol"/>
+      <index name="FK_users_imagenes" columns="imagen"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="username" columns="username"/>
+      <unique-constraint name="email" columns="email"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombreCompleto" type="string" column="nombre_completo" length="30" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="username" type="string" column="username" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="email" type="string" column="email" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="contrasenya" type="string" column="contrasenya" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="fechaRegistro" type="datetime" column="fecha_registro" nullable="false"/>
+    <field name="creditos" type="integer" column="creditos" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="sexo" type="string" column="sexo" length="10" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="activo" type="boolean" column="activo" nullable="false"/>
+    <field name="noActivo" type="boolean" column="no_activo" nullable="false"/>
+    <many-to-one field="imagen" target-entity="Imagenes" fetch="LAZY">
+      <join-columns>
+        <join-column name="imagen" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="rol" target-entity="Roles" fetch="LAZY">
+      <join-columns>
+        <join-column name="rol" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="ciudad" target-entity="Ciudades" fetch="LAZY">
+      <join-columns>
+        <join-column name="ciudad" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
