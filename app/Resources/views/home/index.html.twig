@@ -7,6 +7,7 @@
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
             <link rel="stylesheet" href="{{ asset('css/hover-min.css') }}"/>
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -16,7 +17,7 @@
             <header class="home-head">
                 {% block header %}
                     <ul class="header-home">
-                        <li><img src="{{ asset('img/logo.jpg') }}" alt="MeetOut logo"/></li>
+                        <li><img src="{{ asset('img/logo.png') }}" alt="MeetOut logo"/></li>
                         <li><button type="button" class="hvr-shrink" id="b-isesion">Iniciar sesión</button></li>
                     </ul>
 
@@ -24,18 +25,29 @@
             </header>
 
             <div class="content">
-                <div></div>
+                <section id="hizq">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla, libero at ornare sodales, tellus turpis faucibus purus, eu suscipit nisl quam a felis. Cras blandit tempus purus vitae facilisis.
+                    Duis dignissim quam vel dictum pretium. Aenean metus dui, tincidunt et quam nec, aliquam feugiat ligula. <br/><br/>Quisque eget dui malesuada, scelerisque augue eu, maximus arcu. Sed a velit nec justo molestie consectetur. Quisque sit amet mauris auctor, vulputate elit a, condimentum turpis. Pellentesque auctor consectetur fringilla. Pellentesque sit amet dui gravida, viverra felis nec, consectetur nibh. Donec sodales tortor libero, porttitor maximus eros pellentesque sed. In hac habitasse platea dictumst. Mauris eleifend venenatis dui eget gravida. Ut metus ex, suscipit at ante sed, maximus elementum dui.
+                    Cras quis felis vel sem tristique dignissim. Sed sit amet luctus nisi.
+                </section>
 
+                <section id="hder">
+                    <div id="wrapper-form">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                    </div>
+                </section>
             </div>
 
         <footer>
         {% block footer %}
             <ul class="footer-home">
-                <li><img src="{{ asset('img/logo.jpg') }}"/></li>
-                <li><p>Política de privacidad</p></li>
-                <li><p>Condiciones de uso</p></li>
-                <li><p>Política de cookies</p></li>
-                <li><p>Política de copyright</p></li>
+                <li><img src="{{ asset('img/logo.png') }}"/></li>
+                <li><p><a href="#">Política de privacidad</a></p></li>
+                <li><p><a href="#">Condiciones de uso</a></p></li>
+                <li><p><a href="#">Política de cookies</a></p></li>
+                <li><p><a href="#">Política de copyright</a></p></li>
             </ul>
 
             {% block javascripts %}
