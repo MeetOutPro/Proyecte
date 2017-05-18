@@ -1,0 +1,120 @@
+$font-stack: 'Montserrat', sans-serif;
+
+.modal {
+  display: inline-block;
+  margin-right: 5%;
+}
+
+.modal > label {
+  background: white;
+  font-family: $font-stack;
+  border-radius: .2em;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.75em 1.5em;
+  text-shadow: 1px 1px 1px #fff;
+  transition: all 0.55s;
+}
+.modal > label:hover {
+  transform: scale(0.97);
+}
+.modal__overlay {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-shadow: none;
+  top: 0;
+  z-index: 600;
+}
+.modal__wrap {
+  padding: 1em 0;
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 90%;
+  background-color: rgb(63, 136, 197);
+  border-radius: 10px;
+}
+@media (min-width: 50em) {
+  .modal__wrap {
+    padding: 1.75em;
+  }
+}
+@media (min-height: 37.5em) {
+  .modal__wrap {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -80%);
+  }
+}
+.modal__wrap label {
+  background: white;
+  border-radius: 50%;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5em;
+  line-height: 1.5;
+  position: absolute;
+  right: .5em;
+  top: .5em;
+  width: 1.5em;
+}
+.modal__wrap h2 {
+  font-family:$font-stack;
+  color: white;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+.modal__wrap p {
+  color: #FFD300;
+  text-align: justify;
+}
+.modal input:focus ~ label {
+  transform: scale(0.97);
+}
+
+#modal__trigger {
+  position: absolute;
+  top: -1000px;
+}
+
+.modal__overlay {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -100;
+}
+
+input:checked ~ .modal__overlay {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 800;
+}
+
+#modal__desc{
+  display: flex;
+  justify-content: center;
+}
+.modal__wrap #appbundle_users label{
+  display: inline-block!important;
+  color: white!important;
+  float: left!important;
+  clear: left!important;
+  width: 150px!important;
+  text-align: left!important;
+  background: none!important;
+  height:inherit!important;
+  line-height: inherit!important;
+  position: inherit!important;
+  right: 0!important;
+  top: 0!important;
+  cursor: none!important;
+
+}

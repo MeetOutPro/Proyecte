@@ -1,0 +1,291 @@
+.homepage {
+  width: 100%;
+  background: url("../img/fondo-home2.jpg") no-repeat fixed center;
+  background-size: cover; }
+
+.header-home {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  justify-content: center;
+  background-color: #3F88C5; }
+  .header-home li {
+    flex: 1; }
+  .header-home li img {
+    width: 140px; }
+  .header-home li:nth-child(2n+1) {
+    text-align: start;
+    margin-left: 5%; }
+  .header-home li:nth-child(2n) {
+    text-align: end;
+    margin-right: 5%; }
+
+#b-isesion {
+  background-color: #F7FDFF;
+  color: black;
+  font-family: sans-serif;
+  font-size: 16px;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 2%; }
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .content #hizq {
+    margin-left: 5%;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    flex: 1; }
+  .content #hizq span {
+    text-shadow: 1px 1px 1px black; }
+  .content #hder {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif; }
+  .content #hder .wrapper-hder {
+    border: 1px solid white;
+    padding: 2% 10% 3% 10%;
+    background-color: #3F88C5;
+    border-bottom-left-radius: 50px; }
+  .content #hder .titleder {
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+    margin-bottom: 5%;
+    border-bottom: 1px solid white; }
+
+#wrapper-form {
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 1px 1px 1px black;
+  align-items: center;
+  justify-content: center; }
+
+.homepage #wrapper-form label {
+  display: inline-block !important;
+  color: white !important;
+  float: left !important;
+  clear: left !important;
+  width: 160px !important;
+  text-align: left !important; }
+
+.homepage input {
+  display: inline-block !important;
+  float: left !important;
+  margin-bottom: 10px !important; }
+
+.footer-home {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  justify-content: center;
+  background-color: #F7FDFF;
+  color: black;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif; }
+  .footer-home a {
+    text-decoration: none;
+    color: inherit; }
+  .footer-home li {
+    flex: 1; }
+  .footer-home li:first-child {
+    text-align: center; }
+  .footer-home li img {
+    width: 70px; }
+
+/*
+$color: #1abc9c;
+
+h1, input::-webkit-input-placeholder, button {
+  font-family: 'roboto', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  height: 100px;
+  width: 100%;
+  font-size: 18px;
+  background: darken($color, 4%);
+  color: white;
+  line-height: 150%;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.2);
+}
+
+form {
+  box-sizing: border-box;
+  width: 260px;
+  margin: 100px auto 0;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+  padding-bottom: 40px;
+  border-radius: 3px;
+  h1 {
+    box-sizing: border-box;
+    padding: 20px;
+  }
+}
+
+
+
+
+
+input {
+  margin: 40px 25px;
+  width: 200px;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px $color;
+  transition: all 0.3s cubic-bezier(.64,.09,.08,1);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $color 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  color: darken($color, 20%);
+  &:focus, &:valid {
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+    &::-webkit-input-placeholder {
+      color: $color;
+      font-size: 11px;
+      transform: translateY(-20px);
+      visibility: visible !important;
+    }
+  }
+}
+
+button {
+  border: none;
+  background: $color;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 200px;
+  color: white;
+  margin-left: 25px;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.2);
+  }
+}*/
+.modal {
+  display: inline-block;
+  margin-right: 5%; }
+
+.modal > label {
+  background: white;
+  font-family: "Montserrat", sans-serif;
+  border-radius: .2em;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.75em 1.5em;
+  text-shadow: 1px 1px 1px #fff;
+  transition: all 0.55s; }
+
+.modal > label:hover {
+  transform: scale(0.97); }
+
+.modal__overlay {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-shadow: none;
+  top: 0;
+  z-index: 600; }
+
+.modal__wrap {
+  padding: 1em 0;
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 90%;
+  background-color: #3f88c5;
+  border-radius: 10px; }
+
+@media (min-width: 50em) {
+  .modal__wrap {
+    padding: 1.75em; } }
+@media (min-height: 37.5em) {
+  .modal__wrap {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -80%); } }
+.modal__wrap label {
+  background: white;
+  border-radius: 50%;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5em;
+  line-height: 1.5;
+  position: absolute;
+  right: .5em;
+  top: .5em;
+  width: 1.5em; }
+
+.modal__wrap h2 {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  margin-bottom: 1em;
+  text-transform: uppercase; }
+
+.modal__wrap p {
+  color: #FFD300;
+  text-align: justify; }
+
+.modal input:focus ~ label {
+  transform: scale(0.97); }
+
+#modal__trigger {
+  position: absolute;
+  top: -1000px; }
+
+.modal__overlay {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -100; }
+
+input:checked ~ .modal__overlay {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 800; }
+
+#modal__desc {
+  display: flex;
+  justify-content: center; }
+
+.modal__wrap #appbundle_users label {
+  display: inline-block !important;
+  color: white !important;
+  float: left !important;
+  clear: left !important;
+  width: 150px !important;
+  text-align: left !important;
+  background: none !important;
+  height: inherit !important;
+  line-height: inherit !important;
+  position: inherit !important;
+  right: 0 !important;
+  top: 0 !important;
+  cursor: none !important; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+/*# sourceMappingURL=style.css.map */

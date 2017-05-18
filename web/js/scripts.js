@@ -8,10 +8,4 @@ $( document ).ready(function() {
     })
 
 
-
-
-
-
-
-
 });

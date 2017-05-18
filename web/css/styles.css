@@ -57,22 +57,42 @@ body {
 }
 
 .content #hizq{
-    margin-left: 6%;
+    margin-left: 5%;
     font-family: 'Montserrat', sans-serif;
     color: white;
     flex: 1;
 }
 
+.content #hizq span{
+    text-shadow: 1px 1px 1px black;
+}
+
 .content #hder{
     flex: 1;
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.content #hder .wrapper-hder{
+    border:1px solid white;
+    padding: 2% 10% 3% 10%;
+}
+
+.content #hder .titleder{
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+    margin-bottom: 5%;
+    border-bottom: 1px solid white;
+}
+
 #wrapper-form{
     display: flex;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 1px black;
     align-items: center;
     justify-content: center;
 }
-
-.home
 
 .homepage label{
     display: inline-block;
@@ -85,6 +105,7 @@ body {
 .homepage input {
     display: inline-block;
     float: left;
+    margin-bottom: 10px;
 }
 
 .footer-home{
