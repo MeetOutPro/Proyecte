@@ -3,77 +3,77 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Users
  *
  * @ORM\Table(name="Users", uniqueConstraints={@ORM\UniqueConstraint(name="username", columns={"username"}), @ORM\UniqueConstraint(name="email", columns={"email"})}, indexes={@ORM\Index(name="FK_users_municipios", columns={"ciudad"}), @ORM\Index(name="FK_users_roles", columns={"rol"}), @ORM\Index(name="FK_users_imagenes", columns={"imagen"})})
  * @ORM\Entity
  */
-class Users
+class Users extends BaseUser
 {
     /**
      * @var string
      *
      * @ORM\Column(name="nombre_completo", type="string", length=30, nullable=false)
      */
-    private $nombreCompleto;
+    protected $nombreCompleto;
 
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=45, nullable=false)
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="contrasenya", type="string", length=45, nullable=false)
      */
-    private $contrasenya;
+    protected $contrasenya;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_registro", type="datetime", nullable=false)
      */
-    private $fechaRegistro;
+    protected $fechaRegistro;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="creditos", type="integer", nullable=false)
      */
-    private $creditos = '0';
+    protected $creditos = '0';
 
     /**
      * @var string
      *
      * @ORM\Column(name="sexo", type="string", length=10, nullable=true)
      */
-    private $sexo;
+    protected $sexo;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="activo", type="boolean", nullable=false)
      */
-    private $activo;
+    protected $activo;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="no_activo", type="boolean", nullable=false)
      */
-    private $noActivo;
+    protected $noActivo;
 
     /**
      * @var integer
@@ -82,7 +82,7 @@ class Users
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \AppBundle\Entity\Imagenes
@@ -92,7 +92,7 @@ class Users
      *   @ORM\JoinColumn(name="imagen", referencedColumnName="id")
      * })
      */
-    private $imagen;
+    protected $imagen;
 
     /**
      * @var \AppBundle\Entity\Roles
@@ -112,7 +112,7 @@ class Users
      *   @ORM\JoinColumn(name="ciudad", referencedColumnName="id")
      * })
      */
-    private $ciudad;
+    protected $ciudad;
 
 
 
