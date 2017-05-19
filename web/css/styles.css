@@ -10,8 +10,9 @@ ul{
 .header-home{
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 70px;
     justify-content: center;
+    background-color: #3F88C5;
 }
 
 .header-home li{
@@ -19,7 +20,7 @@ ul{
 }
 
 .header-home li img{
-    width: 18%;
+    width: 140px;
 }
 
 .header-home li:nth-child(2n+1){
@@ -32,25 +33,95 @@ ul{
 }
 
 #b-isesion{
-    padding: 2.5%;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 2%;
 }
 
-.content {
+body {
     width: 100%;
+    background:url("../img/fondo-home2.jpg") no-repeat fixed center;
+    background-size: cover;
 }
 
-.content img{
-    width: 100%;
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.content #hizq{
+    margin-left: 5%;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    flex: 1;
+}
 
+.content #hizq span{
+    text-shadow: 1px 1px 1px black;
+}
 
+.content #hder{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content #hder .wrapper-hder{
+    border:1px solid white;
+    padding: 2% 10% 3% 10%;
+}
+
+.content #hder .titleder{
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+    margin-bottom: 5%;
+    border-bottom: 1px solid white;
+}
+
+#wrapper-form{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 1px black;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage label{
+    display: inline-block;
+    color: white;
+    float: left;
+    clear: left;
+    width: 150px;
+    text-align: left;
+}
+.homepage input {
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+}
 
 .footer-home{
     display: flex;
     align-items: center;
     height: 40px;
     justify-content: center;
+    background-color: #F06543;
+    color: white;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-home a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .footer-home li{
@@ -60,5 +131,5 @@ ul{
     text-align: center;
 }
 .footer-home li img{
-    width: 18%;
+    width: 70px;
 }
