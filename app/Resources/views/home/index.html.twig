@@ -65,23 +65,8 @@
                 </section>
             </div>
 
-        <footer>
-        {% block footer %}
-            <ul class="footer-home">
-                <li><a href="#"><img src="{{ asset('img/logo.png') }}"/></a></li>
-                <li><p><a href="#">Política de privacidad</a></p></li>
-                <li><p><a href="#">Condiciones de uso</a></p></li>
-                <li><p><a href="#">Política de cookies</a></p></li>
-                <li><p><a href="#">Política de copyright</a></p></li>
-            </ul>
+            {% include '/extends/footer.html.twig' %}
 
-            {% block javascripts %}
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-                <script src="{{ asset('js/scripts.js') }}"></script>
-            {% endblock %}
-        {% endblock %}
-        </footer>
         {% endblock %}
     </body>
 </html>
