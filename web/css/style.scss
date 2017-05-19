@@ -1,7 +1,9 @@
 @import 'homepage';
 @import 'modal';
+@import 'footer';
+@import 'header';
 
-
+@charset "utf-8";
 *{
     margin:0;
     padding:0;
@@ -10,4 +12,3 @@
 ul{
     list-style: none;
 }
-

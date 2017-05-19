@@ -1,6 +1,6 @@
 $font-stack: 'Montserrat', sans-serif;
 $margin-default: 5%;
-$bgcolor: #3F88C5;
+$bgcolor-tr: rgba(63, 136, 197, 0.89);
 $bgcolor-footer: #F7FDFF ;
 
 .homepage{
@@ -15,7 +15,7 @@ $bgcolor-footer: #F7FDFF ;
   align-items: center;
   height: 70px;
   justify-content: center;
-  background-color:$bgcolor;
+  background-color:$bgcolor-tr;
 
   li{
     flex: 1;
@@ -26,12 +26,12 @@ $bgcolor-footer: #F7FDFF ;
   }
 
   li:nth-child(2n+1){
-    text-align: start;
+    text-align: left;
     margin-left: $margin-default;
   }
 
   li:nth-child(2n){
-    text-align: end;
+    text-align: right;
     margin-right:$margin-default;
   }
 
@@ -74,7 +74,7 @@ $bgcolor-footer: #F7FDFF ;
   #hder .wrapper-hder{
     border:1px solid white;
     padding: 2% 10% 3% 10%;
-    background-color: $bgcolor;
+    background-color: $bgcolor-tr;
     border-bottom-left-radius: 50px;
   }
 
@@ -110,33 +110,7 @@ $bgcolor-footer: #F7FDFF ;
 
 
 
-.footer-home{
-  display: flex;
-  align-items: center;
-  height: 40px;
-  justify-content: center;
-  background-color: $bgcolor-footer;
-  color: black;
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
 
-  a{
-    text-decoration: none;
-    color: inherit;
-  }
-
-  li{
-    flex: 1;
-  }
-
-  li:first-child{
-    text-align: center;
-  }
-
-  li img{
-    width: 70px;
-  }
-}
 
 /*
 $color: #1abc9c;

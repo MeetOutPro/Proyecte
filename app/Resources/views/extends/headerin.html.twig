@@ -1,0 +1,30 @@
+<header lang="es" class="header-in">
+    {% block header %}
+        <ul class="in-headerli">
+            <li><a href="#"><img src="{{ asset('img/logo.png') }}" alt="MeetOut logo"/></a></li>
+            <li>
+                <div class="modal">
+                    <input id="modal__trigger" type="checkbox" />
+
+                        <!-- BOTON LOGIN 2
+                        <button class="explore">Iniciar sesión
+                        <span class="icon-right"></span>
+                        <span class="icon-right after"></span>
+                        </button>-->
+
+                    <label for="modal__trigger">Iniciar sesión</label>
+                    <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                        <div class="modal__wrap">
+                            <label for="modal__trigger">&#10006;</label>
+                            <h2 id="modal__title">Inicia sesión</h2>
+                            <div id="modal__desc">
+                                <h1>FORMULARIO LOGIN</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    {% endblock %}
+</header>

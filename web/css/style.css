@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .homepage {
   width: 100%;
   background: url("../img/fondo-home2.jpg") no-repeat fixed center;
@@ -8,16 +9,16 @@
   align-items: center;
   height: 70px;
   justify-content: center;
-  background-color: #3F88C5; }
+  background-color: rgba(63, 136, 197, 0.89); }
   .header-home li {
     flex: 1; }
   .header-home li img {
     width: 140px; }
   .header-home li:nth-child(2n+1) {
-    text-align: start;
+    text-align: left;
     margin-left: 5%; }
   .header-home li:nth-child(2n) {
-    text-align: end;
+    text-align: right;
     margin-right: 5%; }
 
 #b-isesion {
@@ -49,7 +50,7 @@
   .content #hder .wrapper-hder {
     border: 1px solid white;
     padding: 2% 10% 3% 10%;
-    background-color: #3F88C5;
+    background-color: rgba(63, 136, 197, 0.89);
     border-bottom-left-radius: 50px; }
   .content #hder .titleder {
     text-shadow: 1px 1px 1px black;
@@ -76,25 +77,6 @@
   display: inline-block !important;
   float: left !important;
   margin-bottom: 10px !important; }
-
-.footer-home {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  justify-content: center;
-  background-color: #F7FDFF;
-  color: black;
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif; }
-  .footer-home a {
-    text-decoration: none;
-    color: inherit; }
-  .footer-home li {
-    flex: 1; }
-  .footer-home li:first-child {
-    text-align: center; }
-  .footer-home li img {
-    width: 70px; }
 
 /*
 $color: #1abc9c;
@@ -201,7 +183,7 @@ button {
   text-align: center;
   text-shadow: none;
   top: 0;
-  z-index: 600; }
+  z-index: 800 !important; }
 
 .modal__wrap {
   padding: 1em 0;
@@ -255,12 +237,12 @@ button {
   opacity: 0;
   transform: scale(0.5);
   transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: -100; }
+  z-index: 800 !important; }
 
 input:checked ~ .modal__overlay {
   opacity: 1;
   transform: scale(1);
-  z-index: 800; }
+  z-index: 800 !important; }
 
 #modal__desc {
   display: flex;
@@ -281,6 +263,146 @@ input:checked ~ .modal__overlay {
   top: 0 !important;
   cursor: none !important; }
 
+.footer-home {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  justify-content: center;
+  background-color: #F7FDFF;
+  color: black;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif; }
+  .footer-home a {
+    text-decoration: none;
+    color: inherit; }
+  .footer-home li {
+    flex: 1; }
+  .footer-home li:first-child {
+    text-align: center; }
+  .footer-home li img {
+    width: 70px; }
+
+/*  BOTON LOGIN
+@charset "utf-8";
+@import 'https://fonts.googleapis.com/css?family=Space+Mono';
+*/
+.in-headerli {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  justify-content: center;
+  background-color: rgba(63, 136, 197, 0.89); }
+  .in-headerli li {
+    flex: 1; }
+  .in-headerli li img {
+    width: 140px; }
+  .in-headerli li:nth-child(2n+1) {
+    text-align: left;
+    margin-left: 5%; }
+  .in-headerli li:nth-child(2n) {
+    text-align: right;
+    margin-right: 5%; }
+
+#b-isesion {
+  background-color: #F7FDFF;
+  color: black;
+  font-family: sans-serif;
+  font-size: 16px;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 2%; }
+
+/*  BOTON LOGIN 2
+button {
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+  background: none;
+  color: white;
+  position: relative;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 190px;
+  font-size: 14px;
+  z-index: 2;
+  transition: .01s .23s ease-out all;
+  overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 55%;
+    background: #202020;
+    z-index: -1;
+    transition: .3s ease-in all;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: -5%;
+    top: 5%;
+    height: 90%;
+    width: 5%;
+    background: white;
+    z-index: -1;
+    transition: .4s .02s ease-in all;
+  }
+  &:hover {
+    cursor: pointer;
+    color: transparent;
+    &:before {
+      left: 100%;
+      width: 25%;
+    }
+    &:after {
+      left: 100%;
+      width: 70%;
+    }
+    .icon-right.after:after {
+      left: -80px;
+      color: white;
+      transition: .2s .2s ease all;
+    }
+    .icon-right.after:before {
+      left: -140px;
+      top: 14px;
+      opacity: 0.2;
+      color: white;
+    }
+  }
+}
+
+.icon-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  &:after {
+    font-family: "FontAwesome";
+    content: '\2192';
+    font-size: 24px;
+    display: inline-block;
+    position: relative;
+    top: 26px;
+    transform: translate3D(0, -50%, 0);
+  }
+  &.after:after {
+    left: -250px;
+    color: black;
+    transition: .15s .25s ease left, .5s .05s ease color;
+  }
+  &.after:before {
+    content: 'Iniciar sesi├│n';
+    position: absolute;
+    left: -230px;
+    top: 14px;
+    opacity: 0;
+    transition: .2s ease-in all;
+  }
+}
+*/
 * {
   margin: 0;
   padding: 0; }
