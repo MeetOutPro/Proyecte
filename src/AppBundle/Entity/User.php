@@ -2,118 +2,79 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * Users
- *
- * @ORM\Table(name="Users", uniqueConstraints={@ORM\UniqueConstraint(name="username", columns={"username"}), @ORM\UniqueConstraint(name="email", columns={"email"})}, indexes={@ORM\Index(name="FK_users_municipios", columns={"ciudad"}), @ORM\Index(name="FK_users_roles", columns={"rol"}), @ORM\Index(name="FK_users_imagenes", columns={"imagen"})})
  * @ORM\Entity
+ * @ORM\Table(name="user")
  */
-class Users extends BaseUser
+class User extends BaseUser
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="nombre_completo", type="string", length=30, nullable=false)
      */
     protected $nombreCompleto;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=45, nullable=false)
      */
     protected $username;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
-    protected $email;
+    protected  $email;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="contrasenya", type="string", length=45, nullable=false)
      */
     protected $contrasenya;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_registro", type="datetime", nullable=false)
      */
     protected $fechaRegistro;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="creditos", type="integer", nullable=false)
      */
     protected $creditos = '0';
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="sexo", type="string", length=10, nullable=true)
      */
     protected $sexo;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="activo", type="boolean", nullable=false)
      */
     protected $activo;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="no_activo", type="boolean", nullable=false)
      */
     protected $noActivo;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
      * @var \AppBundle\Entity\Imagenes
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Imagenes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="imagen", referencedColumnName="id")
-     * })
      */
     protected $imagen;
 
     /**
      * @var \AppBundle\Entity\Roles
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Roles")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="rol", referencedColumnName="id")
-     * })
      */
-    private $rol;
+    protected $rol;
 
     /**
      * @var \AppBundle\Entity\Ciudades
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Ciudades")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ciudad", referencedColumnName="id")
-     * })
      */
     protected $ciudad;
-
 
 
     /**
@@ -121,7 +82,7 @@ class Users extends BaseUser
      *
      * @param string $nombreCompleto
      *
-     * @return Users
+     * @return User
      */
     public function setNombreCompleto($nombreCompleto)
     {
@@ -145,7 +106,7 @@ class Users extends BaseUser
      *
      * @param string $username
      *
-     * @return Users
+     * @return User
      */
     public function setUsername($username)
     {
@@ -169,7 +130,7 @@ class Users extends BaseUser
      *
      * @param string $email
      *
-     * @return Users
+     * @return User
      */
     public function setEmail($email)
     {
@@ -193,7 +154,7 @@ class Users extends BaseUser
      *
      * @param string $contrasenya
      *
-     * @return Users
+     * @return User
      */
     public function setContrasenya($contrasenya)
     {
@@ -217,7 +178,7 @@ class Users extends BaseUser
      *
      * @param \DateTime $fechaRegistro
      *
-     * @return Users
+     * @return User
      */
     public function setFechaRegistro($fechaRegistro)
     {
@@ -241,7 +202,7 @@ class Users extends BaseUser
      *
      * @param integer $creditos
      *
-     * @return Users
+     * @return User
      */
     public function setCreditos($creditos)
     {
@@ -265,7 +226,7 @@ class Users extends BaseUser
      *
      * @param string $sexo
      *
-     * @return Users
+     * @return User
      */
     public function setSexo($sexo)
     {
@@ -289,7 +250,7 @@ class Users extends BaseUser
      *
      * @param boolean $activo
      *
-     * @return Users
+     * @return User
      */
     public function setActivo($activo)
     {
@@ -313,7 +274,7 @@ class Users extends BaseUser
      *
      * @param boolean $noActivo
      *
-     * @return Users
+     * @return User
      */
     public function setNoActivo($noActivo)
     {
@@ -347,7 +308,7 @@ class Users extends BaseUser
      *
      * @param \AppBundle\Entity\Imagenes $imagen
      *
-     * @return Users
+     * @return User
      */
     public function setImagen(\AppBundle\Entity\Imagenes $imagen = null)
     {
@@ -371,7 +332,7 @@ class Users extends BaseUser
      *
      * @param \AppBundle\Entity\Roles $rol
      *
-     * @return Users
+     * @return User
      */
     public function setRol(\AppBundle\Entity\Roles $rol = null)
     {
@@ -395,7 +356,7 @@ class Users extends BaseUser
      *
      * @param \AppBundle\Entity\Ciudades $ciudad
      *
-     * @return Users
+     * @return User
      */
     public function setCiudad(\AppBundle\Entity\Ciudades $ciudad = null)
     {
@@ -414,3 +375,4 @@ class Users extends BaseUser
         return $this->ciudad;
     }
 }
+

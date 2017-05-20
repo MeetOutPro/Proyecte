@@ -1,0 +1,113 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Temas
+ */
+class Temas
+{
+    /**
+     * @var string
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     */
+    private $temas;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Imagenes
+     */
+    private $imagen;
+
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Temas
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set temas
+     *
+     * @param integer $temas
+     *
+     * @return Temas
+     */
+    public function setTemas($temas)
+    {
+        $this->temas = $temas;
+
+        return $this;
+    }
+
+    /**
+     * Get temas
+     *
+     * @return integer
+     */
+    public function getTemas()
+    {
+        return $this->temas;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set imagen
+     *
+     * @param \AppBundle\Entity\Imagenes $imagen
+     *
+     * @return Temas
+     */
+    public function setImagen(\AppBundle\Entity\Imagenes $imagen = null)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen
+     *
+     * @return \AppBundle\Entity\Imagenes
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+}
+

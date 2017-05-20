@@ -2,18 +2,18 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="AppBundle\Entity\Amigos" table="amigos">
     <indexes>
-      <index name="FK_amigos_users" columns="user_solicita"/>
-      <index name="FK_amigos_users2" columns="user_acepta"/>
+      <index name="FK_amigos_user" columns="user_solicita"/>
+      <index name="FK_amigos_user2" columns="user_acepta"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <many-to-one field="userAcepta" target-entity="Users" fetch="LAZY">
+    <many-to-one field="userAcepta" target-entity="User" fetch="LAZY">
       <join-columns>
         <join-column name="user_acepta" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="userSolicita" target-entity="Users" fetch="LAZY">
+    <many-to-one field="userSolicita" target-entity="User" fetch="LAZY">
       <join-columns>
         <join-column name="user_solicita" referenced-column-name="id"/>
       </join-columns>

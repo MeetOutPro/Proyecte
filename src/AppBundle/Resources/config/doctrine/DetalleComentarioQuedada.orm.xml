@@ -9,7 +9,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <many-to-one field="user" target-entity="Users" fetch="LAZY">
+    <many-to-one field="user" target-entity="User" fetch="LAZY">
       <join-columns>
         <join-column name="user" referenced-column-name="id"/>
       </join-columns>

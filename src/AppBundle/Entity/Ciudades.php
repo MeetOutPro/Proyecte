@@ -2,42 +2,82 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Ciudades
- *
- * @ORM\Table(name="ciudades", uniqueConstraints={@ORM\UniqueConstraint(name="Nombre", columns={"Nombre"})}, indexes={@ORM\Index(name="FK_municipios_provincias", columns={"provincia"})})
- * @ORM\Entity
  */
 class Ciudades
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="Nombre", type="string", length=45, nullable=false)
      */
     private $nombre;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var \AppBundle\Entity\Provincias
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Provincias")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provincia", referencedColumnName="id")
-     * })
      */
     private $provincia;
 
 
-}
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Ciudades
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
 
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set provincia
+     *
+     * @param \AppBundle\Entity\Provincias $provincia
+     *
+     * @return Ciudades
+     */
+    public function setProvincia(\AppBundle\Entity\Provincias $provincia = null)
+    {
+        $this->provincia = $provincia;
+
+        return $this;
+    }
+
+    /**
+     * Get provincia
+     *
+     * @return \AppBundle\Entity\Provincias
+     */
+    public function getProvincia()
+    {
+        return $this->provincia;
+    }
+}

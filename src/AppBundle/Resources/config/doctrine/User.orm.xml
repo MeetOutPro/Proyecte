@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AppBundle\Entity\Users" table="Users">
+  <entity name="AppBundle\Entity\User" table="user">
     <indexes>
-      <index name="FK_users_municipios" columns="ciudad"/>
-      <index name="FK_users_roles" columns="rol"/>
-      <index name="FK_users_imagenes" columns="imagen"/>
+      <index name="FK_user_municipios" columns="ciudad"/>
+      <index name="FK_user_roles" columns="rol"/>
+      <index name="FK_user_imagenes" columns="imagen"/>
     </indexes>
     <unique-constraints>
       <unique-constraint name="username" columns="username"/>
@@ -18,21 +18,35 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="username" type="string" column="username" length="45" nullable="false">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
-    <field name="email" type="string" column="email" length="100" nullable="false">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
-    <field name="contrasenya" type="string" column="contrasenya" length="45" nullable="false">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
+
+    <attribute-overrides>
+      <attribute-override name="username">
+        <field type="string" column="username" length="45" nullable="false">
+          <options>
+            <option name="fixed"/>
+          </options>
+        </field>
+      </attribute-override>
+      <attribute-override name="email">
+        <field type="string" column="email" length="100" nullable="false">
+          <options>
+            <option name="fixed"/>
+          </options>
+        </field>
+      </attribute-override>
+      <attribute-override name="password">
+        <field type="string" column="contrasenya" length="45" nullable="false">
+          <options>
+            <option name="fixed"/>
+          </options>
+        </field>
+      </attribute-override>
+      <attribute-override name="enabled">
+        <field  type="boolean" column="activo" nullable="false"/>
+      </attribute-override>
+    </attribute-overrides>
+
+
     <field name="fechaRegistro" type="datetime" column="fecha_registro" nullable="false"/>
     <field name="creditos" type="integer" column="creditos" nullable="false">
       <options>
@@ -45,7 +59,6 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="activo" type="boolean" column="activo" nullable="false"/>
     <field name="noActivo" type="boolean" column="no_activo" nullable="false"/>
     <many-to-one field="imagen" target-entity="Imagenes" fetch="LAZY">
       <join-columns>

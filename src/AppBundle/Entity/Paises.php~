@@ -1,0 +1,84 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Paises
+ */
+class Paises
+{
+    /**
+     * @var string
+     */
+    private $iso;
+
+    /**
+     * @var string
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Set iso
+     *
+     * @param string $iso
+     *
+     * @return Paises
+     */
+    public function setIso($iso)
+    {
+        $this->iso = $iso;
+
+        return $this;
+    }
+
+    /**
+     * Get iso
+     *
+     * @return string
+     */
+    public function getIso()
+    {
+        return $this->iso;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Paises
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

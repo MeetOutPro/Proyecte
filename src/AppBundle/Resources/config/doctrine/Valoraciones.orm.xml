@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="AppBundle\Entity\Valoraciones" table="valoraciones">
     <indexes>
-      <index name="FK_valoraciones_users" columns="user"/>
+      <index name="FK_valoraciones_user" columns="user"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
@@ -18,7 +18,7 @@
         <option name="default">0</option>
       </options>
     </field>
-    <many-to-one field="user" target-entity="Users" fetch="LAZY">
+    <many-to-one field="user" target-entity="User" fetch="LAZY">
       <join-columns>
         <join-column name="user" referenced-column-name="id"/>
       </join-columns>

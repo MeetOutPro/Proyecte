@@ -1,0 +1,113 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * DetalleComentario
+ */
+class DetalleComentario
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\User
+     */
+    private $user;
+
+    /**
+     * @var \AppBundle\Entity\Comentarios
+     */
+    private $comentario;
+
+    /**
+     * @var \AppBundle\Entity\Posts
+     */
+    private $post;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return DetalleComentario
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set comentario
+     *
+     * @param \AppBundle\Entity\Comentarios $comentario
+     *
+     * @return DetalleComentario
+     */
+    public function setComentario(\AppBundle\Entity\Comentarios $comentario = null)
+    {
+        $this->comentario = $comentario;
+
+        return $this;
+    }
+
+    /**
+     * Get comentario
+     *
+     * @return \AppBundle\Entity\Comentarios
+     */
+    public function getComentario()
+    {
+        return $this->comentario;
+    }
+
+    /**
+     * Set post
+     *
+     * @param \AppBundle\Entity\Posts $post
+     *
+     * @return DetalleComentario
+     */
+    public function setPost(\AppBundle\Entity\Posts $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return \AppBundle\Entity\Posts
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+}
+
