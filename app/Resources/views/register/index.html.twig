@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}MeetOUT - Home{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/hover-min.css') }}"/>
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+        {% include '/extends/headerin.html.twig' %}
+
+        {% endblock %}
+
+        {% include '/extends/footer.html.twig' %}
+    </body>
+</html>
