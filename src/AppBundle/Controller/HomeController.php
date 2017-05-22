@@ -18,12 +18,6 @@ class HomeController extends Controller
         $user = new user();
         $form_registry = $this->createForm(RegistrationType::class, $user);
 
-        $form_registry->handleRequest($request);
-            if($form_registry->isSubmitted() && $form_registry->isValid()){
-                return $this->render('register/index.html.twig',
-                    array('form_registry' => $form_registry->createView())
-                );
-            }
         // replace this example code with whatever you need
         return $this->render('home/index.html.twig',
             array('form_registry' => $form_registry->createView())

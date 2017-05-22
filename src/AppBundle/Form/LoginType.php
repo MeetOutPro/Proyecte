@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use FOS\UserBundle\Util\LegacyFormHelper;
 
-class RegistrationType extends AbstractType
+class LoginType extends AbstractType
 {
     /**
      * {@inheritdoc}

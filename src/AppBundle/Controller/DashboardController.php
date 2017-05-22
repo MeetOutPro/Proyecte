@@ -7,23 +7,20 @@ use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
-class RegistryController extends BaseController
+class DashboardController extends Controller
 {
     /**
-     * @Route("/register", name="registerpage")
+     * @Route("/dashboard", name="dashboardpage")
      */
     public function indexAction(Request $request)
     {
-        $user = new user();
-        $form_registry = $this->createForm(RegistrationType::class, $user);
+        $user = $this->getUser();
 
-
+        if($user == null){
+            return $this->redirect("/");
+        }
         // replace this example code with whatever you need
-        return $this->render('register/index.html.twig',
-            array('form_registry' => $form_registry->createView())
-        );
+        return $this->render('dashboard/index.html.twig');
     }
-
 }
