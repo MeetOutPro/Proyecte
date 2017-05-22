@@ -14,14 +14,14 @@
         <option name="default">0</option>
       </options>
     </field>
-    <many-to-one field="credito" target-entity="Creditos" fetch="LAZY">
-      <join-columns>
-        <join-column name="credito" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="pedido" target-entity="Pedidos" fetch="LAZY">
       <join-columns>
         <join-column name="pedido" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="credito" target-entity="Creditos" fetch="LAZY">
+      <join-columns>
+        <join-column name="credito" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

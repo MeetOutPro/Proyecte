@@ -2,30 +2,52 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * UserTemas
+ *
+ * @ORM\Table(name="user_temas", indexes={@ORM\Index(name="FK_user_temas_temas", columns={"tema"}), @ORM\Index(name="FK_user_temas_user", columns={"user"})})
+ * @ORM\Entity
  */
 class UserTemas
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=false)
      */
     private $userId;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user", referencedColumnName="id")
+     * })
      */
     private $user;
 
     /**
      * @var \AppBundle\Entity\Temas
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Temas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tema", referencedColumnName="id")
+     * })
      */
     private $tema;
+
 
 
     /**

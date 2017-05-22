@@ -2,79 +2,98 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
+ * User
+ *
+ * @ORM\Table(name="user", indexes={@ORM\Index(name="FK_user_provincias", columns={"provincia"}), @ORM\Index(name="FK_user_roles", columns={"rol"}), @ORM\Index(name="FK_user_imagenes", columns={"imagen"})})
  * @ORM\Entity
- * @ORM\Table(name="user")
  */
 class User extends BaseUser
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="nombre_completo", type="string", length=30, nullable=false)
      */
     protected $nombreCompleto;
 
     /**
-     * @var string
-     */
-    protected $username;
-
-    /**
-     * @var string
-     */
-    protected  $email;
-
-    /**
-     * @var string
-     */
-    protected $contrasenya;
-
-    /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_registro", type="datetime", nullable=false)
      */
     protected $fechaRegistro;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="creditos", type="integer", nullable=false)
      */
     protected $creditos = '0';
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="sexo", type="string", length=10, nullable=true)
      */
     protected $sexo;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="activo", type="boolean", nullable=false)
      */
     protected $activo;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="no_activo", type="boolean", nullable=false)
      */
     protected $noActivo;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
-     * @var \AppBundle\Entity\Imagenes
-     */
-    protected $imagen;
-
-    /**
      * @var \AppBundle\Entity\Roles
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Roles")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="rol", referencedColumnName="id")
+     * })
      */
     protected $rol;
 
     /**
-     * @var \AppBundle\Entity\Ciudades
+     * @var \AppBundle\Entity\Provincias
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Provincias")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provincia", referencedColumnName="id")
+     * })
      */
-    protected $ciudad;
+    protected $provincia;
+
+    /**
+     * @var \AppBundle\Entity\Imagenes
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Imagenes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="imagen", referencedColumnName="id")
+     * })
+     */
+    protected $imagen;
+
 
 
     /**
@@ -99,78 +118,6 @@ class User extends BaseUser
     public function getNombreCompleto()
     {
         return $this->nombreCompleto;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set contrasenya
-     *
-     * @param string $contrasenya
-     *
-     * @return User
-     */
-    public function setContrasenya($contrasenya)
-    {
-        $this->contrasenya = $contrasenya;
-
-        return $this;
-    }
-
-    /**
-     * Get contrasenya
-     *
-     * @return string
-     */
-    public function getContrasenya()
-    {
-        return $this->contrasenya;
     }
 
     /**
@@ -304,30 +251,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set imagen
-     *
-     * @param \AppBundle\Entity\Imagenes $imagen
-     *
-     * @return User
-     */
-    public function setImagen(\AppBundle\Entity\Imagenes $imagen = null)
-    {
-        $this->imagen = $imagen;
-
-        return $this;
-    }
-
-    /**
-     * Get imagen
-     *
-     * @return \AppBundle\Entity\Imagenes
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-
-    /**
      * Set rol
      *
      * @param \AppBundle\Entity\Roles $rol
@@ -352,27 +275,50 @@ class User extends BaseUser
     }
 
     /**
-     * Set ciudad
+     * Set provincia
      *
-     * @param \AppBundle\Entity\Ciudades $ciudad
+     * @param \AppBundle\Entity\Provincias $provincia
      *
      * @return User
      */
-    public function setCiudad(\AppBundle\Entity\Ciudades $ciudad = null)
+    public function setProvincia(\AppBundle\Entity\Provincias $provincia = null)
     {
-        $this->ciudad = $ciudad;
+        $this->provincia = $provincia;
 
         return $this;
     }
 
     /**
-     * Get ciudad
+     * Get provincia
      *
-     * @return \AppBundle\Entity\Ciudades
+     * @return \AppBundle\Entity\Provincias
      */
-    public function getCiudad()
+    public function getProvincia()
     {
-        return $this->ciudad;
+        return $this->provincia;
+    }
+
+    /**
+     * Set imagen
+     *
+     * @param \AppBundle\Entity\Imagenes $imagen
+     *
+     * @return User
+     */
+    public function setImagen(\AppBundle\Entity\Imagenes $imagen = null)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen
+     *
+     * @return \AppBundle\Entity\Imagenes
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
     }
 }
-

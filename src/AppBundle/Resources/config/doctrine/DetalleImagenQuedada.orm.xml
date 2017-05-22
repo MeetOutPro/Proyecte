@@ -8,14 +8,14 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <many-to-one field="imagen" target-entity="Imagenes" fetch="LAZY">
-      <join-columns>
-        <join-column name="imagen" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="quedada" target-entity="Quedadas" fetch="LAZY">
       <join-columns>
         <join-column name="quedada" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="imagen" target-entity="Imagenes" fetch="LAZY">
+      <join-columns>
+        <join-column name="imagen" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

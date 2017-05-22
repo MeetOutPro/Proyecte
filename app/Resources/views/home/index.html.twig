@@ -54,7 +54,14 @@
                     <div class="wrapper-hder">
                         <div class="titleder"><h2 style="color:white;">Eres nuevo? Regístrate!</h2></div>
                         <div id="wrapper-form">
-
+                            {% spaceless %}
+                            {{ form_start(form_registry) }}
+                            {{ form_widget(form_registry) }}
+                                <div>
+                                    <a href="register" ><input type="button"  value="¡Registrate!" /></a>
+                                </div>
+                            {{ form_end(form_registry) }}
+                            {% endspaceless %}
                         </div>
                     </div>
 

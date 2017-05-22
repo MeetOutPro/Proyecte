@@ -2,25 +2,45 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Asistentes
+ *
+ * @ORM\Table(name="asistentes", uniqueConstraints={@ORM\UniqueConstraint(name="quedada", columns={"quedada"})}, indexes={@ORM\Index(name="FK_asistentes_user", columns={"asistentes"})})
+ * @ORM\Entity
  */
 class Asistentes
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
+     * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="asistentes", referencedColumnName="id")
+     * })
+     */
+    private $asistentes;
+
+    /**
      * @var \AppBundle\Entity\Quedadas
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Quedadas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="quedada", referencedColumnName="id")
+     * })
      */
     private $quedada;
 
-    /**
-     * @var \AppBundle\Entity\User
-     */
-    private $asistentes;
 
 
     /**
@@ -31,30 +51,6 @@ class Asistentes
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set quedada
-     *
-     * @param \AppBundle\Entity\Quedadas $quedada
-     *
-     * @return Asistentes
-     */
-    public function setQuedada(\AppBundle\Entity\Quedadas $quedada = null)
-    {
-        $this->quedada = $quedada;
-
-        return $this;
-    }
-
-    /**
-     * Get quedada
-     *
-     * @return \AppBundle\Entity\Quedadas
-     */
-    public function getQuedada()
-    {
-        return $this->quedada;
     }
 
     /**
@@ -79,5 +75,29 @@ class Asistentes
     public function getAsistentes()
     {
         return $this->asistentes;
+    }
+
+    /**
+     * Set quedada
+     *
+     * @param \AppBundle\Entity\Quedadas $quedada
+     *
+     * @return Asistentes
+     */
+    public function setQuedada(\AppBundle\Entity\Quedadas $quedada = null)
+    {
+        $this->quedada = $quedada;
+
+        return $this;
+    }
+
+    /**
+     * Get quedada
+     *
+     * @return \AppBundle\Entity\Quedadas
+     */
+    public function getQuedada()
+    {
+        return $this->quedada;
     }
 }

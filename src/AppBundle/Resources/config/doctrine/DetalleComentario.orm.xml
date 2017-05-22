@@ -9,6 +9,11 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
+    <many-to-one field="post" target-entity="Posts" fetch="LAZY">
+      <join-columns>
+        <join-column name="post" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
     <many-to-one field="user" target-entity="User" fetch="LAZY">
       <join-columns>
         <join-column name="user" referenced-column-name="id"/>
@@ -17,11 +22,6 @@
     <many-to-one field="comentario" target-entity="Comentarios" fetch="LAZY">
       <join-columns>
         <join-column name="comentario" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="post" target-entity="Posts" fetch="LAZY">
-      <join-columns>
-        <join-column name="post" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

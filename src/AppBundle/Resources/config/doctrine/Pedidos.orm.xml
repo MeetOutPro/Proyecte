@@ -16,14 +16,14 @@
         <option name="fixed"/>
       </options>
     </field>
-    <many-to-one field="metodoPago" target-entity="MetodosPago" fetch="LAZY">
-      <join-columns>
-        <join-column name="metodo_pago" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="user" target-entity="User" fetch="LAZY">
       <join-columns>
         <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="metodoPago" target-entity="MetodosPago" fetch="LAZY">
+      <join-columns>
+        <join-column name="metodo_pago" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

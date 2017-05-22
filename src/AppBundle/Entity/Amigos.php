@@ -2,25 +2,45 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Amigos
+ *
+ * @ORM\Table(name="amigos", indexes={@ORM\Index(name="FK_amigos_user", columns={"user_solicita"}), @ORM\Index(name="FK_amigos_user2", columns={"user_acepta"})})
+ * @ORM\Entity
  */
 class Amigos
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_acepta", referencedColumnName="id")
+     * })
      */
     private $userAcepta;
 
     /**
      * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_solicita", referencedColumnName="id")
+     * })
      */
     private $userSolicita;
+
 
 
     /**
