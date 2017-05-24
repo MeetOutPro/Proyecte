@@ -80,4 +80,3 @@ fos_user:
     registration:
         form:
             type: AppBundle\Form\RegistrationType
-            template: Resources\view\register\index.hmtl.twig
