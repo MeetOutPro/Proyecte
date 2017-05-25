@@ -1,41 +1,17 @@
-$font-stack: 'Montserrat', sans-serif;
-$margin-default: 5%;
-$bgcolor-tr: rgba(63, 136, 197, 0.89);
-$bgcolor-footer: #F7FDFF ;
+*{
+  margin:0;
+  padding:0;
+}
+
+ul{
+  list-style: none;
+}
 
 .homepage{
   width: 100%;
   background:url("../img/fondo-home2.jpg") no-repeat fixed center;
   background-size: cover;
 
-
-
-  .header-home{
-    display: flex;
-    align-items: center;
-    height: 70px;
-    justify-content: center;
-    background-color:$bgcolor-tr;
-
-    li{
-      flex: 1;
-    }
-
-    li img{
-      width: 140px;
-    }
-
-    li:nth-child(2n+1){
-      text-align: left;
-      margin-left: $margin-default;
-    }
-
-    li:nth-child(2n){
-      text-align: right;
-      margin-right:$margin-default;
-    }
-
-  }
 
   #b-isesion{
     background-color: $bgcolor-footer;
@@ -106,10 +82,6 @@ $bgcolor-footer: #F7FDFF ;
     margin-bottom: 10px!important;
   }
 
-
-
-
-
   form {
       width: 100%;
       max-width: 400px;
@@ -159,4 +131,6 @@ $bgcolor-footer: #F7FDFF ;
       transform: scale(0.97);
     }
   }
+
+
 }

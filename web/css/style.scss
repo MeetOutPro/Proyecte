@@ -1,5 +1,12 @@
+$bgcolor-tr: #247BA0;
+$font-stack: 'Montserrat', sans-serif;
+$margin-default: 5%;
+$bgcolor-footer: white ;
+
 @import 'homepage';
 @import 'modal';
 @import 'footer';
 @import 'header';
-
+@import 'dashboard';
+@import 'headerIN';
+@import 'register';

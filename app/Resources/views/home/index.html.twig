@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8" />
         <title>{% block title %}MeetOUT - Home{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('css/hover-min.css') }}"/>
-            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% include '/extends/head.html.twig' %}
     </head>
     <body class="homepage">
 
@@ -69,7 +62,6 @@
                                     </div>
 
                                     <div id="password-cont">
-                                    {{ form_label(form_registry.plainPassword) }}
                                     {{ form_widget(form_registry.plainPassword) }}
                                     {{ form_errors(form_registry.plainPassword) }}
                                     </div>
