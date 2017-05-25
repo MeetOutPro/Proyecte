@@ -2,5 +2,17 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
+registerpage:
+    path:     /register
+    defaults: { _controller: AppBundle:Registry:register }
+    methods:  [GET, HEAD]
+
+root:
+    path: /
+    defaults:
+        _controller: AppBundle:Home:index
+        path: /login
+        methods:  [GET, HEAD]
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

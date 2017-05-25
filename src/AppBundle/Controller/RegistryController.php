@@ -14,16 +14,12 @@ class RegistryController extends BaseController
     /**
      * @Route("/register", name="registerpage")
      */
-    public function indexAction(Request $request)
+    public function registerAction(Request $request)
     {
         $user = new user();
         $form_registry = $this->createForm(RegistrationType::class, $user);
 
-
-        // replace this example code with whatever you need
         return $this->render('register/index.html.twig',
-            array('form_registry' => $form_registry->createView())
-        );
+            array('form' => $form_registry->createView()));
     }
-
 }
