@@ -1,36 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}MeetOUT - Home{% endblock %}</title>
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('css/hover-min.css') }}"/>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-</head>
-<body>
+
+    {% include '/extends/head.html.twig' %}
+<body class="dashboard">
 
 {% block body %}
 
-    <header>
         {% block header %}
-
-
+            {% include '/extends/header.html.twig' %}
         {% endblock %}
-    </header>
 
-    <div>
-        <section>
+    <div class="content">
+        <aside class="navegation">
+            <div class="profile">
+                <div class="pic_profile">
+                    <img src="{{ asset('img/manolo.jpg') }}">
+                </div>
+                <div class="info_profile">
+                    <div><a href="#"><h3 class="username">@Manolo_becario</h3></a></div>
+                    <p><h3>Road to cardiff w/ @Alfredo_Duro</h3></p>
+                </div>
+                <div class="pleasures_profile">
+                    <img src="{{ asset('img/icons/basketball.png') }}">
+                    <img src="{{ asset('img/icons/chef.png') }}">
+                    <img src="{{ asset('img/icons/football.png') }}">
+                    <img src="{{ asset('img/icons/reading.png') }}">
+                    <img src="{{ asset('img/icons/clapperboard.png') }}">
+                </div>
+                <div class="people_profile">
+                    <span><img src="{{ asset('img/icons/fan.png') }}"><h3>Seguidores</h3></span>
+                    <span><img src="{{ asset('img/icons/friendship.png') }}"><h3>Amigos</h3></span>
+                </div>
+                <div class="people_profile">
+                    <span><h3>10000</h3></span>
+                    <span><h3>1</h3></span>
+                </div>
+            </div>
+            <div class="events">
+                <h1>EVENTOS</h1>
+                <div class="content_events">
+                    <div class="event">
+                        <div class="content_img">
+                            <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
+                        </div>
+                        <div class="info_envent">
+                            <h3>Barcelona</h3>
+                            <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                            <div class="event-buttons">
+                                <button><img src="{{ asset('img/icons/checked.png') }}"></button>
+                                <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="content_img">
+                            <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
+                        </div>
+                        <div class="info_envent">
+                            <h3>Barcelona</h3>
+                            <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                            <div class="event-buttons">
+                                <button><img src="{{ asset('img/icons/checked.png') }}"></button>
+                                <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="content_img">
+                            <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
+                        </div>
+                        <div class="info_envent">
+                            <h3>Barcelona</h3>
+                            <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                            <div class="event-buttons">
+                                <button><img src="{{ asset('img/icons/checked.png') }}"></button>
+                                <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        </section>
+            <div class="suggestions">
+                <h1>SUGUERENCIAS</h1>
+                <div class="content_suggestions">
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                </div>
+                <div class="content_suggestions">
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                    <div class="suggestion"></div>
+                </div>
+            </div>
+        </aside>
 
 
 
-        <section>
-
+        <section class="feed">
+            <div class="content_feed">
+                <div class="new_post">
+                    <h2>Comparte tu post</h2>
+                </div>
+                <div class="Outstanding">
+                    <h2>Post destacado</h2>
+                </div>
+                <div class="posts">
+                    <h2>Posts</h2>
+                </div>
+            </div>
         </section>
     </div>
 

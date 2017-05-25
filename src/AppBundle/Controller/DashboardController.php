@@ -17,10 +17,14 @@ class DashboardController extends Controller
     {
         $user = $this->getUser();
 
-        if($user == null){
+        /*if($user == null){
             return $this->redirect("/");
-        }
+        }*/
+
+        $data = array(
+            'user' => $user
+        );
         // replace this example code with whatever you need
-        return $this->render('dashboard/index.html.twig');
+        return $this->render('dashboard/index.html.twig',$data);
     }
 }
