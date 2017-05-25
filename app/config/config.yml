@@ -81,6 +81,9 @@ fos_user:
         form:
             type: AppBundle\Form\RegistrationType
 
+
         confirmation:
                     template:   AppBundle:Dashboard:index.html.twig
                     enabled: true
+
+
