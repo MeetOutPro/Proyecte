@@ -29,7 +29,7 @@ $font-stack: 'Montserrat', sans-serif;
   text-align: center;
   text-shadow: none;
   top: 0;
-  z-index: 800!important;
+  z-index: -800!important;
 }
 .modal__wrap {
   padding: 1em 0;
@@ -89,7 +89,7 @@ $font-stack: 'Montserrat', sans-serif;
   opacity: 0;
   transform: scale(0.5);
   transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 800!important;
+  z-index: -800!important;
 }
 
 input:checked ~ .modal__overlay {
