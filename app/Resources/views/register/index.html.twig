@@ -14,23 +14,68 @@
 
             {% endblock %}
         </header>
+<div class="content">
+        <div class="wrapper-register">
+            <section class="form-der">
+                <form>
+                    <div id="name-cont">
+                        {{ form_label(form_registry.nombreCompleto) }}
+                        {{ form_widget(form_registry.nombreCompleto) }}
+                        {{ form_errors(form_registry.nombreCompleto) }}
+                    </div>
 
 
-        <section style="height: 800px; background-color: #f5f5f5;">
+
+                    <div id="username-cont">
+                        {{ form_label(form_registry.username) }}
+                        {{ form_widget(form_registry.username) }}
+                        {{ form_errors(form_registry.username) }}
+                    </div>
 
 
-        </section>
+                    <div id="email-cont">
+                        {{ form_label(form_registry.email) }}
+                        {{ form_widget(form_registry.email) }}
+                        {{ form_errors(form_registry.email) }}
+                    </div>
 
+                    <div id="password-cont">
+                        {{ form_label(form_registry.plainPassword) }}
+                        {{ form_widget(form_registry.plainPassword) }}
+                        {{ form_errors(form_registry.plainPassword) }}
+                    </div>
+
+                    <div id="sex-prov">
+                        <div id="sex-cont">
+                            {{ form_widget(form_registry.sexo) }}
+                            {{ form_errors(form_registry.sexo) }}
+                        </div>
+
+                        <div id="province-cont">
+                            {{ form_widget(form_registry.provincia) }}
+                            {{ form_errors(form_registry.provincia) }}
+                        </div>
+                    </div>
+
+                    <div class="buttonreg">
+                        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                    </div>
+
+                </form>
+            </section>
+
+            <section class="form-izq">
+
+
+
+            </section>
+        </div>
+</div>
     {% endblock %}
 {% include '/extends/footer.html.twig' %}
 </body>
 </html>
 
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'),
-    'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-<div>
-    <input type="submit" value="{{ 'registration.submit'|trans }}" />
-</div>
-{{ form_end(form) }}
+
+

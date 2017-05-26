@@ -22,7 +22,7 @@
     }
     .feed {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       flex-direction: column;
       width: 70%;
     }
@@ -30,7 +30,7 @@
 
   .feed {
     .content_feed {
-      width: 90%;
+      width: 95%;
       background-color: white;
       box-shadow: 0 2px 3px rgba(0,0,0,.1);
     }

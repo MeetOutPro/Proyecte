@@ -20,6 +20,6 @@ class RegistryController extends BaseController
         $form_registry = $this->createForm(RegistrationType::class, $user);
 
         return $this->render('register/index.html.twig',
-            array('form' => $form_registry->createView()));
+            array('form_registry' => $form_registry->createView()));
     }
 }
