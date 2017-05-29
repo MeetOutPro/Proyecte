@@ -22,12 +22,12 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center; }
-    .homepage .content #hizq {
+    .homepage .content #hizq-pc {
       margin-left: 5%;
       font-family: "Montserrat", sans-serif;
       color: white;
       flex: 1; }
-    .homepage .content #hizq span {
+    .homepage .content #hizq-pc span {
       text-shadow: 1px 1px 1px black; }
     .homepage .content #hder {
       flex: 1;
@@ -97,6 +97,67 @@ ul {
       border: none; }
     .homepage form .buttonreg button:hover {
       transform: scale(0.97); }
+  .homepage #hizq-mobile {
+    display: none; }
+  .homepage .btn-movil.modal {
+    display: none; }
+  @media only screen and (min-width: 300px) and (max-width: 767px) {
+    .homepage .home-head .header-home li:nth-child(2n+1) {
+      text-align: center;
+      margin-left: 30%; }
+    .homepage .home-head .header-home label[for="modal__trigger-pc"] {
+      display: none; }
+    .homepage .content {
+      flex-direction: column; }
+    .homepage form div:not(.buttonreg) input, .homepage .homepage form div:not(.buttonreg) label {
+      position: relative; }
+    .homepage .content #hder .wrapper-hder {
+      display: none; }
+    .homepage footer .footer-home {
+      display: none; }
+    .homepage #hder, .homepage .btn-movil.modal {
+      width: 100%;
+      text-align: center;
+      margin-top: 10%;
+      display: inline-block; }
+    .homepage .btn-movil.modal .modal > label {
+      width: 75%;
+      text-align: center;
+      border: 1px solid white;
+      color: #ffffff;
+      text-shadow: none;
+      background: transparent; }
+    .homepage .btn-movil.modal .modal {
+      width: 75%;
+      margin-right: 0; }
+    .homepage .btn-movil-reg {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 5%; }
+    .homepage .btn-movil-reg button {
+      background: white;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: #000000;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.75em 1.5em;
+      text-shadow: 1px 1px 1px #fff;
+      transition: all 0.55s;
+      border: none;
+      width: 70%;
+      height: 45px;
+      font-size: 16px; }
+    .homepage #hizq-pc {
+      display: none; }
+    .homepage #hizq-mobile {
+      display: inline-block;
+      margin-top: 5%;
+      margin-left: 5%;
+      font-family: "Montserrat", sans-serif;
+      color: white;
+      flex: 1; } }
 
 .modal {
   display: inline-block;
