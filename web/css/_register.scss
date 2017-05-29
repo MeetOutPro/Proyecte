@@ -1,8 +1,117 @@
 .register{
+  background-color: #f5f5f5;
   .header-home li{
     margin:0!important;
     text-align: center!important;
   }
 
+  .wrapper-register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
+  .wrapper-register .form-der, .wrapper-register .form-izq {
+    flex:1;
+    margin-left: 5%;
+    background-color: white;
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    }
+
+  form {
+    width: 60%;
+    font-family: $font-stack;
+    color: #247BA0;
+
+    div{
+      text-align: left;
+      padding-left: 30%;
+    }
+    div input{
+      width: 75%!important;
+    }
+
+    #appbundle_user_plainPassword_first{
+      width: 97%!important;;
+    }
+    #appbundle_user_plainPassword_second{
+      width: 97%!important;;
+    }
+
+    #appbundle_user_plainPassword, #appbundle_user_plainPassword>div{
+      padding-left:0!important;
+    }
+
+    div:not(.buttonreg) {
+      position: relative;
+      width: 100%;
+      height: 30px;
+      margin-top: 35px;
+    }
+    div:not(.buttonreg) input {
+      width: 100%;
+      padding: 5px;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #3f88c5;
+      color: black;
+    }
+    div:not(.buttonreg) input, div:not(.buttonreg) label {
+      position: absolute
+    }
+
+    .buttonreg{
+      text-align: right;
+    }
+
+    input[type="submit"]{
+      background: #247BA0;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.75em 1.5em;
+      transition: all 0.55s;
+      border: none;
+    }
+
+    .buttonreg button:hover{
+      transform: scale(0.97);
+    }
+
+    #province-cont label, #sex-cont label {
+      position: inherit!important;
+    }
+
+    #name-cont{
+      margin-top:30px!important;
+    }
+
+    #sex-prov{
+      display: inline-block;
+      margin-bottom: 85px;
+      margin-top: 45px;
+    }
+
+    #sex-cont{
+      float: left;
+      padding-left: 0;
+      z-index: 100;
+    }
+    #province-cont{
+      padding-left: 0;
+    }
+
+    .select2-selection__rendered{
+      font-family:$font-stack;
+    }
+  }
+
+  .select2-results__options{
+    font-family:$font-stack;
+  }
 }
