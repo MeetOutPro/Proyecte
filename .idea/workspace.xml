@@ -21,11 +21,11 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/home/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+            <state relative-caret-position="663">
+              <caret line="48" column="211" lean-forward="false" selection-start-line="48" selection-start-column="211" selection-end-line="48" selection-end-column="211" />
               <folding>
-                <marker date="1496073372091" expanded="false" signature="3619:3631" ph="..." />
-                <marker date="1496073372091" expanded="true" signature="4916:4946" ph="..." />
+                <marker date="1496073510994" expanded="false" signature="3831:3843" ph="..." />
+                <marker date="1496073510994" expanded="true" signature="5128:5158" ph="..." />
               </folding>
             </state>
           </provider>
@@ -658,7 +658,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87226000" />
+    <option name="totallyTimeSpent" value="87361000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1005,11 +1005,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/home/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        <state relative-caret-position="663">
+          <caret line="48" column="211" lean-forward="false" selection-start-line="48" selection-start-column="211" selection-end-line="48" selection-end-column="211" />
           <folding>
-            <marker date="1496073372091" expanded="false" signature="3619:3631" ph="..." />
-            <marker date="1496073372091" expanded="true" signature="4916:4946" ph="..." />
+            <marker date="1496073510994" expanded="false" signature="3831:3843" ph="..." />
+            <marker date="1496073510994" expanded="true" signature="5128:5158" ph="..." />
           </folding>
         </state>
       </provider>
