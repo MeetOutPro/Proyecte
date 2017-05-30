@@ -1,82 +1,88 @@
 {% extends 'layout.html.twig' %}
 {% block title %}MeetOut - Register {% endblock %}
     {% block section %}
-        <div class="wrapper-hder">
-            <div class="titleder"><h2 style="color:white;">Eres nuevo? Regístrate!</h2></div>
-            <div id="wrapper-form">
-                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-                {{ form_widget(form) }}
-                <div>
-                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
-                </div>
-                {{ form_end(form) }}
+<div class="register">
+        <div class="content">
+            <div class="wrapper-register">
+                <section class="form-der">
+                    <form>
+                        <div id="name-cont">
+                            {{ form_label(form.nombreCompleto) }}
+                            {{ form_widget(form.nombreCompleto) }}
+                            {{ form_errors(form.nombreCompleto) }}
+                        </div>
+
+
+
+                        <div id="username-cont">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username) }}
+                            {{ form_errors(form.username) }}
+                        </div>
+
+
+                        <div id="email-cont">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+
+                        <div id="password-cont">
+                            {{ form_widget(form.plainPassword) }}
+                            {{ form_errors(form.plainPassword) }}
+                            {{ form_row(form._token) }}
+                        </div>
+
+                        <div id="sex-prov">
+                            <div id="sex-cont">
+                                {{ form_widget(form.sexo) }}
+                                {{ form_errors(form.sexo) }}
+                            </div>
+
+                            <div id="province-cont">
+                                {{ form_widget(form.provincia) }}
+                                {{ form_errors(form.provincia) }}
+                            </div>
+                        </div>
+
+                        <div class="bsig-container"><button id="siguiente-reg" type="button">Continuar</button></div>
+
+                    </form>
+                </section>
+
+                <section class="form-izq">
+                    <form>
+                        <input type="text" id="test1">
+                        <label for="test1">TEST 1</label>
+
+                        <input type="text" id="test2">
+                        <label for="test1">TEST 2</label>
+
+                        <input type="text" id="test3">
+                        <label for="test1">TEST 3</label>
+
+                        <input type="text" id="test4">
+                        <label for="test1">TEST 4</label>
+
+                        <input type="text" id="test5">
+                        <label for="test1">TEST 5</label>
+
+                        <div class="bvolver-container">
+                            <button id="b-volver" type="button">Volver</button>
+                        </div>
+
+                        <div class="buttonreg">
+                            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                        </div>
+                    </form>
+
+                </section>
             </div>
-        </div>
-        <div>
-
-            {% endblock %}
-        </header>
-<div class="content">
-        <div class="wrapper-register">
-            <section class="form-der">
-                <form>
-                    <div id="name-cont">
-                        {{ form_label(form_registry.nombreCompleto) }}
-                        {{ form_widget(form_registry.nombreCompleto) }}
-                        {{ form_errors(form_registry.nombreCompleto) }}
-                    </div>
-
-
-
-                    <div id="username-cont">
-                        {{ form_label(form_registry.username) }}
-                        {{ form_widget(form_registry.username) }}
-                        {{ form_errors(form_registry.username) }}
-                    </div>
-
-
-                    <div id="email-cont">
-                        {{ form_label(form_registry.email) }}
-                        {{ form_widget(form_registry.email) }}
-                        {{ form_errors(form_registry.email) }}
-                    </div>
-
-                    <div id="password-cont">
-                        {{ form_label(form_registry.plainPassword) }}
-                        {{ form_widget(form_registry.plainPassword) }}
-                        {{ form_errors(form_registry.plainPassword) }}
-                    </div>
-
-                    <div id="sex-prov">
-                        <div id="sex-cont">
-                            {{ form_widget(form_registry.sexo) }}
-                            {{ form_errors(form_registry.sexo) }}
-                        </div>
-
-                        <div id="province-cont">
-                            {{ form_widget(form_registry.provincia) }}
-                            {{ form_errors(form_registry.provincia) }}
-                        </div>
-                    </div>
-
-                    <div class="buttonreg">
-                        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-                    </div>
-
-                </form>
-            </section>
-
-            <section class="form-izq">
-
-
-
-            </section>
         </div>
 </div>
     {% endblock %}
-{% include '/extends/footer.html.twig' %}
-</body>
-</html>
+
+
 
 
 

@@ -24,7 +24,7 @@
     font-family: $font-stack;
     color: #247BA0;
 
-    div{
+    div:not(.bvolver-container):not(.buttonreg){
       text-align: left;
       padding-left: 30%;
     }
@@ -107,11 +107,120 @@
     }
 
     .select2-selection__rendered{
-      font-family:$font-stack;
+      font-family:$font-stack!important;
     }
   }
 
-  .select2-results__options{
-    font-family:$font-stack;
+  .select2-container--default .select2-results>.select2-results__options{
+    font-family:$font-stack!important;
+  }
+
+  .bsig-container, .bvolver-container{
+    display: none;
+  }
+
+
+
+  @media only screen and (max-width: 767px) {
+
+    .wrapper-register{
+      display: inline-block!important;
+      position:relative;
+      overflow:hidden;
+      margin:0 auto;
+      height:100%;
+      width:100%;
+      white-space:nowrap;
+    }
+
+    .wrapper-register section{
+      flex:0 !important;
+      position:relative;
+      display:inline-block;
+      margin:0!important;
+      white-space:normal;
+      vertical-align:top;
+      background:#eee;
+      width:100%;
+      height:100%;
+    }
+
+    #siguiente-reg{
+      background: #247BA0;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.55s;
+      border: none;
+      width: 100%;
+      font-size: 20px;
+      line-height: 50px;
+    }
+
+    .bsig-container{
+      display: inline-block;
+      text-align: right!important;
+      width: 100%;
+    }
+
+    .bvolver-container{
+      display: inline-block;
+      text-align: left;
+      width: 100%;
+
+      button{
+        background: #247BA0;
+        font-family: "Montserrat", sans-serif;
+        border-radius: .2em;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0.75em 1.5em;
+        transition: all 0.55s;
+        border: none
+      }
+    }
+
+    .bvolver-container{
+      float: left;
+      width: 40%!important;
+    }
+    .buttonreg{
+      float: right;
+      width: 50%;
+      margin-top: 35px
+    }
+
+    form{
+      padding-top:$margin-default;
+    }
+
+    .select2-container, #sex-cont, #province-cont{
+      text-align: center;
+    }
+
+    .select2-selection__rendered{
+      font-family:$font-stack!important;
+    }
+
+    #province-cont{
+      margin-top: 100px;
+    }
+
+    form #name-cont{
+      margin-top: 40px !important;
+    }
+
+    form div:not(.buttonreg){
+      margin-top: 45px;
+    }
+
+    #sex-cont{
+      margin-top: 55px;
+    }
   }
 }

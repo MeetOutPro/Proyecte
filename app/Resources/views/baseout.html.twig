@@ -4,11 +4,13 @@
     {% block stylesheets %}
         {% include '/includes/styles.html.twig' %}
     {% endblock %}
-    {% block javascripts %}
-        {% include '/includes/scripts.html.twig' %}
-    {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 {% endblock %}
+
 {% block header %}
     {% include '/includes/headerin.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include '/includes/scripts.html.twig' %}
 {% endblock %}

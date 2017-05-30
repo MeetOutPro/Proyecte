@@ -7,9 +7,7 @@
         {% block stylesheets %}
 
         {% endblock %}
-        {% block javascripts %}
 
-        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
         {% endblock %}
@@ -21,6 +19,7 @@
 
                 {% endblock %}
             </header>
+
             <section>
                 {% block section %}
                     {% block fos_user_content %}{% endblock %}
@@ -33,4 +32,7 @@
             </footer>
         {% endblock %}
     </body>
+    {% block javascripts %}
+
+    {% endblock %}
 </html>

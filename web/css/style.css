@@ -9,15 +9,18 @@ ul {
   width: 100%;
   background: url("../img/fondo-home2.jpg") no-repeat fixed center;
   background-size: cover; }
-  .homepage #b-isesion {
-    background-color: white;
-    color: black;
-    font-family: sans-serif;
-    font-size: 16px;
-    border: 1px solid white;
+  .homepage .btn-isesionpc > button {
+    background: white;
+    font-family: "Montserrat", sans-serif;
+    border-radius: .2em;
+    color: #000000;
     cursor: pointer;
-    border-radius: 3px;
-    padding: 2%; }
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.75em 1.5em;
+    text-shadow: 1px 1px 1px #fff;
+    transition: all 0.55s;
+    border: none; }
   .homepage .content {
     display: flex;
     align-items: center;
@@ -101,19 +104,12 @@ ul {
     display: none; }
   .homepage .btn-movil.modal {
     display: none; }
-  @media only screen and (min-width: 300px) and (max-width: 767px) {
-    .homepage .home-head .header-home li:nth-child(2n+1) {
-      text-align: center;
-      margin-left: 30%; }
-    .homepage .home-head .header-home label[for="modal__trigger-pc"] {
-      display: none; }
+  @media only screen and (max-width: 767px) {
     .homepage .content {
       flex-direction: column; }
     .homepage form div:not(.buttonreg) input, .homepage .homepage form div:not(.buttonreg) label {
       position: relative; }
     .homepage .content #hder .wrapper-hder {
-      display: none; }
-    .homepage footer .footer-home {
       display: none; }
     .homepage #hder, .homepage .btn-movil.modal {
       width: 100%;
@@ -153,12 +149,16 @@ ul {
       display: none; }
     .homepage #hizq-mobile {
       display: inline-block;
-      margin-top: 5%;
-      margin-left: 5%;
+      margin: 15% 5% 0 5% !important;
       font-family: "Montserrat", sans-serif;
       color: white;
-      flex: 1; } }
+      flex: 1; }
+    .homepage .btn-isesionpc {
+      display: none; } }
 
+@media only screen and (max-width: 767px) {
+  footer {
+    display: none !important; } }
 .modal {
   display: inline-block;
   margin-right: 5%; }
@@ -268,7 +268,8 @@ input:checked ~ .modal__overlay {
   cursor: none !important; }
 
 footer {
-  bottom: 0; }
+  bottom: 0;
+  clear: both; }
   footer .footer-home {
     display: flex;
     align-items: center;
@@ -304,6 +305,13 @@ footer {
     text-align: right;
     margin-right: 5%; }
 
+@media only screen and (max-width: 767px) {
+  .home-head .header-home li:nth-child(2n+1) {
+    text-align: center;
+    margin: 0 !important; }
+
+  .home-head .header-home li:nth-child(2n) {
+    display: none; } }
 .dashboard {
   background-color: #f5f5f5; }
   .dashboard * {
@@ -528,7 +536,7 @@ header .content_header > li:nth-child(4) > button > img {
     width: 60%;
     font-family: "Montserrat", sans-serif;
     color: #247BA0; }
-    .register form div {
+    .register form div:not(.bvolver-container):not(.buttonreg) {
       text-align: left;
       padding-left: 30%; }
     .register form div input {
@@ -584,8 +592,82 @@ header .content_header > li:nth-child(4) > button > img {
     .register form #province-cont {
       padding-left: 0; }
     .register form .select2-selection__rendered {
-      font-family: "Montserrat", sans-serif; }
-  .register .select2-results__options {
-    font-family: "Montserrat", sans-serif; }
+      font-family: "Montserrat", sans-serif !important; }
+  .register .select2-container--default .select2-results > .select2-results__options {
+    font-family: "Montserrat", sans-serif !important; }
+  .register .bsig-container, .register .bvolver-container {
+    display: none; }
+  @media only screen and (max-width: 767px) {
+    .register .wrapper-register {
+      display: inline-block !important;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+      white-space: nowrap; }
+    .register .wrapper-register section {
+      flex: 0 !important;
+      position: relative;
+      display: inline-block;
+      margin: 0 !important;
+      white-space: normal;
+      vertical-align: top;
+      background: #eee;
+      width: 100%;
+      height: 100%; }
+    .register #siguiente-reg {
+      background: #247BA0;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.55s;
+      border: none;
+      width: 100%;
+      font-size: 20px;
+      line-height: 50px; }
+    .register .bsig-container {
+      display: inline-block;
+      text-align: right !important;
+      width: 100%; }
+    .register .bvolver-container {
+      display: inline-block;
+      text-align: left;
+      width: 100%; }
+      .register .bvolver-container button {
+        background: #247BA0;
+        font-family: "Montserrat", sans-serif;
+        border-radius: .2em;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0.75em 1.5em;
+        transition: all 0.55s;
+        border: none; }
+    .register .bvolver-container {
+      float: left;
+      width: 40% !important; }
+    .register .buttonreg {
+      float: right;
+      width: 50%;
+      margin-top: 35px; }
+    .register form {
+      padding-top: 5%; }
+    .register .select2-container, .register #sex-cont, .register #province-cont {
+      text-align: center; }
+    .register .select2-selection__rendered {
+      font-family: "Montserrat", sans-serif !important; }
+    .register #province-cont {
+      margin-top: 100px; }
+    .register form #name-cont {
+      margin-top: 40px !important; }
+    .register form div:not(.buttonreg) {
+      margin-top: 45px; }
+    .register #sex-cont {
+      margin-top: 55px; } }
 
 /*# sourceMappingURL=style.css.map */

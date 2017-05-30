@@ -4,9 +4,7 @@
     {% block stylesheets %}
         {% include '/includes/styles.html.twig' %}
     {% endblock %}
-    {% block javascripts %}
-        {% include '/includes/scripts.html.twig' %}
-    {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {% for type, messages in app.session.flashBag.all %}
         {% for message in messages %}
@@ -18,4 +16,8 @@
 {% endblock %}
 {% block header %}
     {% include '/includes/header.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include '/includes/scripts.html.twig' %}
 {% endblock %}
