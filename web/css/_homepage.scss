@@ -7,13 +7,12 @@ ul{
   list-style: none;
 }
 
-.homepage{
+.homepage {
   width: 100%;
-  background:url("../img/fondo-home2.jpg") no-repeat fixed center;
+  background: url("../img/fondo-home2.jpg") no-repeat fixed center;
   background-size: cover;
 
-
-  #b-isesion{
+  #b-isesion {
     background-color: $bgcolor-footer;
     color: black;
     font-family: sans-serif;
@@ -24,37 +23,37 @@ ul{
     padding: 2%;
   }
 
-  .content{
+  .content {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    #hizq{
+    #hizq-pc {
       margin-left: $margin-default;
       font-family: $font-stack;
       color: white;
       flex: 1;
     }
 
-    #hizq span{
+    #hizq-pc span {
       text-shadow: 1px 1px 1px black;
     }
 
-    #hder{
+    #hder {
       flex: 1;
       display: flex;
       justify-content: center;
       font-family: $font-stack;
     }
 
-    #hder .wrapper-hder{
-      border:1px solid white;
+    #hder .wrapper-hder {
+      border: 1px solid white;
       padding: 3% 10% 1% 10%;
       background-color: $bgcolor-tr;
       border-bottom-left-radius: 50px;
     }
 
-    #hder .titleder{
+    #hder .titleder {
       text-shadow: 1px 1px 1px black;
       text-align: center;
       margin-bottom: $margin-default;
@@ -62,40 +61,40 @@ ul{
     }
   }
 
-  #wrapper-form{
+  #wrapper-form {
     font-family: $font-stack;
     text-shadow: 1px 1px 1px black;
     align-items: center;
     justify-content: center;
   }
 
-  .homepage #wrapper-form label{
-    display: inline-block!important;
-    color: white!important;
-    float: left!important;
-    clear: left!important;
+  .homepage #wrapper-form label {
+    display: inline-block !important;
+    color: white !important;
+    float: left !important;
+    clear: left !important;
     width: 160px !important;
-    text-align: left!important;
+    text-align: left !important;
   }
   .homepage input {
-    display: inline-block!important;
-    margin-bottom: 10px!important;
+    display: inline-block !important;
+    margin-bottom: 10px !important;
   }
 
   form {
-      width: 100%;
-      max-width: 400px;
-      margin: 30px auto;
-      font-family: $font-stack;
-      color: white;
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto;
+    font-family: $font-stack;
+    color: white;
 
-     div:not(.buttonreg) {
+    div:not(.buttonreg) {
       position: relative;
       width: 100%;
       height: 30px;
       margin-top: 35px;
     }
-     div:not(.buttonreg) input {
+    div:not(.buttonreg) input {
       width: 100%;
       padding: 5px;
       background: none;
@@ -104,16 +103,16 @@ ul{
       border-bottom: 1px solid #3f88c5;
       color: white;
     }
-     div:not(.buttonreg) input, div:not(.buttonreg) label {
+    div:not(.buttonreg) input, div:not(.buttonreg) label {
       position: absolute
     }
 
-    .buttonreg{
+    .buttonreg {
       text-align: right;
       margin-top: 85px;
     }
 
-    .buttonreg button{
+    .buttonreg button {
       background: white;
       font-family: "Montserrat", sans-serif;
       border-radius: .2em;
@@ -127,10 +126,102 @@ ul{
       border: none;
     }
 
-    .buttonreg button:hover{
+    .buttonreg button:hover {
       transform: scale(0.97);
     }
   }
+  #hizq-mobile{
+    display: none;
+  }
+
+  .btn-movil.modal{
+    display: none;
+  }
 
 
+
+
+
+  @media only screen and (min-width: 300px ) and (max-width: 767px) {
+
+    .home-head .header-home li:nth-child(2n+1) {
+      text-align: center;
+      margin-left: 30%;
+    }
+
+    .home-head .header-home label[for="modal__trigger-pc"]{
+      display: none;
+    }
+
+    .content{
+      flex-direction: column;
+    }
+    form div:not(.buttonreg) input, .homepage form div:not(.buttonreg) label{
+      position: relative;
+    }
+
+    .content #hder .wrapper-hder{
+      display: none;
+    }
+    footer .footer-home{
+      display: none;
+    }
+
+    #hder, .btn-movil.modal{
+      width: 100%;
+      text-align: center;
+      margin-top: 10%;
+      display: inline-block;
+    }
+
+    .btn-movil.modal .modal > label{
+      width: 75%;
+      text-align: center;
+      border: 1px solid white;
+      color: #ffffff;
+      text-shadow:none;
+      background:transparent;
+    }
+
+    .btn-movil.modal .modal{
+
+      width: 75%;
+      margin-right: 0;
+    }
+    .btn-movil-reg{
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: $margin-default;
+    }
+
+    .btn-movil-reg button{
+      background: white;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: #000000;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.75em 1.5em;
+      text-shadow: 1px 1px 1px #fff;
+      transition: all 0.55s;
+      border:none;
+      width: 70%;
+      height: 45px;
+      font-size: 16px;
+    }
+
+    #hizq-pc{
+      display: none;
+    }
+
+    #hizq-mobile {
+      display: inline-block;
+      margin-top:$margin-default;
+      margin-left: $margin-default;
+      font-family: $font-stack;
+      color: white;
+      flex: 1;
+    }
+  }
 }

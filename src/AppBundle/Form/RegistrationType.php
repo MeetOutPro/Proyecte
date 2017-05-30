@@ -41,7 +41,7 @@ class RegistrationType extends AbstractType
                 'Mujer' => 'Mujer'
             )))
             ->add('provincia', EntityType::class, array(
-                'label' => 'Elige tu provincia',
+                'label' => 'Provincia',
                 'class' => 'AppBundle:Provincias',
                 'choice_label' => 'Nombre',
             ));

@@ -5,14 +5,19 @@
                 <a href="/dashboard"><img id="logo" src="{{ asset('img/logo.png') }}" alt="MeetOut logo"/></a>
             </li>
             <li>
-                <input type="text" placeholder="Buscar">
+                <div class="searchbox" onClick="onClick(event)">
+                    <input type="text" onFocus="onFocus()" onBlur="onBlur()"/>
+                    <button>
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
             </li>
             <li>
-                <a href="#"><img src="{{ asset('img/icons/icon-coins.png') }}" alt="Créditos"/></a>
-                <a href="#"><img src="{{ asset('img/icons/icon-settings.png') }}" alt="Configuración"/></a>
                 <a href="#"><img src="{{ asset('img/icons/school-bell.png') }}" alt="Notificaciones"/></a>
+                <a href="#"><img src="{{ asset('img/icons/icon-coins.png') }}" alt="Créditos"/></a>
             </li>
             <li>
+                <button><img src="{{ asset('img/icons/icon-settings.png') }}" alt="Configuración"/></button>
                 <button><img src="{{ asset('img/icons/exit.png') }}" alt="MeetOut logo"/></button>
             </li>
         </ul>
