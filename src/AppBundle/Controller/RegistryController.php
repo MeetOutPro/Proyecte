@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
-class RegistryController extends BaseController
+class RegistryController extends Controller
 {
     /**
      * @Route("/register", name="registerpage")
@@ -19,7 +19,15 @@ class RegistryController extends BaseController
         $user = new user();
         $form_registry = $this->createForm(RegistrationType::class, $user);
 
-        return $this->render('register/index.html.twig',
-            array('form' => $form_registry->createView()));
+        $temas = $this->getDoctrine()
+            ->getRepository('AppBundle:Temas')
+            ->findAll();
+
+        $data = array(
+            'form'  => $form_registry->createView(),
+            'temas' => $temas
+        );
+
+        return $this->render('register/index.html.twig',$data);
     }
 }
