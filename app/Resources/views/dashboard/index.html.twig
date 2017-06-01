@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'basein.html.twig' %}
 
-    {% include '/extends/head.html.twig' %}
-<body class="dashboard">
-
-{% block body %}
-
-        {% block header %}
-            {% include '/extends/header.html.twig' %}
-        {% endblock %}
-
+{% block section %}
+<div class="dashboard">
     <div class="content">
         <aside class="navegation">
             <div class="profile">
@@ -132,9 +124,6 @@
             </div>
         </section>
     </div>
-
-    {% include '/extends/footer.html.twig' %}
+</div>
 
 {% endblock %}
-</body>
-</html>

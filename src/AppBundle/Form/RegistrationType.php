@@ -25,7 +25,8 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
+        $builder
+            ->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
             ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
             ->add('email',EmailType::class, array('label'=> 'Email'))
             ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
@@ -34,9 +35,7 @@ class RegistrationType extends AbstractType
                 'first_options' => array('label' => 'Contraseña'),
                 'second_options' => array('label' => 'Confirmar Contraseña'),
                 'invalid_message' => 'fos_user.password.mismatch'))
-            /*->add('imagen', FileType::class,array('label' => 'Foto de perfil',
-                    'data_class' => 'AppBundle:imagenes'
-                ))*/
+            ->add('imagen', FileType::class,array('label' => 'Foto de perfil'))
             ->add('sexo', ChoiceType::class,array('choices' => array(
                 'Hombre' => 'Hombre',
                 'Mujer' => 'Mujer'

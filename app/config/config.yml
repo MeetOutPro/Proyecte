@@ -80,10 +80,8 @@ fos_user:
     registration:
         form:
             type: AppBundle\Form\RegistrationType
-
-
         confirmation:
-                    template:   AppBundle:Dashboard:index.html.twig
+                    template:   dashboard\index.html.twig
                     enabled: true
 
 
