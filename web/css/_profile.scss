@@ -1,0 +1,205 @@
+.profile-page-bdy {
+  background-color: #f5f5f5;
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .content {
+      margin-top: 2%;
+      width: 100%;
+      display: flex;
+      margin-bottom: 2%;
+
+      .navegation {
+        width: 48%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .feed {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+  .feed {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+
+    .content_feed {
+      width: 95%;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .content_feed .new_post {
+      width: 100%;
+      height: 150px;
+    }
+
+    .content_feed .Outstanding {
+      width: 100%;
+      height: 150px;
+    }
+
+    .content_feed .posts {
+      width: 100%;
+      height: 900px;
+    }
+
+  }
+
+ .navegation  {
+
+   padding-top: 2%;
+   padding-bottom: 5%;
+   font-family: 'Roboto', sans-serif;
+   color: #247BA0;
+   width: 100%;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   background-color: white;
+   margin-left: 2%;
+
+    .profile {
+      width: 100%;
+        .info_profile {
+          display: flex;
+          align-items: center;
+        }
+
+        .info_profile *:not(img) {
+          flex-grow: 1;
+          padding-bottom: 2%;
+        }
+
+        .info_profile .image_profile img {
+          width: 100%;
+          height: 380px;
+        }
+    }
+
+    .user_profile {
+      text-align: center;
+    }
+
+   .user_profile h3:first-child{
+     margin-top:2%;
+   }
+   .user_profile h3:last-child{
+     margin-top:$margin-default;
+   }
+
+   .pleasures_profile{
+     margin-top: 10%;
+   }
+
+    .pleasures_profile img {
+      width: 40px;
+    }
+
+    .people_profile {
+      margin-top: 5%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .people_profile * {
+      flex-grow: 1;
+    }
+  }
+
+}
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .events {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h1{
+      align-self: center;
+    }
+
+    .content_events {
+      width: 100%;
+      border: 1px dashed black;
+    }
+
+    .content_events .event {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      text-align: justify;
+    }
+
+    .content_events .event .content_img {
+      margin-left: 2%;
+    }
+
+    .content_events img {
+      width: 80px;
+      height: 80px;
+      border-radius: 100px;
+    }
+
+    .content_events .info_envent {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .content_events .info_envent button {
+      background-color: transparent;
+      border: 0;
+    }
+
+    .content_events .info_envent .event-buttons {
+      text-align: right;
+    }
+
+    .content_events .info_envent button img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .suggestions {
+    text-align: center;
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: 'Roboto', sans-serif;
+    h1{
+      align-self: center;
+    }
+
+
+    .content_suggestions {
+      width: 100%;
+    }
+
+    .content_suggestions .suggestion {
+      flex-grow: 2;
+      height: 70px;
+      border: 1px dashed black;
+    }
+  }
+}

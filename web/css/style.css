@@ -157,7 +157,7 @@ ul {
       display: none; } }
 
 @media only screen and (max-width: 767px) {
-  footer {
+  footer, footer .footer-home {
     display: none !important; } }
 .modal {
   display: inline-block;
@@ -312,42 +312,42 @@ footer {
 
   .home-head .header-home li:nth-child(2n) {
     display: none; } }
-.dashboard {
+.dashboardbdy {
   background-color: #f5f5f5; }
-  .dashboard * {
+  .dashboardbdy * {
     margin: 0;
     padding: 0; }
-  .dashboard ul {
+  .dashboardbdy ul {
     list-style: none; }
-  .dashboard .content {
+  .dashboardbdy .content {
     margin-top: 2%;
     width: 100%;
     display: flex;
     margin-bottom: 2%; }
-    .dashboard .content .navegation {
+    .dashboardbdy .content .navegation {
       width: 30%;
       display: flex;
       align-items: center;
       flex-direction: column; }
-    .dashboard .content .feed {
+    .dashboardbdy .content .feed {
       display: flex;
       align-items: flex-end;
       flex-direction: column;
       width: 70%; }
-  .dashboard .feed .content_feed {
+  .dashboardbdy .feed .content_feed {
     width: 95%;
     background-color: white;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); }
-  .dashboard .feed .content_feed .new_post {
+  .dashboardbdy .feed .content_feed .new_post {
     width: 100%;
     height: 150px; }
-  .dashboard .feed .content_feed .Outstanding {
+  .dashboardbdy .feed .content_feed .Outstanding {
     width: 100%;
     height: 150px; }
-  .dashboard .feed .content_feed .posts {
+  .dashboardbdy .feed .content_feed .posts {
     width: 100%;
     height: 900px; }
-  .dashboard .navegation .profile {
+  .dashboardbdy .navegation .profile {
     padding-top: 5%;
     padding-bottom: 5%;
     font-family: 'Roboto', sans-serif;
@@ -357,27 +357,27 @@ footer {
     text-align: center;
     justify-content: center;
     background-color: white; }
-  .dashboard .info_profile {
+  .dashboardbdy .info_profile {
     display: flex;
     align-items: center; }
-  .dashboard .info_profile *:not(img) {
+  .dashboardbdy .info_profile *:not(img) {
     flex-grow: 1;
     padding-top: 2%;
     padding-bottom: 2%; }
-  .dashboard .info_profile .image_profile img {
+  .dashboardbdy .info_profile .image_profile img {
     width: 120px;
     height: 120px; }
-  .dashboard .info_profile .user_profile {
+  .dashboardbdy .info_profile .user_profile {
     text-align: left; }
-  .dashboard .info_profile .user_profile .pleasures_profile img {
+  .dashboardbdy .info_profile .user_profile .pleasures_profile img {
     width: 40px; }
-  .dashboard .people_profile {
+  .dashboardbdy .people_profile {
     margin-top: 5%;
     display: flex;
     justify-content: center; }
-  .dashboard .people_profile * {
+  .dashboardbdy .people_profile * {
     flex-grow: 1; }
-  .dashboard .info_profile img {
+  .dashboardbdy .info_profile img {
     border-radius: 100px; }
 
 .navegation .events {
@@ -495,12 +495,11 @@ header .content_header > li:nth-child(4) > button > img {
     left: 0px;
     transform: rotateX(0deg); }
   .searchbox input {
-    position: absolute;
+    position: relative;
     z-index: 1;
     height: 100%;
     width: 100%;
-    padding-left: 8px;
-    padding-right: 44px;
+    font-family: "Montserrat", sans-serif;
     border: none;
     font-size: 1em;
     color: inherit;
@@ -605,7 +604,8 @@ header .content_header > li:nth-child(4) > button > img {
       margin: 0 auto;
       height: 100%;
       width: 100%;
-      white-space: nowrap; }
+      white-space: nowrap;
+      height: 555px; }
     .register .wrapper-register section {
       flex: 0 !important;
       position: relative;
@@ -664,10 +664,144 @@ header .content_header > li:nth-child(4) > button > img {
     .register #province-cont {
       margin-top: 100px; }
     .register form #name-cont {
-      margin-top: 40px !important; }
+      margin-top: 30px !important; }
     .register form div:not(.buttonreg) {
-      margin-top: 45px; }
+      margin-top: 40px; }
     .register #sex-cont {
       margin-top: 55px; } }
+
+.profile-page-bdy {
+  background-color: #f5f5f5; }
+  .profile-page-bdy * {
+    margin: 0;
+    padding: 0; }
+  .profile-page-bdy ul {
+    list-style: none; }
+  .profile-page-bdy .content {
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    margin-bottom: 2%; }
+    .profile-page-bdy .content .navegation {
+      width: 48%;
+      display: flex;
+      align-items: center;
+      flex-direction: column; }
+    .profile-page-bdy .content .feed {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      width: 100%; }
+  .profile-page-bdy .feed {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%; }
+    .profile-page-bdy .feed .content_feed {
+      width: 95%;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); }
+    .profile-page-bdy .feed .content_feed .new_post {
+      width: 100%;
+      height: 150px; }
+    .profile-page-bdy .feed .content_feed .Outstanding {
+      width: 100%;
+      height: 150px; }
+    .profile-page-bdy .feed .content_feed .posts {
+      width: 100%;
+      height: 900px; }
+  .profile-page-bdy .navegation {
+    padding-top: 2%;
+    padding-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    color: #247BA0;
+    width: 100%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: white;
+    margin-left: 2%; }
+    .profile-page-bdy .navegation .profile {
+      width: 100%; }
+      .profile-page-bdy .navegation .profile .info_profile {
+        display: flex;
+        align-items: center; }
+      .profile-page-bdy .navegation .profile .info_profile *:not(img) {
+        flex-grow: 1;
+        padding-bottom: 2%; }
+      .profile-page-bdy .navegation .profile .info_profile .image_profile img {
+        width: 100%;
+        height: 380px; }
+    .profile-page-bdy .navegation .user_profile {
+      text-align: center; }
+    .profile-page-bdy .navegation .user_profile h3:first-child {
+      margin-top: 2%; }
+    .profile-page-bdy .navegation .user_profile h3:last-child {
+      margin-top: 5%; }
+    .profile-page-bdy .navegation .pleasures_profile {
+      margin-top: 10%; }
+    .profile-page-bdy .navegation .pleasures_profile img {
+      width: 40px; }
+    .profile-page-bdy .navegation .people_profile {
+      margin-top: 5%;
+      display: flex;
+      justify-content: center; }
+    .profile-page-bdy .navegation .people_profile * {
+      flex-grow: 1; }
+
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; }
+  .profile-right .events {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+    .profile-right .events h1 {
+      align-self: center; }
+    .profile-right .events .content_events {
+      width: 100%;
+      border: 1px dashed black; }
+    .profile-right .events .content_events .event {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      text-align: justify; }
+    .profile-right .events .content_events .event .content_img {
+      margin-left: 2%; }
+    .profile-right .events .content_events img {
+      width: 80px;
+      height: 80px;
+      border-radius: 100px; }
+    .profile-right .events .content_events .info_envent {
+      margin-left: 5%;
+      margin-right: 5%; }
+    .profile-right .events .content_events .info_envent button {
+      background-color: transparent;
+      border: 0; }
+    .profile-right .events .content_events .info_envent .event-buttons {
+      text-align: right; }
+    .profile-right .events .content_events .info_envent button img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer; }
+  .profile-right .suggestions {
+    text-align: center;
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: 'Roboto', sans-serif; }
+    .profile-right .suggestions h1 {
+      align-self: center; }
+    .profile-right .suggestions .content_suggestions {
+      width: 100%; }
+    .profile-right .suggestions .content_suggestions .suggestion {
+      flex-grow: 2;
+      height: 70px;
+      border: 1px dashed black; }
 
 /*# sourceMappingURL=style.css.map */

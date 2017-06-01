@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+
   }
 
   .wrapper-register .form-der, .wrapper-register .form-izq {
@@ -131,6 +132,7 @@
       height:100%;
       width:100%;
       white-space:nowrap;
+      height: 555px;
     }
 
     .wrapper-register section{
@@ -212,11 +214,11 @@
     }
 
     form #name-cont{
-      margin-top: 40px !important;
+      margin-top: 30px !important;
     }
 
     form div:not(.buttonreg){
-      margin-top: 45px;
+      margin-top: 40px;
     }
 
     #sex-cont{

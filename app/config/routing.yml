@@ -26,3 +26,8 @@ dashboardpage:
     path:     /dashboard/
     defaults: { _controller: AppBundle:Dashboard:index }
     methods:  [GET, HEAD]
+
+profilepage:
+    path:     /profile/
+    defaults: { _controller: AppBundle:Profile:index }
+    methods:  [GET, HEAD]
