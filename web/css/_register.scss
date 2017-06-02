@@ -11,14 +11,20 @@
     justify-content: center;
     text-align: center;
 
+    .form-der, .form-izq {
+      flex:1;
+      margin-left: 5%;
+      margin-top: 5%;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    }
+
+    .form-izq{
+      margin-right: 5%;
+    }
+
   }
 
-  .wrapper-register .form-der, .wrapper-register .form-izq {
-    flex:1;
-    margin-left: 5%;
-    background-color: white;
-    box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    }
 
   form {
     width: 60%;
