@@ -48,7 +48,6 @@ $btn-width: 44px;
 
 .searchbox{
   position: relative;
-
   height: 40px;
   width: 400px;
   margin: 50px auto;
@@ -93,15 +92,13 @@ $btn-width: 44px;
   }
 
   input{
-    position: absolute;
+    position: relative;
     z-index: 1;
 
     height: 100%;
     width: 100%;
 
-    padding-left: 8px;
-    padding-right: $btn-width;
-
+    font-family: $font-stack;
     border: none;
     font-size: 1em;
     color: inherit;

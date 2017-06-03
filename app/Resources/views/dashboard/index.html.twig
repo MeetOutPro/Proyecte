@@ -39,8 +39,8 @@
                 </div>
             </div>
             <div class="events">
-                <h1>EVENTOS</h1>
                 <div class="content_events">
+                    <h1>EVENTOS</h1>
                     <div class="event">
                         <div class="content_img">
                             <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
@@ -113,7 +113,20 @@
         <section class="feed">
             <div class="content_feed">
                 <div class="new_post">
-                    <h2>Comparte tu post</h2>
+                        <div class="form-group">
+                            <div class="controls">
+                                <textarea name="pub-post" class="floatLabel" id="pub-post"></textarea>
+                                <label for="pub-post">Cuenta algo a tus colegas...</label>
+                                <div class="btn-publicar">
+                                    <div><button id="addimg"><i class="fa fa-camera fa-lg"  aria-hidden="true"></i></button></div>
+                                    <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
+                                    <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
+                                    <textarea class="tagarea"></textarea>
+
+                                    <div><button id="publicarpost" type="button">Cuéntalo</button></div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="Outstanding">
                     <h2>Post destacado</h2>

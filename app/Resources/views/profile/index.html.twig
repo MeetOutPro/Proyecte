@@ -1,0 +1,115 @@
+{% extends 'basein.html.twig' %}
+{% block title %}MeetOut - Perfil {% endblock %}
+
+
+{% block section %}
+    <div class="profilepage">
+        <div class="content">
+            <aside class="navegation">
+                <div class="profile">
+                    <div class="info_profile">
+                        <div class="image_profile">
+                            <img src="http://i.imgur.com/FTFo2s7.gif">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user_profile">
+                    <h3>Josep Pedretroll</h3>
+                    <h3>@jpedrerol</h3>
+                </div>
+
+                <div class="pleasures_profile">
+                    <img src="{{ asset('img/icons/florentino.jpeg') }}">
+                    <img src="{{ asset('img/icons/madrid.png') }}">
+                    <img src="{{ asset('img/icons/football.png') }}">
+                    <img src="{{ asset('img/icons/reading.png') }}">
+                    <img src="{{ asset('img/icons/clapperboard.png') }}">
+                </div>
+
+            </aside>
+
+
+            <section class="feed">
+                <div class="content_feed">
+                    <div class="new_post">
+                        <h2>Comparte tu post</h2>
+                    </div>
+                    <div class="Outstanding">
+                        <h2>Post destacado</h2>
+                    </div>
+                    <div class="posts">
+                        <h2>Posts</h2>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="profile-right">
+                <div class="events">
+                    <h1>EVENTOS</h1>
+                    <div class="content_events">
+                        <div class="event">
+                            <div class="content_img">
+                                <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
+                            </div>
+                            <div class="info_envent">
+                                <h3>Barcelona</h3>
+                                <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                                <div class="event-buttons">
+                                    <button><img src="{{ asset('img/icons/checked.png') }}"></button>
+                                    <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="content_img">
+                                <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
+                            </div>
+                            <div class="info_envent">
+                                <h3>Barcelona</h3>
+                                <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                                <div class="event-buttons">
+                                    <button><img src="{{ asset('img/icons/checked.png') }}"></button>
+                                    <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="content_img">
+                                <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
+                            </div>
+                            <div class="info_envent">
+                                <h3>Barcelona</h3>
+                                <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                                <div class="event-buttons">
+                                    <button><img src="{{ asset('img/icons/checked.png') }}"></button>
+                                    <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="suggestions">
+                    <h1>SUGUERENCIAS</h1>
+                    <div class="content_suggestions">
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                        <div class="suggestion"></div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+
+    </section>
+{% endblock %}

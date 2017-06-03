@@ -10,14 +10,21 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    .form-der, .form-izq {
+      flex:1;
+      margin-left: 5%;
+      margin-top: 5%;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    }
+
+    .form-izq{
+      margin-right: 5%;
+    }
+
   }
 
-  .wrapper-register .form-der, .wrapper-register .form-izq {
-    flex:1;
-    margin-left: 5%;
-    background-color: white;
-    box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    }
 
   form {
     width: 60%;
@@ -131,6 +138,7 @@
       height:100%;
       width:100%;
       white-space:nowrap;
+      height: 555px;
     }
 
     .wrapper-register section{
@@ -212,11 +220,11 @@
     }
 
     form #name-cont{
-      margin-top: 40px !important;
+      margin-top: 30px !important;
     }
 
     form div:not(.buttonreg){
-      margin-top: 45px;
+      margin-top: 40px;
     }
 
     #sex-cont{
