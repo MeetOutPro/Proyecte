@@ -1,0 +1,7 @@
+{% extends 'basein.html.twig' %}
+{% block section %}
+    {{ post.id }}
+    {{ post.titulo }}
+    {{ post.descripcion }}
+    {{ post.creador.username }}
+{% endblock %}

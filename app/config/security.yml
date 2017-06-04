@@ -8,18 +8,24 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username_email
+            id: fos_user.user_provider.username
 
     firewalls:
-            main:
-                anonymous: ~
-                form_login:
-                    login_path: /login
-                    check_path: /login_check
-
+        main:
+            pattern: ^/
+            form_login:
+                login_path: /
+                failure_path: /
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+            logout:
+                   path:   /logout
+                   target: /
+            anonymous:    
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/profile/*, role: ROLE_USER }
+        - { path: ^/dashboard, role: ROLE_ADMIN }
+        - { path: ^/admin/, role: ROLE_USER }

@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -35,7 +36,7 @@ class RegistrationType extends AbstractType
                 'first_options' => array('label' => 'Contraseña'),
                 'second_options' => array('label' => 'Confirmar Contraseña'),
                 'invalid_message' => 'fos_user.password.mismatch'))
-            ->add('imagen', FileType::class,array('label' => 'Foto de perfil'))
+            ->add('password',PasswordType::class,array('label' => 'Contraseña'))
             ->add('sexo', ChoiceType::class,array('choices' => array(
                 'Hombre' => 'Hombre',
                 'Mujer' => 'Mujer'
@@ -44,7 +45,8 @@ class RegistrationType extends AbstractType
                 'label' => 'Provincia',
                 'class' => 'AppBundle:Provincias',
                 'choice_label' => 'Nombre',
-            ));
+            ))
+            ->add('enabled',HiddenType::class,array('attr' => array('value' => 1)));
 
     }
 

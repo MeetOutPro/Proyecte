@@ -16,15 +16,8 @@ class testController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $entity = new UserTemas();
-
-        $form = $this->createForm(UserTemasType::class,$entity);
-
-        $data = array(
-            'form'  => $form->createView()
-        );
 
         // replace this example code with whatever you need
-        return $this->render('test/index.html.twig',$data);
+        return $this->render('test/index.html.twig');
     }
 }

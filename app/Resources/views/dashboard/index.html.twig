@@ -7,11 +7,12 @@
             <div class="profile">
                 <div class="info_profile">
                     <div class="image_profile">
-                        <img src="http://i.imgur.com/FTFo2s7.gif">
+                        <a href="{{ path('profilepage', { 'page': user.id })}}"><img src="http://i.imgur.com/FTFo2s7.gif"></a>
                     </div>
                     <div class="user_profile">
-                        <h3>Josep Pedretroll</h3>
-                        <h3>@jpedrerol</h3>
+
+                        <h3>{{ user.nombreCompleto }}</h3>
+                        <h3>@{{ user.username }}</h3>
                         <div class="pleasures_profile">
                             <img src="{{ asset('img/icons/florentino.jpeg') }}">
                             <img src="{{ asset('img/icons/madrid.png') }}">
@@ -113,27 +114,41 @@
         <section class="feed">
             <div class="content_feed">
                 <div class="new_post">
-                        <div class="form-group">
-                            <div class="controls">
-                                <textarea name="pub-post" class="floatLabel" id="pub-post"></textarea>
-                                <label for="pub-post">Cuenta algo a tus colegas...</label>
-                                <div class="btn-publicar">
-                                    <div><button id="addimg"><i class="fa fa-camera fa-lg"  aria-hidden="true"></i></button></div>
-                                    <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
-                                    <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
-                                    <textarea class="tagarea"></textarea>
+                    <div class="form-group">
+                        <div class="controls">
+                        {{ form_start(form_post, {'method': 'post', 'action': path('newpost')})}}
+                        {{ form_widget(form_post) }}
+                            <div class="btn-publicar">
+                                <div><button id="addimg"><i class="fa fa-camera fa-lg"  aria-hidden="true"></i></button></div>
+                                <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
+                                <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
+                                <textarea class="tagarea"></textarea>
 
-                                    <div><button id="publicarpost" type="button">Cuéntalo</button></div>
-                                </div>
+                                <div><button id="publicarpost" >Cuéntalo</button></div>
+                            </div>
+                        {{ form_end(form_post) }}
                             </div>
                         </div>
                 </div>
                 <div class="Outstanding">
                     <h2>Post destacado</h2>
                 </div>
+
                 <div class="posts">
-                    <h2>Posts</h2>
+                    {% for post in posts %}
+                        <a href="{{ path('showpost', { 'page': post.id })}}">
+                            <div class="post">
+                                <div>
+                                    <h2>{{ post.titulo }}</h2>
+                                </div>
+                                <div>
+                                    <span>{{ post.descripcion }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
                 </div>
+
             </div>
         </section>
     </div>

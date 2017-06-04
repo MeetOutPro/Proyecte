@@ -2,27 +2,36 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Form\DataTransformer\ImageTransformer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ImagenesType extends AbstractType
+class ImagenesSelectorType extends AbstractType
 {
+    private $transformer;
+
+    public function __construct(ImageTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('ruta');
+        $builder->addModelTransformer($this->transformer);
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Imagenes'
+            'invalid_message' => 'The selected issue does not exist',
         ));
     }
 
@@ -31,7 +40,7 @@ class ImagenesType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_imagenes';
+        return CheckboxType::class;
     }
 
 

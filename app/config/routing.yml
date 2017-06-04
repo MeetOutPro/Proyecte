@@ -2,32 +2,42 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-fos_user_registration_register:
-     path:     /
-     defaults: { _controller: AppBundle:Home:index }
-     methods:  [GET,POST]
-
-fos_user_registration_confirm:
+registerpage:
       path:     /register/
       defaults: { _controller: AppBundle:Registry:register }
       methods:  [GET,POST]
 
-fos_user_registration_check_email:
-      path:     /register/
-      defaults: { _controller: AppBundle:Registry:register }
-      methods:  [GET,POST]
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
 homepage:
     path:     /
     defaults: { _controller: AppBundle:Home:index }
-    methods:  [GET]
+    methods:  [GET,POST]
 
 dashboardpage:
     path:     /dashboard/
     defaults: { _controller: AppBundle:Dashboard:index }
     methods:  [GET, HEAD]
 
+newpost:
+      path:     /dashboard/newpost
+      defaults: { _controller: AppBundle:Dashboard:newPost }
+      methods:  [GET, POST]
+
+test:
+    path:     /test
+    defaults: { _controller: AppBundle:test:index }
+    methods:  [GET, POST]
+
+showpost:
+        path:      /post/{page}
+        defaults:  { _controller: AppBundle:Dashboard:showpost }
+        requirements:
+            page: '\d+'
+
 profilepage:
-    path:     /profile/
-    defaults: { _controller: AppBundle:Profile:index }
-    methods:  [GET, HEAD]
+        path:      /profile/{page}
+        defaults:  { _controller: AppBundle:Profile:index }
+        requirements:
+            page: '\d+'
