@@ -28,24 +28,7 @@ class LoginType extends AbstractType
         $builder->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
             ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
             ->add('email',EmailType::class, array('label'=> 'Email'))
-            ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
-                'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
-                'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'Contraseña'),
-                'second_options' => array('label' => 'Confirmar Contraseña'),
-                'invalid_message' => 'fos_user.password.mismatch'))
-            /*->add('imagen', FileType::class,array('label' => 'Foto de perfil',
-                    'data_class' => 'AppBundle:imagenes'
-                ))*/
-            ->add('sexo', ChoiceType::class,array('choices' => array(
-                'Hombre' => 'Hombre',
-                'Mujer' => 'Mujer'
-            )))
-            ->add('provincia', EntityType::class, array(
-                'label' => 'Elige tu provincia',
-                'class' => 'AppBundle:Provincias',
-                'choice_label' => 'Nombre',
-            ));
+            ->add('password',PasswordType::class ,array('label'=>'Contraseña'));
 
     }
 

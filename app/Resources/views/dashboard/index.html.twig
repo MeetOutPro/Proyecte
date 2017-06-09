@@ -7,18 +7,17 @@
             <div class="profile">
                 <div class="info_profile">
                     <div class="image_profile">
-                        <a href="{{ path('profilepage', { 'page': user.id })}}"><img src="http://i.imgur.com/FTFo2s7.gif"></a>
+                        <a href="{{ path('profilepage', { 'page': user.id })}}"><img src="{{ asset(user.imagen.ruta) }}"></a>
                     </div>
                     <div class="user_profile">
 
                         <h3>{{ user.nombreCompleto }}</h3>
                         <h3>@{{ user.username }}</h3>
+
                         <div class="pleasures_profile">
-                            <img src="{{ asset('img/icons/florentino.jpeg') }}">
-                            <img src="{{ asset('img/icons/madrid.png') }}">
-                            <img src="{{ asset('img/icons/football.png') }}">
-                            <img src="{{ asset('img/icons/reading.png') }}">
-                            <img src="{{ asset('img/icons/clapperboard.png') }}">
+                            {% for tema in user.tema %}
+                                <img src="{{ asset(tema.tema.imagen.ruta) }}">
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

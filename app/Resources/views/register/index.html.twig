@@ -5,61 +5,14 @@
         <div class="content">
             <div class="wrapper-register">
                 <section class="form-der">
-                    <form method="post" action="{{  path('registerpage') }}">
-                        <div id="name-cont">
-                            {{ form_label(form.nombreCompleto) }}
-                            {{ form_widget(form.nombreCompleto) }}
-                            {{ form_errors(form.nombreCompleto) }}
-                        </div>
-
-                        <div id="username-cont">
-                            {{ form_errors(form.username) }}
-                            {{ form_label(form.username) }}
-                            {{ form_widget(form.username,{attr: { value : user.username } }) }}
-                        </div>
-
-                        <div id="email-cont">
-                            {{ form_label(form.email) }}
-                            {{ form_errors(form.email) }}
-                            {{ form_widget(form.email, {attr: { value : user.email } }) }}
-
-                        </div>
-
-                        <div id="password-cont">
-                            {{ form_widget(form.plainPassword) }}
-                            {{ form_errors(form.plainPassword) }}
-                            {{ form_row(form._token) }}
-                        </div>
-
-                        <div id="sex-prov">
-                            <div id="sex-cont">
-                                {{ form_widget(form.sexo) }}
-                                {{ form_errors(form.sexo) }}
-                            </div>
-
-                            <div id="province-cont">
-                                {{ form_widget(form.provincia) }}
-                                {{ form_errors(form.provincia) }}
-                            </div>
-                        </div>
-
-                        {{ form_widget(form.enabled) }}
-
-                        <div class="bsig-container"><button id="siguiente-reg" type="button">Continuar</button></div>
-                        <div class="buttonreg">
-                            <input type="submit" value="Registrate" />
-                        </div>
-                    </form>
-
+                    {{ form_start(form, {'method': 'post', 'action': path('registerpage')})}}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
                 </section>
 
                 <section class="form-izq">
-                    {% for tema in temas %}
-                        <input type="checkbox" value="{{ tema.id }}">{{ tema.nombre }}
-                    {% endfor %}
+
                 </section>
-
-
             </div>
         </div>
 </div>

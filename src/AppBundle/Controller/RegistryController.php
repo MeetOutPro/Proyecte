@@ -2,20 +2,15 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\RegistrationType;
+use AppBundle\Entity\Imagenes;
 use AppBundle\Entity\User;
-use FOS\UserBundle\Controller\SecurityController;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\FOSUserBundle;
+use AppBundle\Entity\UserTemas;
+use AppBundle\Form\RegistrationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Security;
 
 class RegistryController extends BaseController
 {
@@ -32,15 +27,9 @@ class RegistryController extends BaseController
             return $this->redirect('/');
         }
 
-        $user = new user();
+        $user = new User();
 
-        $form_registry = $this->createForm(RegistrationType::class, $user);
-
-        $temas = $this->getDoctrine()
-            ->getRepository('AppBundle:Temas')
-            ->findAll();
-
-        $form_registry->setData($user);
+        $form_registry = $this->createForm(RegistrationType ::class, $user);
 
         $form_registry->handleRequest($request);
 
@@ -52,28 +41,49 @@ class RegistryController extends BaseController
 
             $inputs = $form_registry->getData();
 
+            $em = $this->getDoctrine()->getManager();
+
+            $imagen = $inputs->getImagenProfile();
+            $imagen_obj = new Imagenes();
+            $imagen_obj->setFile($imagen);
+            $imagen_obj->setRuta('profile/');
+            $imagen_obj->upload();
+
+            $em->persist($imagen_obj);
+            $em->flush();
+
+            $user->setImagen($imagen_obj);
+
             try{
-
                 $userManager->updateUser($user);
-
             }catch (Exception $e){
-
-                echo 'Falló la conexión: ' . $e->getMessage();
-
+                echo 'El usuario ya està Registrado:',  $e->getMessage(), "\n";
             }
 
             $firewallName = $this->container->getParameter('fos_user.firewall_name');
 
             $login_manager->loginUser($firewallName,$user);
 
+            $user = $this->getUser();
+
+            $em = $this->getDoctrine()->getManager();
+
+            foreach ( $inputs->gettema() as $tema){
+                $user_tema = new UserTemas();
+                $user_tema->setTema($tema);
+                $user_tema->setUser($user);
+
+                $em->persist($user_tema);
+                $em->flush();
+            }
+
             return $this->redirect('/dashboard');
 
         }
 
         $data = array(
-            'form'  => $form_registry->createView(),
-            'temas' => $temas,
-            'user'  => $user_session
+            'form'          => $form_registry->createView(),
+            'user'          => $user_session
         );
 
         return $this->render('register/index.html.twig',$data);

@@ -9,37 +9,47 @@
                 <div class="profile">
                     <div class="info_profile">
                         <div class="image_profile">
-                            <img src="http://i.imgur.com/FTFo2s7.gif">
+                            <img src="{{ asset(user_profile.imagen.ruta) }}">
                         </div>
                     </div>
                 </div>
 
                 <div class="user_profile">
-                    <h3>Josep Pedretroll</h3>
-                    <h3>@jpedrerol</h3>
+                    <h3>{{ user_profile.nombreCompleto }}</h3>
+                    <h3>@{{ user_profile.username }}</h3>
                 </div>
 
                 <div class="pleasures_profile">
-                    <img src="{{ asset('img/icons/florentino.jpeg') }}">
-                    <img src="{{ asset('img/icons/madrid.png') }}">
-                    <img src="{{ asset('img/icons/football.png') }}">
-                    <img src="{{ asset('img/icons/reading.png') }}">
-                    <img src="{{ asset('img/icons/clapperboard.png') }}">
+                    {% for tema in user.tema %}
+                        <img src="{{ asset(tema.tema.imagen.ruta) }}">
+                    {% endfor %}
                 </div>
 
+                {% if(user.id != user_profile.id) %}
+                    <div class="user_profile">
+                        <button id="btn-seguir" value="{{ user_profile.id }}">Seguir</button>
+                        <button id="btn-amistad" value="{{ user_profile.id }}">Amistad</button>
+                        <input type="hidden" value="{{ user.id }}" id="user_login">
+                    </div>
+                {% endif %}
             </aside>
 
 
             <section class="feed">
                 <div class="content_feed">
-                    <div class="new_post">
-                        <h2>Comparte tu post</h2>
-                    </div>
-                    <div class="Outstanding">
-                        <h2>Post destacado</h2>
-                    </div>
                     <div class="posts">
-                        <h2>Posts</h2>
+                        {% for post in posts %}
+                            <a href="{{ path('showpost', { 'page': post.id })}}">
+                                <div class="post">
+                                    <div>
+                                        <h2>{{ post.titulo }}</h2>
+                                    </div>
+                                    <div>
+                                        <span>{{ post.descripcion }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
                     </div>
                 </div>
             </section>
@@ -112,4 +122,8 @@
 
 
     </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('ajax/profileController.js') }}"></script>
 {% endblock %}

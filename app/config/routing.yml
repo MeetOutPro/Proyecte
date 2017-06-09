@@ -41,3 +41,8 @@ profilepage:
         defaults:  { _controller: AppBundle:Profile:index }
         requirements:
             page: '\d+'
+
+newfollow:
+        path:      /followto/
+        defaults:  { _controller: AppBundle:Profile:newfollow }
+        methods:  [GET, POST]

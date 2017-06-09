@@ -2,10 +2,8 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Provincias;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -15,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use FOS\UserBundle\Util\LegacyFormHelper;
 
 class RegistrationType extends AbstractType
@@ -27,6 +24,11 @@ class RegistrationType extends AbstractType
     {
 
         $builder
+            ->add('imagenprofile',FileType::class,array(
+                'multiple' => false,
+                'required' => false,
+                'label'    => false
+            ))
             ->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
             ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
             ->add('email',EmailType::class, array('label'=> 'Email'))
@@ -36,7 +38,6 @@ class RegistrationType extends AbstractType
                 'first_options' => array('label' => 'Contraseña'),
                 'second_options' => array('label' => 'Confirmar Contraseña'),
                 'invalid_message' => 'fos_user.password.mismatch'))
-            ->add('password',PasswordType::class,array('label' => 'Contraseña'))
             ->add('sexo', ChoiceType::class,array('choices' => array(
                 'Hombre' => 'Hombre',
                 'Mujer' => 'Mujer'
@@ -46,7 +47,18 @@ class RegistrationType extends AbstractType
                 'class' => 'AppBundle:Provincias',
                 'choice_label' => 'Nombre',
             ))
-            ->add('enabled',HiddenType::class,array('attr' => array('value' => 1)));
+            ->add('enabled',HiddenType::class,array('attr' => array('value' => 1)))
+            ->add('tema',EntityType::class, array(
+                'label' => 'Provincia',
+                'class' => 'AppBundle:Temas',
+                'choice_label' => 'Nombre',
+                'multiple' => TRUE,
+                'expanded' => true
+            ))
+            ->add('save', SubmitType::class, array(
+                'label' => '¡Registrate!',
+                'attr' => array('class' => 'save'),
+            ));
 
     }
 

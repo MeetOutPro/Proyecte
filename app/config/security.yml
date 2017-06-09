@@ -21,11 +21,12 @@ security:
             logout:
                    path:   /logout
                    target: /
-            anonymous:    
+            anonymous: true
 
     access_control:
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/profile/*, role: ROLE_USER }
-        - { path: ^/dashboard, role: ROLE_ADMIN }
-        - { path: ^/admin/, role: ROLE_USER }
+        - { path: ^/profile/*, role: ROLE_ADMIN }
+        - { path: ^/dashboard/, role: ROLE_USER }
+        - { path: ^/followto/, role: ROLE_ADMIN }
+        - { path: ^/admin/, role: ROLE_ADMIN }
