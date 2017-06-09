@@ -2,6 +2,19 @@
     <div class="home-head">
             <ul class="header-home">
                 <li><a href="#"><img src="{{ asset('img/logo.png') }}" alt="MeetOut logo"/></a></li>
+
+                <div id="modal-container">
+                    <div class="modal-background">
+                        <div class="modal">
+                            <h2>Inicia sesión</h2>
+                            {% block fos_user_content %}
+                                {{ include('@FOSUser/Security/login_content.html.twig') }}
+                            {% endblock fos_user_content %}
+                        </div>
+                    </div>
+                </div>
+                <div id="five" class="button-modal btn-isesionpc">Iniciar sesión</div>
+
                 <li class="btn-isesionpc"><button type="button">Iniciar sesión</button> </li>
             </ul>
     </div>
