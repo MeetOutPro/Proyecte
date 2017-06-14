@@ -36,8 +36,10 @@ class DashboardController extends Controller
             ->get_posts($user);
 
         foreach ($posts as $post){
-            if (strlen($post->getDescripcion()) > 200)
-                $post->setDescripcion(substr($post->getDescripcion(), 0, 200) . '...');
+            if($post){
+                if (strlen($post->getDescripcion()) > 200)
+                    $post->setDescripcion(substr($post->getDescripcion(), 0, 200) . '...');
+            }
         }
 
 

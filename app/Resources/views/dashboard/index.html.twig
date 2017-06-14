@@ -10,10 +10,14 @@
                         <a href="{{ path('profilepage', { 'page': user.id })}}"><img src="{{ asset(user.imagen.ruta) }}"></a>
                     </div>
                     <div class="user_profile">
-
-                        <h3>{{ user.nombreCompleto }}</h3>
-                        <a href="{{ path('profilepage', { 'page': user.id })}}"><h3>@{{ user.username }}</h3></a>
-
+                        <div>
+                            <h3>{{ user.nombreCompleto }}</h3>
+                        </div>
+                        <div>
+                            <a href="{{ path('profilepage', { 'page': user.id })}}">
+                                <h3>@{{ user.username }}</h3>
+                            </a>
+                        </div>
                         <div class="pleasures_profile">
                             {% for tema in user.tema %}
                                 <img src="{{ asset(tema.tema.imagen.ruta) }}">
@@ -23,6 +27,9 @@
                 </div>
                 <div class="people_profile">
                     <div>
+                        <h3>Créditos</h3>
+                    </div>
+                    <div>
                         <h3>Seguidores</h3>
                     </div>
                     <div>
@@ -30,6 +37,9 @@
                     </div>
                 </div>
                 <div class="people_profile">
+                    <div>
+                        <h3>{{ user.creditos}}</h3>
+                    </div>
                     <div>
                         <h3>10000</h3>
                     </div>

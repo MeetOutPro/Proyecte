@@ -150,6 +150,7 @@
     text-align: center;
     justify-content: center;
     background-color: white;
+
     }
 
     .info_profile {
@@ -170,13 +171,13 @@
 
     .info_profile .user_profile {
       text-align: left;
+      a{
+        color: #247BA0;
+        text-decoration: none;
+      }
     }
-
-    .info_profile .user_profile .pleasures_profile img {
-      width: 40px;
-    }
-
     .people_profile {
+      width:100%;
       margin-top: 5%;
       display: flex;
       justify-content: center;
@@ -185,6 +186,12 @@
     .people_profile * {
       flex-grow: 1;
     }
+
+    .info_profile .user_profile .pleasures_profile img {
+      width: 40px;
+    }
+
+    user
 
     .info_profile img {
       border-radius: 100px;

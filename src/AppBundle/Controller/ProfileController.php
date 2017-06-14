@@ -21,14 +21,25 @@ class ProfileController extends Controller
 
         $user_profile->settema($user_temas);
 
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Posts')->findBy(array('creador' => $user));
+        $em = $this->getDoctrine()->getManager();
+
+
+        $posts = $em->getRepository('AppBundle:Posts')
+            ->get_UserPosts($user_profile);
+
+        foreach ($posts as $post){
+            if($post){
+                if (strlen($post->getDescripcion()) > 100)
+                    $post->setDescripcion(substr($post->getDescripcion(), 0, 100) . '...');
+            }
+        }
 
         $data = array(
             'user'          => $user,
             'user_profile'  => $user_profile,
             'posts'         => $posts
         );
-        // replace this example code with whatever you need
+
         return $this->render('profile/index.html.twig',$data);
     }
 
@@ -55,5 +66,6 @@ class ProfileController extends Controller
 
         return true;
     }
+
 }
 
