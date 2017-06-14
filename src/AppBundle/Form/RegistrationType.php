@@ -23,6 +23,8 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
+        $user = $options['data'];
+
         $builder
             ->add('imagenprofile',FileType::class,array(
                 'multiple' => false,
@@ -30,8 +32,12 @@ class RegistrationType extends AbstractType
                 'label'    => false
             ))
             ->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
-            ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
-            ->add('email',EmailType::class, array('label'=> 'Email'))
+            ->add('username',TextType::class, array('label'=> 'Nombre de usuario','attr' => array(
+                'value' => $user->getUsername()
+            )))
+            ->add('email',EmailType::class, array('label'=> 'Email','attr' => array(
+                'value' => $user->getEmail()
+            )))
             ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
                 'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
                 'options' => array('translation_domain' => 'FOSUserBundle'),

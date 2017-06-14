@@ -246,4 +246,8 @@ $( document ).ready(function() {
 
     });
 
+    $(".post-settings",this).hover(function () {
+        $(".submenu",this).fadeToggle(1);
+    })
+
 });

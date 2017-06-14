@@ -10,6 +10,16 @@ registerpage:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
+login:
+      path:     /loginhome/
+      defaults: { _controller: AppBundle:Home:login }
+      methods:  [POST]
+
+registerhome:
+      path:     /registerhome/
+      defaults: { _controller: AppBundle:Home:register }
+      methods:  [POST]
+
 homepage:
     path:     /
     defaults: { _controller: AppBundle:Home:index }

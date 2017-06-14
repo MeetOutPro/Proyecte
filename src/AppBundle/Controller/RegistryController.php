@@ -9,6 +9,7 @@ use AppBundle\Form\RegistrationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
@@ -29,6 +30,9 @@ class RegistryController extends BaseController
 
         $user = new User();
 
+        $user->setNombreCompleto($user_session->getUsername());
+        $user->setEmail($user_session->getEmail());
+
         $form_registry = $this->createForm(RegistrationType ::class, $user);
 
         $form_registry->handleRequest($request);
@@ -43,21 +47,38 @@ class RegistryController extends BaseController
 
             $em = $this->getDoctrine()->getManager();
 
-            $imagen = $inputs->getImagenProfile();
-            $imagen_obj = new Imagenes();
-            $imagen_obj->setFile($imagen);
-            $imagen_obj->setRuta('profile/');
-            $imagen_obj->upload();
+            if(!empty($inputs->getImagenProfile())){
 
-            $em->persist($imagen_obj);
-            $em->flush();
+                $imagen = $inputs->getImagenProfile();
+                $imagen_obj = new Imagenes();
+                $imagen_obj->setFile($imagen);
+                $imagen_obj->setRuta('profile/');
+                $imagen_obj->upload();
+
+                $em->persist($imagen_obj);
+                $em->flush();
+
+            }else{
+
+                $name ='boy.png';
+                $path = __DIR__ . '/../../../web/img/profile/boy.png';
+                $imagen = new UploadedFile($path,$name);
+                $imagen_obj = new Imagenes();
+                $imagen_obj->setRuta('profile/default/');
+                $imagen_obj->setFile($imagen);
+                $imagen_obj->upload();
+
+                $em->persist($imagen_obj);
+                $em->flush();
+
+            }
 
             $user->setImagen($imagen_obj);
 
             try{
                 $userManager->updateUser($user);
             }catch (Exception $e){
-                echo 'El usuario ya està Registrado:',  $e->getMessage(), "\n";
+                echo 'El usuario ya esta Registrado:',  $e->getMessage(), "\n";
             }
 
             $firewallName = $this->container->getParameter('fos_user.firewall_name');

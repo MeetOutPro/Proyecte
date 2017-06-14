@@ -33,11 +33,11 @@ header .content_header li #logo{
 header .content_header li:nth-child(3) img{
   width: 45%;
 }
-header .content_header > li:nth-child(4) > button{
+header .content_header > li:nth-child(4) button{
   background-color: transparent;
   border: 0px;
 }
-header .content_header > li:nth-child(4) > button > img{
+header .content_header > li:nth-child(4) img{
   width: 35%;
   cursor: pointer;
 }
@@ -119,4 +119,8 @@ $btn-width: 44px;
     font-size: 1.4em;
     color: inherit;
   }
+}
+
+.text-center{
+  text-align: center !important;
 }

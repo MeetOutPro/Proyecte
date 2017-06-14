@@ -101,7 +101,7 @@ class Posts
     /**
      * Get imagen
      *
-     * @return string
+     * @return \AppBundle\Entity\Imagenes
      */
     public function getImagen()
     {

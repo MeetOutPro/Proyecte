@@ -1,4 +1,4 @@
-{% extends 'layout.html.twig' %}
+{% extends 'baseout.html.twig' %}
 {% block title %}MeetOut - Home {% endblock %}
 
     {% block section %}
@@ -33,25 +33,9 @@
                     <div class="wrapper-hder">
                         <div class="titleder"><h2 style="color:white;">Eres nuevo? Regístrate!</h2></div>
                         <div id="wrapper-form">
-                            <form method="post" action="{{  path('homepage') }}">
-                                <div id="username-cont">
-                                    {{ form_errors(form.username) }}
-                                    {{ form_label(form.username) }}
-                                    {{ form_widget(form.username) }}
-
-                                </div>
-
-                                <div id="email-cont">
-                                    {{ form_label(form.email) }}
-                                    {{ form_errors(form.email) }}
-                                    {{ form_widget(form.email) }}
-                                    {{ form_row(form._token) }}
-                                </div>
-
-                                <div class="buttonreg">
-                                    <button>Regístrarse</button>
-                                </div>
-                            </form>
+                            {{ form_start(form_register, {'method': 'post', 'action': path('registerhome')})}}
+                            {{ form_widget(form_register) }}
+                            {{ form_end(form_register) }}
                         </div>
                     </div>
 

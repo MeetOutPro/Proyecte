@@ -124,6 +124,21 @@ class Imagenes
     }
 
     /**
+     * Set id
+     *
+     * @param string $id
+     *
+     * @return id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
+    /**
      * Get id
      *
      * @return integer
@@ -132,6 +147,8 @@ class Imagenes
     {
         return $this->id;
     }
+
+
 
     /**
      * @return string
@@ -183,7 +200,6 @@ class Imagenes
 
         $this->nombre = $this->file->getClientOriginalName();
 
-        $p=$this->getUploadRoot();
         if(!is_dir($this->getUploadRoot()))
         {
             mkdir($this->getUploadRoot(),0777,true);

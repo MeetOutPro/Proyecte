@@ -10,7 +10,7 @@ var paths = {
     styles: {
         src: './web/css/',
         files: './web/css/*.scss',
-        dest: './web/css/style'
+        dest: './web/css/'
     }
 }
 // A display error function, to format and make custom errors more uniform
@@ -49,6 +49,7 @@ gulp.task('sass', function (){
         ))
         // Funally put the compiled sass into a css file
         .pipe(gulp.dest(paths.styles.dest))
+    console.log(paths.styles.dest);
 });
 // This is the default task - which is run when `gulp` is run
 // The tasks passed in as an array are run before the tasks within the function

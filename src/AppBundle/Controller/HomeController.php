@@ -3,39 +3,46 @@
 namespace AppBundle\Controller;
 
 
-use AppBundle\Form\UserType;
 use AppBundle\Entity\User;
-use FOS\UserBundle\Controller\SecurityController;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\FOSUserBundle;
+use AppBundle\Form\LoginType;
+use AppBundle\Form\RegistrationHomeType;
+use AppBundle\Form\RegistrationType;
+use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Security;
 
 class HomeController extends BaseController
 {
-    /**
-     * @Route("/", name="homepage")
-     */
+
     public function indexAction(Request $request)
     {
 
-        $user = new user();
+        $form_register  = $this->registerAction($request);
+
+        $form_login     = $this->loginAction($request);
+
+        $data = array(
+            'form_register' => $form_register->createView(),
+            'form_login'    => $form_login->createView(),
+        );
+
+        return $this->render('home/index.html.twig' ,$data) ;
+    }
+
+    public function registerAction(Request $request){
+
+        $user = new User();
 
         $session = $request->getSession();
 
-        $form = $this->createForm(UserType::class,$user);
+        $form = $this->createForm(RegistrationHomeType::class,$user);
 
         $form->handleRequest($request);
-
-        $lastUsernameKey = Security::LAST_USERNAME;
-
-        $lastUsername = (null === $session) ? '' : $session->get($lastUsernameKey);
 
         if($form->isSubmitted() && $form->isValid()){
 
@@ -43,16 +50,35 @@ class HomeController extends BaseController
 
             $session->set('user',$inputs);
 
-            return $this->redirect('register');
+            return $this->redirect('/register');
         }
 
+        return $form;
 
+    }
 
-        $data = array(
-            'form'          => $form->createView(),
-            'last_username' => $lastUsername,
-        );
+    public function loginAction(Request $request){
 
-        return $this->render('home/index.html.twig' ,$data) ;
+        $user = new User();
+
+        $form = $this->createForm(LoginType::class,$user);
+
+        $form->handleRequest($request);
+
+        $login_manager = $this->get('fos_user.security.login_manager');
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $firewallName = $this->container->getParameter('fos_user.firewall_name');
+
+            $login_manager->loginUser($firewallName,$user);
+
+            $user = $this->getUser();
+
+            return $this->redirect('/dashboard');
+
+        }
+
+        return $form;
     }
 }

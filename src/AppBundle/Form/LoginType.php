@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,10 +26,14 @@ class LoginType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
+        $builder
             ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
-            ->add('email',EmailType::class, array('label'=> 'Email'))
-            ->add('password',PasswordType::class ,array('label'=>'Contraseña'));
+            ->add('password',PasswordType::class ,array('label'=>'Contraseña'))
+            ->add('enabled',HiddenType::class,array('attr' => array('value' => 1)))
+            ->add('save', SubmitType::class, array(
+            'label' => '¡Acceder!',
+            'attr' => array('class' => 'save'),
+    ));
 
     }
 

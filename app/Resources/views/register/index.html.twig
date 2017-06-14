@@ -1,22 +1,22 @@
-{% extends 'layout.html.twig' %}
+{% extends 'baseout.html.twig' %}
 {% block title %}MeetOut - Register {% endblock %}
-    {% block section %}
-            <div class="register">
-        <div class="content">
-            <div class="wrapper-register">
-                <section class="form-der">
-                    {{ form_start(form, {'method': 'post', 'action': path('registerpage')})}}
-                    {{ form_widget(form) }}
-                    {{ form_end(form) }}
-                </section>
-
+{% block section %}
+    <div class="register">
+        <div class="wrapper-register">
+                {{ form_start(form, {'method': 'post', 'action': path('registerpage')})}}
                 <section class="form-izq">
+                    {{ form_widget(form.tema) }}
 
                 </section>
-            </div>
+
+                <section class="form-der">
+                    {{ form_widget(form) }}
+                </section>
+                    {{ form_widget(form.save) }}
+                {{ form_end(form) }}
         </div>
-</div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
 
 
