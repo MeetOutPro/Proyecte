@@ -250,4 +250,6 @@ $( document ).ready(function() {
         $(".submenu",this).fadeToggle(1);
     })
 
+    $('.datepicker').datepicker();
+
 });

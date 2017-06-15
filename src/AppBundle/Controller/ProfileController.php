@@ -15,6 +15,10 @@ class ProfileController extends Controller
     {
         $user = $this->getUser();
 
+        if(!$user){
+            $this->redirect('/');
+        }
+
         $user_profile = $this->getDoctrine()->getRepository('AppBundle:User')->find($page);
 
         $user_temas = $this->getDoctrine()->getRepository('AppBundle:UserTemas')->findBy(array('user'=>$user_profile->getId()));

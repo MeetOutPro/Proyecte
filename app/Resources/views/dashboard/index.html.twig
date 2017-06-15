@@ -154,22 +154,27 @@
                 <div class="new_event">
                     <div class="form-group">
                         <div class="controls">
+                            {{ form_start(form_quedada, {'method': 'post', 'action': path('newquedada')})}}
+                            <div>{{ form_widget(form_quedada.titulo) }}</div>
+                            <div>{{ form_widget(form_quedada.fechaQuedada) }}</div>
+                            <div>{{ form_widget(form_quedada.descripcion) }}</div>
 
-                            <form>
-                                <input type="text" placeholder="Nombre"/>
-                                <input type="text" placeholder="Lugar"/>
-                                <textarea placeholder="Descripción"></textarea>
+                            <div class="publicar">
+                                <div class="choices">
+                                    <div>
+                                        {{ form_widget(form_quedada.imagen) }}<i class="fa fa-camera fa-lg"  aria-hidden="true"></i>
+                                    </div>
 
-                            </form>
+                                </div>
 
-                            <div class="btn-publicar">
-                                <div><button id="addimg"><i class="fa fa-camera fa-lg"  aria-hidden="true"></i></button></div>
-                                <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
-                                <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
-                                <textarea class="tagarea"></textarea>
+                                <div>{{ form_widget(form_quedada.lugar) }}</div>
+                                <div>{{ form_widget(form_quedada.municipio) }}</div>
 
-                                <div><button id="publicarpost" >Crear evento!</button></div>
+                                <div>{{ form_widget(form_quedada.save) }}</div>
+
                             </div>
+                            {{ form_widget(form_quedada) }}
+                            {{ form_end(form_quedada) }}
                         </div>
                     </div>
 

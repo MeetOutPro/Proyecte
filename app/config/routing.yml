@@ -33,7 +33,12 @@ dashboardpage:
 newpost:
       path:     /dashboard/newpost
       defaults: { _controller: AppBundle:Dashboard:newPost }
-      methods:  [GET, POST]
+      methods:  [POST]
+
+newquedada:
+      path:     /dashboard/newquedada
+      defaults: { _controller: AppBundle:Dashboard:newQuedada }
+      methods:  [POST]
 
 test:
     path:     /test

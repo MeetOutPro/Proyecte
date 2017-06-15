@@ -372,7 +372,7 @@
         }
       }
 
-      div:last-child{
+      > div:last-child{
         flex:1;
       }
 
@@ -388,14 +388,16 @@
         transition: all 0.55s;
         border: none;
       }
+      div{
+        flex-grow: 1;
+      }
+      .choices{
+        display: flex;
+        div{
+          text-align: center;
+        }
+      }
     }
-
-    .publicar div:first-child{
-      margin-left:2%;
-      margin-right: 2%;
-    }
-
-
 
   .tagarea{display: none;}
   .tag-box{

@@ -60,13 +60,8 @@ class RegistryController extends BaseController
 
             }else{
 
-                $name ='boy.png';
-                $path = __DIR__ . '/../../../web/img/profile/boy.png';
-                $imagen = new UploadedFile($path,$name);
                 $imagen_obj = new Imagenes();
-                $imagen_obj->setRuta('profile/default/');
-                $imagen_obj->setFile($imagen);
-                $imagen_obj->upload();
+                $imagen_obj->setRuta('img/profile/default/boy.png');
 
                 $em->persist($imagen_obj);
                 $em->flush();
