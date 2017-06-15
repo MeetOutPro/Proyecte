@@ -61,7 +61,7 @@ class RegistryController extends BaseController
             }else{
 
                 $imagen_obj = new Imagenes();
-                $imagen_obj->setRuta('img/profile/default/boy.png');
+                $imagen_obj->setRuta('img/profile/default/user.png');
 
                 $em->persist($imagen_obj);
                 $em->flush();
