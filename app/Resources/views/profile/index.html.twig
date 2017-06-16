@@ -9,102 +9,37 @@
                 <div class="profile">
                     <div class="info_profile">
                         <div class="image_profile">
-                            <img src="{{ asset(user_profile.imagen.ruta) }}">
+                            <img src="http://i.imgur.com/FTFo2s7.gif">
                         </div>
                     </div>
                 </div>
 
-                <div class="user_profileInfo">
-                    <h3>{{ user_profile.nombreCompleto }}</h3>
-                    <h3>@{{ user_profile.username }}</h3>
+                <div class="user_profile">
+                    <h3>Josep Pedretroll</h3>
+                    <h3>@jpedrerol</h3>
                 </div>
 
                 <div class="pleasures_profile">
-                    {% for tema in user_profile.tema %}
-                        <img src="{{ asset(tema.tema.imagen.ruta) }}">
-                    {% endfor %}
-                </div>
-                <div class="people_profile">
-                    <div>
-                        <h3>Créditos</h3>
-                    </div>
-                    <div>
-                        <h3>Seguidores</h3>
-                    </div>
-                    <div>
-                        <h3>Amigos</h3>
-                    </div>
-                </div>
-                <div class="people_profile">
-                    <div>
-                        <h3>{{ user.creditos}}</h3>
-                    </div>
-                    <div>
-                        <h3>10000</h3>
-                    </div>
-                    <div>
-                        <h3>1</h3>
-                    </div>
+                    <img src="{{ asset('img/icons/florentino.jpeg') }}">
+                    <img src="{{ asset('img/icons/madrid.png') }}">
+                    <img src="{{ asset('img/icons/football.png') }}">
+                    <img src="{{ asset('img/icons/reading.png') }}">
+                    <img src="{{ asset('img/icons/clapperboard.png') }}">
                 </div>
 
-                {% if(user.id != user_profile.id) %}
-                    <div class="user_profile">
-                        <button id="btn-seguir" value="{{ user_profile.id }}">Seguir</button>
-                        <button id="btn-amistad" value="{{ user_profile.id }}">Amistad</button>
-                        <input type="hidden" value="{{ user.id }}" id="user_login">
-                    </div>
-                {% endif %}
             </aside>
 
 
             <section class="feed">
                 <div class="content_feed">
+                    <div class="new_post">
+                        <h2>Comparte tu post</h2>
+                    </div>
+                    <div class="Outstanding">
+                        <h2>Post destacado</h2>
+                    </div>
                     <div class="posts">
-                        {% for post in posts %}
-                            {% if(post is not null) %}
-                                <div class="post-row">
-
-                                    <div class="post">
-                                        <div>
-                                            <img src="{{ asset(post.imagen[0].ruta) }}">
-                                        </div>
-                                        <div class="post-content">
-                                            <div>
-                                                <h2>{{ post.titulo }}</h2>
-                                            </div>
-                                            <div>
-                                                <span>{{ post.descripcion }}</span>
-                                            </div>
-                                            <div class="post-info">
-                                                <div>
-                                                    <a href="{{ path('profilepage', { 'page': post.creador.id })}}"><img src="{{ asset(post.creador.imagen.ruta) }}" ><span>@{{ post.creador.username }}</span></a>
-                                                </div>
-                                                <div>
-                                                    <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <a href="{{ path('showpost', { 'page': post.id })}}"><button>Ver Post</button></a>
-                                        </div>
-                                    </div>
-                                    {% if(post.creador == user) %}
-                                        <div class="settings">
-                                            <ul class="post-settings">
-                                                <li>
-                                                    <i class="fa fa-cogs" aria-hidden="true"></i>
-                                                    <ul class="submenu">
-                                                        <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
-                                                        <li><i class="fa fa-trash" aria-hidden="true"></i></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+                        <h2>Posts</h2>
                     </div>
                 </div>
             </section>
@@ -177,8 +112,4 @@
 
 
     </section>
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('ajax/profileController.js') }}"></script>
 {% endblock %}

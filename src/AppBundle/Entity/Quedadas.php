@@ -76,44 +76,7 @@ class Quedadas
      */
     private $municipio;
 
-    /**
-     * Many User have Many Imagenes.
-     * @ORM\ManyToMany(targetEntity="Imagenes")
-     * @ORM\JoinTable(name="DetalleImagenQuedada",
-     *      joinColumns={@ORM\JoinColumn(name="quedada", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="imagen", referencedColumnName="id")}
-     *      )
-     */
-    private $imagen;
 
-    public function __construct()
-    {
-        $this->imagen = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set imagen
-     *
-     * @param string $imagen
-     *
-     * @return User
-     */
-    public function setimagen($imagen)
-    {
-        $this->imagen = $imagen;
-
-        return $this;
-    }
-
-    /**
-     * Get imagen
-     *
-     * @return \AppBundle\Entity\Imagenes
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
 
     /**
      * Set titulo

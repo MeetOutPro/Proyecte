@@ -9,7 +9,6 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,14 +25,27 @@ class LoginType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder
+        $builder->add('nombreCompleto',TextType::class, array('label'=> 'Nombre y apellidos'))
             ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
-            ->add('password',PasswordType::class ,array('label'=>'Contraseña'))
-            ->add('enabled',HiddenType::class,array('attr' => array('value' => 1)))
-            ->add('save', SubmitType::class, array(
-            'label' => '¡Acceder!',
-            'attr' => array('class' => 'save'),
-    ));
+            ->add('email',EmailType::class, array('label'=> 'Email'))
+            ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
+                'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
+                'options' => array('translation_domain' => 'FOSUserBundle'),
+                'first_options' => array('label' => 'Contraseña'),
+                'second_options' => array('label' => 'Confirmar Contraseña'),
+                'invalid_message' => 'fos_user.password.mismatch'))
+            /*->add('imagen', FileType::class,array('label' => 'Foto de perfil',
+                    'data_class' => 'AppBundle:imagenes'
+                ))*/
+            ->add('sexo', ChoiceType::class,array('choices' => array(
+                'Hombre' => 'Hombre',
+                'Mujer' => 'Mujer'
+            )))
+            ->add('provincia', EntityType::class, array(
+                'label' => 'Elige tu provincia',
+                'class' => 'AppBundle:Provincias',
+                'choice_label' => 'Nombre',
+            ));
 
     }
 

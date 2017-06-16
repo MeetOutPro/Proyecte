@@ -1,9 +1,8 @@
 {% extends 'layout.html.twig' %}
 {% block title %}MeetOut - Home {% endblock %}
+
     {% block section %}
         <div class="homepage">
-
-        {% block body %}
 
             <div class="content">
                 <section id="hizq-pc">
@@ -23,7 +22,6 @@
                     </span>
                 </section>
 
-
                 <section id="hder">
                     <div class="btn-movil modal">
                         <div class="btn-movil-reg"><button type="button">Registrarse!</button></div>
@@ -35,29 +33,9 @@
                     <div class="wrapper-hder">
                         <div class="titleder"><h2 style="color:white;">Eres nuevo? Regístrate!</h2></div>
                         <div id="wrapper-form">
-                                <form>
-                                    <div id="username-cont">
-                                    {{ form_label(form_registry.username) }}
-                                    {{ form_widget(form_registry.username) }}
-                                    {{ form_errors(form_registry.username) }}
-                                    </div>
-
-                                    <div id="email-cont">
-                                    {{ form_label(form_registry.email) }}
-                                    {{ form_widget(form_registry.email) }}
-                                    {{ form_errors(form_registry.email) }}
-                                    </div>
-
-                                    <div id="password-cont">
-                                    {{ form_widget(form_registry.plainPassword) }}
-                                    {{ form_errors(form_registry.plainPassword) }}
-                                    </div>
-
-                                    <div class="buttonreg">
-                                        <button type="button">Regístrarse</button>
-                                    </div>
-
-
+                            {% block fos_user_content %}
+                                {% include "@FOSUser/Registration/register_content.html.twig" %}
+                            {% endblock fos_user_content %}
                         </div>
                     </div>
 

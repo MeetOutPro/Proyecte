@@ -1,5 +1,5 @@
 {% extends 'basein.html.twig' %}
-{% block title %}MeetOut - Dashboard{% endblock %}
+
 {% block section %}
 <div class="dashboard">
     <div class="content">
@@ -7,28 +7,21 @@
             <div class="profile">
                 <div class="info_profile">
                     <div class="image_profile">
-                        <a href="{{ path('profilepage', { 'page': user.id })}}"><img src="{{ asset(user.imagen.ruta) }}"></a>
+                        <img src="http://i.imgur.com/FTFo2s7.gif">
                     </div>
                     <div class="user_profile">
-                        <div>
-                            <h3>{{ user.nombreCompleto }}</h3>
-                        </div>
-                        <div>
-                            <a href="{{ path('profilepage', { 'page': user.id })}}">
-                                <h3>@{{ user.username }}</h3>
-                            </a>
-                        </div>
+                        <h3>Josep Pedretroll</h3>
+                        <h3>@jpedrerol</h3>
                         <div class="pleasures_profile">
-                            {% for tema in user.tema %}
-                                <img src="{{ asset(tema.tema.imagen.ruta) }}">
-                            {% endfor %}
+                            <img src="{{ asset('img/icons/florentino.jpeg') }}">
+                            <img src="{{ asset('img/icons/madrid.png') }}">
+                            <img src="{{ asset('img/icons/football.png') }}">
+                            <img src="{{ asset('img/icons/reading.png') }}">
+                            <img src="{{ asset('img/icons/clapperboard.png') }}">
                         </div>
                     </div>
                 </div>
                 <div class="people_profile">
-                    <div>
-                        <h3>Créditos</h3>
-                    </div>
                     <div>
                         <h3>Seguidores</h3>
                     </div>
@@ -37,9 +30,6 @@
                     </div>
                 </div>
                 <div class="people_profile">
-                    <div>
-                        <h3>{{ user.creditos}}</h3>
-                    </div>
                     <div>
                         <h3>10000</h3>
                     </div>
@@ -130,23 +120,18 @@
 
                 </div>
                 <div class="new_post">
-                    <div class="form-group">
-                        <div class="controls">
-                        {{ form_start(form_post, {'method': 'post', 'action': path('newpost')})}}
-                            {{ form_widget(form_post.titulo) }}
-                            {{ form_widget(form_post.descripcion) }}
+                        <div class="form-group">
+                            <div class="controls">
+                                <textarea name="pub-post" class="floatLabel" id="pub-post"></textarea>
+                                <label for="pub-post">Cuenta algo a tus colegas...</label>
+                                <div class="btn-publicar">
+                                    <div><button id="addimg"><i class="fa fa-camera fa-lg"  aria-hidden="true"></i></button></div>
+                                    <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
+                                    <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
+                                    <textarea class="tagarea"></textarea>
 
-                            <div class="publicar">
-                                <div> {{ form_widget(form_post.imagen) }}<i class="fa fa-camera fa-lg"  aria-hidden="true"></i></div>
-                                <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
-                                <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
-                                <textarea class="tagarea"></textarea>
-                                <div>{{ form_widget(form_post.tema) }}</div>
-                                {{ form_widget(form_post.save) }}
-
-                            </div>
-                            {{ form_widget(form_post) }}
-                        {{ form_end(form_post) }}
+                                    <div><button id="publicarpost" type="button">Cuéntalo</button></div>
+                                </div>
                             </div>
                         </div>
                 </div>
@@ -154,27 +139,22 @@
                 <div class="new_event">
                     <div class="form-group">
                         <div class="controls">
-                            {{ form_start(form_quedada, {'method': 'post', 'action': path('newquedada')})}}
-                            <div>{{ form_widget(form_quedada.titulo) }}</div>
-                            <div>{{ form_widget(form_quedada.fechaQuedada) }}</div>
-                            <div>{{ form_widget(form_quedada.descripcion) }}</div>
 
-                            <div class="publicar">
-                                <div class="choices">
-                                    <div>
-                                        {{ form_widget(form_quedada.imagen) }}<i class="fa fa-camera fa-lg"  aria-hidden="true"></i>
-                                    </div>
+                            <form>
+                                <input type="text" placeholder="Nombre"/>
+                                <input type="text" placeholder="Lugar"/>
+                                <textarea placeholder="Descripción"></textarea>
 
-                                </div>
+                            </form>
 
-                                <div>{{ form_widget(form_quedada.lugar) }}</div>
-                                <div>{{ form_widget(form_quedada.municipio) }}</div>
+                            <div class="btn-publicar">
+                                <div><button id="addimg"><i class="fa fa-camera fa-lg"  aria-hidden="true"></i></button></div>
+                                <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
+                                <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
+                                <textarea class="tagarea"></textarea>
 
-                                <div>{{ form_widget(form_quedada.save) }}</div>
-
+                                <div><button id="publicarpost" >Crear evento!</button></div>
                             </div>
-                            {{ form_widget(form_quedada) }}
-                            {{ form_end(form_quedada) }}
                         </div>
                     </div>
 
@@ -185,55 +165,9 @@
                 <div class="Outstanding">
                     <h2>Post destacado</h2>
                 </div>
-
                 <div class="posts">
-                        {% for post in posts %}
-                            {% if(post is not null) %}
-                            <div class="post-row">
-
-                                <div class="post">
-                                    <div>
-                                        <img src="{{ asset(post.imagen[0].ruta) }}">
-                                    </div>
-                                    <div class="post-content">
-                                        <div>
-                                            <h2>{{ post.titulo }}</h2>
-                                        </div>
-                                        <div>
-                                            <span>{{ post.descripcion }}</span>
-                                        </div>
-                                        <div class="post-info">
-                                            <div>
-                                                <a href="{{ path('profilepage', { 'page': post.creador.id })}}"><img src="{{ asset(post.creador.imagen.ruta) }}" ><span>@{{ post.creador.username }}</span></a>
-                                            </div>
-                                            <div>
-                                                <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
-                                            </div>
-                                         </div>
-                                    </div>
-                                    <div>
-                                        <a href="{{ path('showpost', { 'page': post.id })}}"><button>Ver Post</button></a>
-                                    </div>
-                                </div>
-                                {% if(post.creador == user) %}
-                                    <div class="settings">
-                                        <ul class="post-settings">
-                                            <li>
-                                                <i class="fa fa-cogs" aria-hidden="true"></i>
-                                                <ul class="submenu">
-                                                    <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
-                                                    <li><i class="fa fa-trash" aria-hidden="true"></i></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                {% endif %}
-                            </div>
-                            {% endif %}
-                        {% endfor %}
+                    <h2>Posts</h2>
                 </div>
-
             </div>
         </section>
     </div>

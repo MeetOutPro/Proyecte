@@ -85,8 +85,7 @@ ul{
   }
 
   form {
-    height:200px;
-    width: 300px;
+    width: 100%;
     max-width: 400px;
     margin: 30px auto;
     font-family: $font-stack;
@@ -108,11 +107,15 @@ ul{
       color: white;
     }
     div:not(.buttonreg) input, div:not(.buttonreg) label {
-      position: absolute;
-      width: 100%;
+      position: absolute
     }
 
-    .buttonreg  {
+    .buttonreg {
+      text-align: right;
+      margin-top: 85px;
+    }
+
+    .buttonreg button {
       background: white;
       font-family: "Montserrat", sans-serif;
       border-radius: .2em;

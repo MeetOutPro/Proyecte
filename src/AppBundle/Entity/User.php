@@ -94,54 +94,8 @@ class User extends BaseUser
      */
     protected $imagen;
 
-    /**
-     * Many User have Many temas.
-     * @ORM\ManyToMany(targetEntity="Temas")
-     * @ORM\JoinTable(name="UserTemas",
-     *      joinColumns={@ORM\JoinColumn(name="user", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tema", referencedColumnName="id")}
-     *      )
-     */
-    protected $tema;
 
-    /**
-     * @var \AppBundle\Entity\Imagenes
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Imagenes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="imagen", referencedColumnName="id")
-     * })
-     */
-    private $ImagenProfile;
 
-    public function __construct()
-    {
-        $this->tema   = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set tema
-     *
-     * @param string $nombreComplet
-     *
-     * @return User
-     */
-    public function settema($tema)
-    {
-        $this->tema = $tema;
-
-        return $this;
-    }
-
-    /**
-     * Get tema
-     *
-     * @return string
-     */
-    public function gettema()
-    {
-        return $this->tema;
-    }
     /**
      * Set nombreCompleto
      *
@@ -366,29 +320,5 @@ class User extends BaseUser
     public function getImagen()
     {
         return $this->imagen;
-    }
-
-    /**
-     * Set ImagenProfile
-     *
-     * @param string $ImagenProfile
-     *
-     * @return User
-     */
-    public function setImagenProfile($ImagenProfile)
-    {
-        $this->ImagenProfile = $ImagenProfile;
-
-        return $this;
-    }
-
-    /**
-     * Get ImagenProfile
-     *
-     * @return string
-     */
-    public function getImagenProfile()
-    {
-        return $this->ImagenProfile;
     }
 }

@@ -14,12 +14,12 @@
     width: 140px;
   }
 
-  li:first-child{
+  li:nth-child(2n+1){
     text-align: left;
     margin-left: $margin-default;
   }
 
-  li:nth-child(3){
+  li:nth-child(2n){
     text-align: right;
     margin-right:$margin-default;
   }

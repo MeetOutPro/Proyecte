@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="seguidores", indexes={@ORM\Index(name="FK_seguidores_user", columns={"user_a_seguir"}), @ORM\Index(name="FK_seguidores_user2", columns={"user_seguido"})})
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="src\AppBundle\Seguidores\SeguidoresRepository")
  */
 class Seguidores
 {
