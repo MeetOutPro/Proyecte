@@ -15,13 +15,6 @@ class UserTemas
     /**
      * @var integer
      *
-     * @ORM\Column(name="user_id", type="integer", nullable=false)
-     */
-    private $userId;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -48,31 +41,6 @@ class UserTemas
      */
     private $tema;
 
-
-
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     *
-     * @return UserTemas
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
 
     /**
      * Get id

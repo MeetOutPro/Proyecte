@@ -46,7 +46,17 @@ class Temas
     private $imagen;
 
 
+    /**
+     * Many Groups have Many Users.
+     * @ManyToMany(targetEntity="UserTema", mappedBy="tema")
+     * @ORM\@JoinTable(name="UserTemas")
+     */
+    private $users;
 
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     /**
      * Set nombre
      *
@@ -128,4 +138,5 @@ class Temas
     {
         return $this->imagen;
     }
+
 }
