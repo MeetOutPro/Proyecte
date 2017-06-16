@@ -33,7 +33,7 @@ class RegistryController extends BaseController
         $user->setNombreCompleto($user_session->getUsername());
         $user->setEmail($user_session->getEmail());
 
-        $form_registry = $this->createForm(RegistrationType ::class, $user);
+        $form_registry = $this->createForm(RegistrationType::class, $user);
 
         $form_registry->handleRequest($request);
 
