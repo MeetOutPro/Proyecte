@@ -44,10 +44,20 @@ class DashboardController extends Controller
         $posts = $em->getRepository('AppBundle:Posts')
             ->get_posts($user);
 
+        $quedadas = $em->getRepository('AppBundle:Quedadas')
+            ->get_quedadas($user);
+
         foreach ($posts as $post){
             if($post){
                 if (strlen($post->getDescripcion()) > 200)
                     $post->setDescripcion(substr($post->getDescripcion(), 0, 200) . '...');
+            }
+        }
+
+        foreach ($quedadas as $quedada){
+            if($quedada){
+                if (strlen($quedada->getDescripcion()) > 50)
+                    $quedada->setDescripcion(substr($quedada->getDescripcion(), 0, 50) . '...');
             }
         }
 
@@ -56,7 +66,8 @@ class DashboardController extends Controller
             'user'          => $user,
             'form_post'     => $form_post,
             'form_quedada'  => $form_quedada,
-            'posts'         => $posts
+            'posts'         => $posts,
+            'quedadas'      => $quedadas
         );
         // replace this example code with whatever you need
         return $this->render('dashboard/index.html.twig',$data);

@@ -51,45 +51,34 @@
             <div class="events">
                 <div class="content_events">
                     <h1>EVENTOS</h1>
-                    <div class="event">
-                        <div class="content_img">
-                            <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
-                        </div>
-                        <div class="info_envent">
-                            <h3>Barcelona</h3>
-                            <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
+                    {% for quedada in quedadas %}
+                    {% if(quedada is not null) %}
+                        <div class="event">
+                            <div class="content_img">
+                                <img src="{{ asset(quedada.imagen[0].ruta)}}">
+                            </div>
+                            <div class="info_envent">
+                                <div><h3>{{ quedada.titulo }}</h3></div>
+                                <div><p>{{ quedada.descripcion }}</p></div>
+                                <div class="info_site">
+                                    <div>
+                                        <a href="{{ path('profilepage', { 'page': quedada.creador.id })}}">
+                                            <img class="profile-quedada" src="{{ asset(quedada.creador.imagen.ruta) }}" >
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p>Provincia: {{ quedada.municipio.nombre }}</p>
+                                        <p>Lugar: {{ quedada.lugar }}</p>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="event-buttons">
-                                <button><img src="{{ asset('img/icons/checked.png') }}"></button>
-                                <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                                <button><img src="{{ asset('img/icons/error.png') }}"></button>
+                                <button><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="event">
-                        <div class="content_img">
-                            <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
-                        </div>
-                        <div class="info_envent">
-                            <h3>Barcelona</h3>
-                            <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
-                            <div class="event-buttons">
-                                <button><img src="{{ asset('img/icons/checked.png') }}"></button>
-                                <button><img src="{{ asset('img/icons/delete.png') }}"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="content_img">
-                            <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
-                        </div>
-                        <div class="info_envent">
-                            <h3>Barcelona</h3>
-                            <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
-                            <div class="event-buttons">
-                                <button><img src="{{ asset('img/icons/checked.png') }}"></button>
-                                <button><img src="{{ asset('img/icons/delete.png') }}"></button>
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
