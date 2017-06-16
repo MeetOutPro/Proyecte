@@ -30,7 +30,7 @@ class RegistrationHomeType extends AbstractType
             ->add('email',EmailType::class, array('label'=> 'Email'))
             ->add('save', SubmitType::class, array(
                 'label' => '¡Registrate!',
-                'attr' => array('class' => 'save'),
+                'attr' => array('class' => 'buttonreg'),
             ));
     }
 
