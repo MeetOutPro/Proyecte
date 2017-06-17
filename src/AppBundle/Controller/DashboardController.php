@@ -131,6 +131,25 @@ class DashboardController extends Controller
 
     }
 
+
+    function deletePostAction(Request $request){
+
+        $data = $request->request->all();
+
+        $post = $this->getDoctrine()->getRepository('AppBundle:Posts')->find($data['post']);
+
+        if($post){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($post);
+            $em->flush();
+
+            return new JsonResponse(true);
+        }
+
+        return new JsonResponse(false);
+    }
+
     public function showPostAction($page)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();

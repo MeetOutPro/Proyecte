@@ -39,14 +39,14 @@ class DetallePedido
     private $pedido;
 
     /**
-     * @var \AppBundle\Entity\Creditos
+     * @var \AppBundle\Entity\Productos
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Creditos")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Productos")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="credito", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="producto", referencedColumnName="id")
      * })
      */
-    private $credito;
+    private $producto;
 
 
 
@@ -109,26 +109,26 @@ class DetallePedido
     }
 
     /**
-     * Set credito
+     * Set producto
      *
-     * @param \AppBundle\Entity\Creditos $credito
+     * @param \AppBundle\Entity\Productos $producto
      *
      * @return DetallePedido
      */
-    public function setCredito(\AppBundle\Entity\Creditos $credito = null)
+    public function setProducto(\AppBundle\Entity\Productos $producto = null)
     {
-        $this->credito = $credito;
+        $this->producto = $producto;
 
         return $this;
     }
 
     /**
-     * Get credito
+     * Get producto
      *
-     * @return \AppBundle\Entity\Creditos
+     * @return \AppBundle\Entity\Productos
      */
-    public function getCredito()
+    public function getProducto()
     {
-        return $this->credito;
+        return $this->producto;
     }
 }

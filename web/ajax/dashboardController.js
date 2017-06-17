@@ -47,4 +47,26 @@ $( document ).ready(function() {
             }
         })
     })
+
+    $(".btn-deletePost",this).click(function () {
+
+        var value = $(this).val();
+        var path = "/dashboard/deletepost";
+
+        $.ajax({
+            url:path,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                post: value
+            },
+            success:function(json){
+
+                if(json == true){
+                    $("#btn-participar_"+value).fadeIn("slow");
+                    $("#btn-noparticipar_"+value).fadeOut(0);
+                }
+            }
+        })
+    })
 })
