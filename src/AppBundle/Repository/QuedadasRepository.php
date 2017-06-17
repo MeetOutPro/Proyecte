@@ -21,7 +21,7 @@ class QuedadasRepository extends EntityRepository
                                     INNER JOIN AppBundle:Quedadas q
                                     WITH di.quedada = q.id
                                     WHERE q.municipio IN(:provincia)
-                                    ORDER BY q.fechaQuedada DESC")
+                                    ORDER BY q.fechaQuedada ASC")
                                     ->setParameter('provincia',$provincia_user)
                                      ->getResult();
 
@@ -60,15 +60,16 @@ class QuedadasRepository extends EntityRepository
 
         $em = $this->getEntityManager();
 
-        $detalle_imagenes = $em->createQuery("SELECT  di
+        $detalle_imagenes = $em->createQuery("SELECT di
                                     FROM AppBundle:Imagenes i 
                                     INNER JOIN AppBundle:DetalleImagenQuedada di
                                     WITH  i.id = di.imagen
                                     INNER JOIN AppBundle:Quedadas q
                                     WITH di.quedada = q.id
                                     INNER JOIN AppBundle:Asistentes a
-                                    WHERE a.asistentes IN(:user)
-                                    ORDER BY q.fechaQuedada DESC")
+                                    WITH q.id = a.quedada
+                                    WHERE a.asistentes = :user
+                                    ORDER BY q.fechaQuedada ASC")
             ->setParameter('user',$user_profile)
             ->getResult();
 

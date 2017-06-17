@@ -1,8 +1,8 @@
 $( document ).ready(function() {
 
-    $("#btn-participar").click(function () {
+    $(".btn-participar",this).click(function () {
 
-        var value = $("#btn-participar").attr("value");
+        var value = $(this).val();
         var user = $("#user_login").val();
         var path = "/joinevent/";
 
@@ -17,16 +17,16 @@ $( document ).ready(function() {
             success:function(json){
 
                 if(json == true){
-                    $("#btn-noparticipar").fadeIn("slow");
-                    $("#btn-participar").fadeOut(0);
+                    $("#btn-noparticipar_"+value).fadeIn("slow");
+                    $("#btn-participar_"+value).fadeOut(0);
                 }
             }
         })
     })
 
-    $("#btn-noparticipar").click(function () {
+    $(".btn-noparticipar",this).click(function () {
 
-        var value = $("#btn-noparticipar").attr("value");
+        var value = $(this).val();
         var user = $("#user_login").val();
         var path = "/unjoinevent/";
 
@@ -41,8 +41,8 @@ $( document ).ready(function() {
             success:function(json){
 
                 if(json == true){
-                    $("#btn-participar").fadeIn("slow");
-                    $("#btn-noparticipar").fadeOut(0);
+                    $("#btn-participar_"+value).fadeIn("slow");
+                    $("#btn-noparticipar_"+value).fadeOut(0);
                 }
             }
         })
