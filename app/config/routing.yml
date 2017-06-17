@@ -35,6 +35,11 @@ newpost:
       defaults: { _controller: AppBundle:Dashboard:newPost }
       methods:  [POST]
 
+deletepost:
+      path:     /dashboard/deletepost
+      defaults: { _controller: AppBundle:Dashboard:deletePost }
+      methods:  [POST]
+
 newquedada:
       path:     /dashboard/newquedada
       defaults: { _controller: AppBundle:Dashboard:newQuedada }
@@ -51,6 +56,16 @@ showpost:
         requirements:
             page: '\d+'
 
+joinevent:
+        path:      /joinevent/
+        defaults:  { _controller: AppBundle:Dashboard:joinEvent }
+        methods:  [GET,POST]
+
+unjoinevent:
+        path:      /unjoinevent/
+        defaults:  { _controller: AppBundle:Dashboard:unjoinEvent }
+        methods:  [POST]
+
 profilepage:
         path:      /profile/{page}
         defaults:  { _controller: AppBundle:Profile:index }
@@ -60,4 +75,24 @@ profilepage:
 newfollow:
         path:      /followto/
         defaults:  { _controller: AppBundle:Profile:newfollow }
-        methods:  [GET, POST]
+        methods:  [POST]
+
+unfollow:
+        path:      /unfollow/
+        defaults:  { _controller: AppBundle:Profile:unfollow }
+        methods:  [POST]
+
+joineventProfile:
+        path:      /joineventprofile/
+        defaults:  { _controller: AppBundle:Profile:joinEventProfile }
+        methods:  [POST]
+
+unjoineventProfile:
+        path:      /unjoineventprofile/
+        defaults:  { _controller: AppBundle:Profile:unjoinEventProfile }
+        methods:  [POST]
+
+coinspage:
+        path: /coins/
+        defaults: {_controller: AppBundle:Coins:index}
+        methods: [GET,POST]

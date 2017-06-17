@@ -37,10 +37,10 @@
                 </div>
                 <div class="people_profile">
                     <div>
-                        <h3>{{ user.creditos}}</h3>
+                        <h3>{{ user_profile.creditos}}</h3>
                     </div>
                     <div>
-                        <h3>10000</h3>
+                        <h3>{{  user_profile.followers[1] }}</h3>
                     </div>
                     <div>
                         <h3>1</h3>
@@ -48,8 +48,15 @@
                 </div>
 
                 {% if(user.id != user_profile.id) %}
-                    <div class="user_profile">
-                        <button id="btn-seguir" value="{{ user_profile.id }}">Seguir</button>
+                    <div class="user_profile" id="btns">
+                        {% if(user.following is defined) %}
+                            <button id="btn-unfollow" value="{{ user_profile.id }}">Siguiendo<i class="fa fa-check" aria-hidden="true"></i></button>
+                            <button id="btn-seguir" value="{{ user_profile.id }}" style="display: none">Seguir</button>
+                        {% else %}
+                            <button id="btn-unfollow" value="{{ user_profile.id }}" style="display: none">Siguiendo<i class="fa fa-check" aria-hidden="true"></i></button>
+                            <button id="btn-seguir" value="{{ user_profile.id }}">Seguir</button>
+                        {% endif %}
+
                         <button id="btn-amistad" value="{{ user_profile.id }}">Amistad</button>
                         <input type="hidden" value="{{ user.id }}" id="user_login">
                     </div>
@@ -82,6 +89,9 @@
                                                 <div>
                                                     <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
                                                 </div>
+                                                <div>
+                                                    <butto><img src="{{ asset('img/icons/coffe.png') }}"  }}></butto>
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -112,47 +122,51 @@
 
             <section class="profile-right">
                 <div class="events">
-                    <h1>EVENTOS</h1>
+                    <h1>TUS EVENTOS</h1>
                     <div class="content_events">
-                        <div class="event">
-                            <div class="content_img">
-                                <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
-                            </div>
-                            <div class="info_envent">
-                                <h3>Barcelona</h3>
-                                <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
-                                <div class="event-buttons">
-                                    <button><img src="{{ asset('img/icons/checked.png') }}"></button>
-                                    <button><img src="{{ asset('img/icons/delete.png') }}"></button>
+                        {% for quedada in quedadas %}
+                            {% if(quedada is not null) %}
+                                <div class="event">
+                                    <div class="content_img">
+                                        <img src="{{ asset(quedada.imagen[0].ruta)}}">
+                                    </div>
+                                    <div class="info_envent">
+                                        <div><h3>{{ quedada.titulo }}</h3></div>
+                                        <div><p>{{ quedada.descripcion }}</p></div>
+                                        <div class="info_site">
+                                            <div>
+                                                <a href="{{ path('profilepage', { 'page': quedada.creador.id })}}">
+                                                    <img class="profile-quedada" src="{{ asset(quedada.creador.imagen.ruta) }}" >
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <p>Provincia: {{ quedada.municipio.nombre }}</p>
+                                                <p>Lugar: {{ quedada.lugar }}</p>
+                                                <p>Dia y hora: {{quedada.fechaQuedada }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="event-buttons">
+                                        {% if(quedada.joined is defined) %}
+                                            <button><img src="{{ asset('img/icons/error.png') }}"></button>
+                                            <button id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar " value="{{ quedada.id }}" >
+                                                <img src="{{ asset('img/icons/add-user.png') }}">
+                                                <div><i class="fa fa-check" aria-hidden="true"></i></div>
+                                            </button>
+                                            <button id="btn-participar_{{ quedada.id }}" class="btn-participar" value="{{ quedada.id }}" style="display: none"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
+                                        {% else %}
+                                            <button><img src="{{ asset('img/icons/error.png') }}"></button>
+                                            <button id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar" value="{{ quedada.id }}" style="display: none" >
+                                                <img src="{{ asset('img/icons/add-user.png') }}">
+                                                <div><i class="fa fa-check" aria-hidden="true"></i></div>
+                                            </button>
+                                            <button id="btn-participar_{{ quedada.id }}" class="btn-participar " value="{{ quedada.id }}"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
+                                        {% endif %}
+                                        <input type="hidden" value="{{ user.id }}" id="user_login">
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="event">
-                            <div class="content_img">
-                                <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
-                            </div>
-                            <div class="info_envent">
-                                <h3>Barcelona</h3>
-                                <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
-                                <div class="event-buttons">
-                                    <button><img src="{{ asset('img/icons/checked.png') }}"></button>
-                                    <button><img src="{{ asset('img/icons/delete.png') }}"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event">
-                            <div class="content_img">
-                                <img src="{{ asset('img/quedadas/plaza-catalunya.jpg')}}">
-                            </div>
-                            <div class="info_envent">
-                                <h3>Barcelona</h3>
-                                <span>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</span>
-                                <div class="event-buttons">
-                                    <button><img src="{{ asset('img/icons/checked.png') }}"></button>
-                                    <button><img src="{{ asset('img/icons/delete.png') }}"></button>
-                                </div>
-                            </div>
-                        </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
 

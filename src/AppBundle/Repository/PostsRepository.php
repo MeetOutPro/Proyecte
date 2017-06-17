@@ -20,21 +20,16 @@ class PostsRepository extends EntityRepository
           array_push($temas,$tema->getTema()->getId());
         }
 
-        $posts_db = $em->createQuery("SELECT p
-                                    FROM AppBundle:Posts p 
-                                    WHERE p.tema IN(:temas)")
+        $detalle_imagenes = $em->createQuery("SELECT  di
+                                    FROM AppBundle:Imagenes i
+                                    INNER JOIN AppBundle:DetalleImagen di
+                                    WITH i.id = di.imagen
+                                    INNER JOIN AppBundle:Posts p
+                                    WITH di.post = p.id
+                                    WHERE p.tema IN(:temas)
+                                    ORDER BY p.fechaPublicacion DESC")
                                     ->setParameter('temas',$temas)
                                     ->getResult();
-
-        $imagenes = $em->createQuery("SELECT  i
-                                    FROM AppBundle:Imagenes i")
-                                    ->getResult();
-
-        $detalle_imagenes = $em->createQuery("SELECT  di
-                                    FROM AppBundle:DetalleImagen di
-                                    WHERE di.post IN(:posts)")
-                                     ->setParameter('posts',$posts_db)
-                                     ->getResult();
 
         $posts = array();
 
@@ -72,20 +67,15 @@ class PostsRepository extends EntityRepository
 
         $id = $user->getId();
 
-         $posts_db = $em->createQuery("SELECT p
-                                    FROM AppBundle:Posts p 
-                                    WHERE p.creador = :user")
-            ->setParameter('user',$id)
-            ->getResult();
-
-        $imagenes = $em->createQuery("SELECT  i
-                                    FROM AppBundle:Imagenes i")
-            ->getResult();
-
         $detalle_imagenes = $em->createQuery("SELECT  di
-                                    FROM AppBundle:DetalleImagen di
-                                    WHERE di.post IN(:posts)")
-            ->setParameter('posts',$posts_db)
+                                    FROM AppBundle:Imagenes i
+                                    INNER JOIN AppBundle:DetalleImagen di
+                                    WITH i.id = di.imagen
+                                    INNER JOIN AppBundle:Posts p
+                                    WITH di.post = p.id
+                                    WHERE p.creador IN(:user)
+                                    ORDER BY p.fechaPublicacion DESC")
+            ->setParameter('user',$id)
             ->getResult();
 
         $posts = array();

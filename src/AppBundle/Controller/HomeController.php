@@ -21,6 +21,11 @@ class HomeController extends BaseController
 
     public function indexAction(Request $request)
     {
+        $user = $this->getUser();
+
+        if($user){
+            return $this->redirect("/dashboard");
+        }
 
         $form_register  = $this->registerAction($request);
 
