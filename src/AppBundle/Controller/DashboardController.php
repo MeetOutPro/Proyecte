@@ -40,6 +40,7 @@ class DashboardController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $user->followers = $em->getRepository('AppBundle:Seguidores')->get_followers($user);
 
         $posts = $em->getRepository('AppBundle:Posts')
             ->get_posts($user);

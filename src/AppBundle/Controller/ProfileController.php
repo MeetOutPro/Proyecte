@@ -29,6 +29,8 @@ class ProfileController extends Controller
 
         $user_profile->settema($user_temas);
 
+        $user_profile->followers = $em->getRepository('AppBundle:Seguidores')->get_followers($user_profile);
+
         $follow =  $em->getRepository('AppBundle:Seguidores')->RelationExistbyId($user_profile,$user);
 
         if($follow){

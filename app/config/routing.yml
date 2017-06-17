@@ -86,3 +86,8 @@ unjoineventProfile:
         path:      /unjoineventprofile/
         defaults:  { _controller: AppBundle:Profile:unjoinEventProfile }
         methods:  [POST]
+
+coinspage:
+        path: /coins/
+        defaults: {_controller: AppBundle:Coins:index}
+        methods: [GET,POST]
