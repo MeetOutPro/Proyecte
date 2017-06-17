@@ -35,6 +35,11 @@ newpost:
       defaults: { _controller: AppBundle:Dashboard:newPost }
       methods:  [POST]
 
+deletepost:
+      path:     /dashboard/deletepost
+      defaults: { _controller: AppBundle:Dashboard:deletePost }
+      methods:  [POST]
+
 newquedada:
       path:     /dashboard/newquedada
       defaults: { _controller: AppBundle:Dashboard:newQuedada }
