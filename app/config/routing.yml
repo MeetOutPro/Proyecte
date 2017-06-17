@@ -35,11 +35,6 @@ newpost:
       defaults: { _controller: AppBundle:Dashboard:newPost }
       methods:  [POST]
 
-deletepost:
-      path:     /dashboard/deletepost
-      defaults: { _controller: AppBundle:Dashboard:deletePost }
-      methods:  [POST]
-
 newquedada:
       path:     /dashboard/newquedada
       defaults: { _controller: AppBundle:Dashboard:newQuedada }
@@ -90,13 +85,4 @@ joineventProfile:
 unjoineventProfile:
         path:      /unjoineventprofile/
         defaults:  { _controller: AppBundle:Profile:unjoinEventProfile }
-<<<<<<< Updated upstream
         methods:  [POST]
-=======
-        methods:  [POST]
-
-coinspage:
-        path: /coins/
-        defaults: {_controller: AppBundle:Coins:index}
-        methods: [GET,POST]
->>>>>>> Stashed changes

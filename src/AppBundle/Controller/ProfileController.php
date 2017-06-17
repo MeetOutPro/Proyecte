@@ -29,7 +29,6 @@ class ProfileController extends Controller
 
         $user_profile->settema($user_temas);
 
-<<<<<<< Updated upstream
         $follow =  $em->getRepository('AppBundle:Seguidores')->RelationExistbyId($user_profile,$user);
 
         if($follow){
@@ -40,20 +39,6 @@ class ProfileController extends Controller
 
         $posts = $em->getRepository('AppBundle:Posts')->get_UserPosts($user_profile);
 
-=======
-        $user_profile->followers = $em->getRepository('AppBundle:Seguidores')->get_followers($user_profile);
-
-        $follow =  $em->getRepository('AppBundle:Seguidores')->RelationExistbyId($user_profile,$user);
-
-        if($follow){
-
-            $user->following = 1;
-
-        }
-
-        $posts = $em->getRepository('AppBundle:Posts')->get_UserPosts($user_profile);
-
->>>>>>> Stashed changes
         $quedadas =  $em->getRepository('AppBundle:Quedadas')->get_quedadaProfile($user_profile);
 
         foreach ($posts as $post){
