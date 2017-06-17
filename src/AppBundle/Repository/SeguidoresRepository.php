@@ -7,10 +7,27 @@ use Doctrine\ORM\EntityRepository;
 class SeguidoresRepository extends EntityRepository
 {
 
-    public function RelationExistbyId($id_tofollow,$id_follow){
-        $p=$this->getEntityManager()
-            ->createQuery('SELECT * FROM AppBundle:Seguidores WHERE user_a_seguir ='.$id_tofollow.' AND user_seguido = '.$id_follow)
-            ->getResult();
-        return;
+    public function RelationExistbyId($profile,$user){
+
+        $id_follow      = $user->getId();
+        $id_tofollow    = $profile->getId();
+
+        $em = $this->getEntityManager();
+
+        $relation = $em->createQuery("SELECT s
+                                      FROM AppBundle:Seguidores s
+                                      WHERE s.userSeguido =:follower AND s.userASeguir =:follow")
+                                      ->setParameter('follower',$id_follow)
+                                      ->setParameter('follow',$id_tofollow)
+                                      ->getResult();
+
+        if($relation){
+
+            return $relation;
+
+        }
+
+        return false;
     }
+
 }

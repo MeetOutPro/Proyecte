@@ -55,6 +55,7 @@ class RegistrationType extends AbstractType
             ))
             ->add('enabled',HiddenType::class,array('attr' => array('value' => 1)))
             ->add('tema',EntityType::class, array(
+                'required'  => true,
                 'label' => 'Provincia',
                 'class' => 'AppBundle:Temas',
                 'choice_label' => 'Nombre',

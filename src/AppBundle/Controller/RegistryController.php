@@ -22,8 +22,14 @@ class RegistryController extends BaseController
 
         $user_session = $session->get('user');
 
+        $user = $this->getUser();
+
         if($user_session == null){
             return $this->redirect('/');
+        }
+
+        if($user){
+            return $this->redirect('/dashboard');
         }
 
         $user = new User();
