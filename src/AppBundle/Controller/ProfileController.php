@@ -43,6 +43,8 @@ class ProfileController extends Controller
 
         $quedadas =  $em->getRepository('AppBundle:Quedadas')->get_quedadaProfile($user_profile);
 
+        $joinevents = $em->getRepository('AppBundle:Asistentes')->RelationExistbyArray($quedadas,$user);
+
         foreach ($posts as $post){
 
             if($post){
@@ -60,7 +62,16 @@ class ProfileController extends Controller
 
             if($quedada){
 
-                $quedada->joined = 1 ;
+                if($joinevents){
+                    foreach ($joinevents as $joinevent){
+
+                        if($quedada == $joinevent->getQuedada()){
+                            $quedada->joined = 1;
+                        }
+
+                    }
+                }
+
                 $quedada->setFechaQuedada( date_format($quedada->getFechaQuedada(),'Y-m-d H:i:s'));
 
                 if (strlen($quedada->getDescripcion()) > 20) {
