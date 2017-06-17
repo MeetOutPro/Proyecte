@@ -42,6 +42,7 @@ class DashboardController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $user->followers = $em->getRepository('AppBundle:Seguidores')->get_followers($user);
 
         $posts = $em->getRepository('AppBundle:Posts')
             ->get_posts($user);
@@ -145,6 +146,25 @@ class DashboardController extends Controller
 
         return  $form_post->createView();
 
+    }
+
+
+    function deletePostAction(Request $request){
+
+        $data = $request->request->all();
+
+        $post = $this->getDoctrine()->getRepository('AppBundle:Posts')->find($data['post']);
+
+        if($post){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($post);
+            $em->flush();
+
+            return new JsonResponse(true);
+        }
+
+        return new JsonResponse(false);
     }
 
     public function showPostAction($page)

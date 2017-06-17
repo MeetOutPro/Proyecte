@@ -37,10 +37,10 @@
                 </div>
                 <div class="people_profile">
                     <div>
-                        <h3>{{ user.creditos}}</h3>
+                        <h3>{{ user_profile.creditos}}</h3>
                     </div>
                     <div>
-                        <h3>10000</h3>
+                        <h3>{{  user_profile.followers[1] }}</h3>
                     </div>
                     <div>
                         <h3>1</h3>
@@ -88,6 +88,9 @@
                                                 </div>
                                                 <div>
                                                     <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
+                                                </div>
+                                                <div>
+                                                    <butto><img src="{{ asset('img/icons/coffe.png') }}"  }}></butto>
                                                 </div>
                                             </div>
                                         </div>

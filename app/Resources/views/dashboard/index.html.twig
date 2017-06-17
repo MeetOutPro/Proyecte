@@ -41,7 +41,7 @@
                         <h3>{{ user.creditos}}</h3>
                     </div>
                     <div>
-                        <h3>10000</h3>
+                        <h3>{{  user.followers[1] }}</h3>
                     </div>
                     <div>
                         <h3>1</h3>
@@ -213,6 +213,9 @@
                                             <div>
                                                 <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
                                             </div>
+                                            <div>
+                                                <butto><img src="{{ asset('img/icons/coffe.png') }}"  }}></butto>
+                                            </div>
                                          </div>
                                     </div>
                                     <div>
@@ -226,7 +229,7 @@
                                                 <i class="fa fa-cogs" aria-hidden="true"></i>
                                                 <ul class="submenu">
                                                     <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
-                                                    <li><i class="fa fa-trash" aria-hidden="true"></i></li>
+                                                    <li><button class="btn-deletePost" value="{{ post.id }}"><i class="fa fa-trash " aria-hidden="true"></i></button></li>
                                                 </ul>
                                             </li>
                                         </ul>

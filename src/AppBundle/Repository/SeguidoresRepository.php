@@ -28,6 +28,31 @@ class SeguidoresRepository extends EntityRepository
         }
 
         return false;
+<<<<<<< Updated upstream
+=======
+    }
+
+    public function get_followers($user){
+
+        $id = $user->getId();
+
+        $em = $this->getEntityManager();
+
+        $count = $em->createQuery("SELECT COUNT(s)
+                                      FROM AppBundle:Seguidores s
+                                      WHERE s.userASeguir =:id ")
+            ->setParameter('id',$id)
+            ->getResult();
+
+        if($count){
+
+            return $count[0];
+
+        }
+
+        return 0;
+
+>>>>>>> Stashed changes
     }
 
 }
