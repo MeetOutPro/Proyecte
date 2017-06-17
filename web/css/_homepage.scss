@@ -25,6 +25,22 @@ ul{
     transition: all 0.55s;
     border: none;
   }
+  .form-login{
+    button[type='submit']
+    {
+      background: white;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: #000000;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.75em 1.5em;
+      text-shadow: 1px 1px 1px #fff;
+      transition: all 0.55s;
+      border: none;
+    }
+  }
 
   .content {
     display: flex;
@@ -54,6 +70,7 @@ ul{
       padding: 3% 10% 1% 10%;
       background-color: $bgcolor-tr;
       border-bottom-left-radius: 50px;
+      margin-top:38px;
     }
 
     #hder .titleder {
@@ -138,7 +155,60 @@ ul{
     display: none;
   }
 
+  .menu-pestanyas-home{
+    display: flex;
+    align-items: center;
+    font-family:$font-stack;
 
+    li:first-child{
+      flex: 0.1;
+      font-size: 14px;
+      margin-right: -3px;
+    }
+    li:last-child{
+      flex: 0.1;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+
+  .pestanya-activa{
+    background: #247BA0;
+    font-family: "Montserrat", sans-serif;
+    border-radius: .2em;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.75em 1em;
+    transition: all 0.55s;
+    border: none;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+  }
+
+  .pestanya-default{
+    background: #f5f5f5;
+    font-family: "Montserrat", sans-serif;
+    border-radius: .2em;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.75em 1em;
+    box-shadow: 0px 3px 9px -1px black;
+    transition: all 0.55s;
+    border: none;
+  }
+
+  .contpestanyas{
+    margin-bottom: 30px;
+  }
+  .menu-pestanyas-home{
+    display: block;
+    position: absolute;
+  }
 
 
 
@@ -193,6 +263,23 @@ ul{
       text-shadow: 1px 1px 1px #fff;
       transition: all 0.55s;
       border:none;
+      width: 70%;
+      height: 45px;
+      font-size: 16px;
+    }
+
+    .btn-movil-isesion button{
+      background: #247BA0;
+      font-family: "Montserrat", sans-serif;
+      border-radius: .2em;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      box-shadow: 1px 0px 10px -2px black;
+      padding: 0.75em 1.5em;
+      transition: all 0.55s;
+      border: none;
       width: 70%;
       height: 45px;
       font-size: 16px;

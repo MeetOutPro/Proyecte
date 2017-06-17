@@ -4,15 +4,22 @@
     <div class="register">
         <div class="wrapper-register">
                 {{ form_start(form, {'method': 'post', 'action': path('registerpage')})}}
-                <section class="form-izq">
-                    {{ form_widget(form.tema) }}
-
-                </section>
-
                 <section class="form-der">
-                    {{ form_widget(form) }}
-                </section>
+                    {{ form_widget(form.tema) }}
+                    <div>
                     {{ form_widget(form.save) }}
+                    </div>
+                </section>
+
+                <section class="form-izq">
+                    <h1>Datos personales</h1>
+
+                    {{ form_widget(form) }}
+                    <div id="siguiente-reg">
+                       <button type="button">Continuar</button>
+                    </div>
+                </section>
+
                 {{ form_end(form) }}
         </div>
     </div>

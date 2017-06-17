@@ -25,17 +25,33 @@
                 <section id="hder">
                     <div class="btn-movil modal">
                         <div class="btn-movil-reg"><button type="button">Registrarse!</button></div>
-                        <div class="modal">
-                            <input id="modal__trigger" type="checkbox" />
-                            <label for="modal__trigger">Iniciar sesión</label>
-                        </div>
+                        <div class="btn-movil-isesion"><button type="button">Iniciar sesión</button></div>
                     </div>
+
+                    <div class="contpestanyas-home">
+                        <ul class="menu-pestanyas-home">
+                            <li class="p-registro"><i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i> Registrarse</li>
+                            <li class="p-login"><i class="fa fa-calendar-o fa-lg" aria-hidden="true"></i> Iniciar sesión</li>
+                        </ul>
+
+                    </div>
+
                     <div class="wrapper-hder">
-                        <div class="titleder"><h2 style="color:white;">Eres nuevo? Regístrate!</h2></div>
-                        <div id="wrapper-form">
-                            {{ form_start(form_register, {'method': 'post', 'action': path('registerhome')})}}
-                            {{ form_widget(form_register) }}
-                            {{ form_end(form_register) }}
+
+                        <div class="form-registro-home">
+                            <div class="titleder"><h2 style="color:white;">Eres nuevo? Regístrate!</h2></div>
+                            <div id="wrapper-form">
+                                {{ form_start(form_register, {'method': 'post', 'action': path('registerhome')})}}
+                                {{ form_widget(form_register) }}
+                                {{ form_end(form_register) }}
+                            </div>
+                        </div>
+
+                        <div class="form-login">
+                            <div class="titleder"><h2 style="color:white;">Inicia sesión!</h2></div>
+                            {{ form_start(form_login, {'method': 'post', 'action': path('login')})}}
+                            {{ form_widget(form_login) }}
+                            {{ form_end(form_login) }}
                         </div>
                     </div>
 
