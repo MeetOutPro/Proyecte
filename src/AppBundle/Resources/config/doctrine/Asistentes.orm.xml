@@ -4,10 +4,8 @@
           repository-class="AppBundle\Repository\AsistentesRepository">
     <indexes>
       <index name="FK_asistentes_user" columns="asistentes"/>
+      <index name="FK_asistentes_quedadas" columns="quedada"/>
     </indexes>
-    <unique-constraints>
-      <unique-constraint name="quedada" columns="quedada"/>
-    </unique-constraints>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>

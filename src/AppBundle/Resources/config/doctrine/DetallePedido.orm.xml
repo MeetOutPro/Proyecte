@@ -3,7 +3,7 @@
   <entity name="AppBundle\Entity\DetallePedido" table="detalle_pedido">
     <unique-constraints>
       <unique-constraint name="pedido" columns="pedido"/>
-      <unique-constraint name="credito" columns="credito"/>
+      <unique-constraint name="producto" columns="producto"/>
     </unique-constraints>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
@@ -19,9 +19,9 @@
         <join-column name="pedido" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="credito" target-entity="Creditos" fetch="LAZY">
+    <many-to-one field="producto" target-entity="Productos" fetch="LAZY">
       <join-columns>
-        <join-column name="credito" referenced-column-name="id"/>
+        <join-column name="producto" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>
