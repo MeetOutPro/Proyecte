@@ -75,19 +75,19 @@
                             </div>
                             <div class="event-buttons">
                                 {% if(quedada.joined is defined) %}
-                                    <button><img src="{{ asset('img/icons/error.png') }}"></button>
-                                    <button id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar " value="{{ quedada.id }}" >
+                                    <button aria-label="Cerrar evento"><img src="{{ asset('img/icons/error.png') }}"></button>
+                                    <button aria-label="Participar evento" id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar " value="{{ quedada.id }}" >
                                         <img src="{{ asset('img/icons/add-user.png') }}">
                                         <div><i class="fa fa-check" aria-hidden="true"></i></div>
                                     </button>
-                                    <button id="btn-participar_{{ quedada.id }}" class="btn-participar" value="{{ quedada.id }}" style="display: none"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
+                                    <button aria-label="Invitar usuario evento" id="btn-participar_{{ quedada.id }}" class="btn-participar" value="{{ quedada.id }}" style="display: none"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
                                 {% else %}
-                                    <button><img src="{{ asset('img/icons/error.png') }}"></button>
-                                    <button id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar" value="{{ quedada.id }}" style="display: none" >
+                                    <button aria-label="Cerrar evento"><img src="{{ asset('img/icons/error.png') }}"></button>
+                                    <button aria-label="No participar evento" id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar" value="{{ quedada.id }}" style="display: none" >
                                         <img src="{{ asset('img/icons/add-user.png') }}">
                                         <div><i class="fa fa-check" aria-hidden="true"></i></div>
                                     </button>
-                                    <button id="btn-participar_{{ quedada.id }}" class="btn-participar " value="{{ quedada.id }}"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
+                                    <button aria-label="Participar quedada" id="btn-participar_{{ quedada.id }}" class="btn-participar " value="{{ quedada.id }}"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
                                 {% endif %}
                                 <input type="hidden" value="{{ user.id }}" id="user_login">
                             </div>
@@ -142,8 +142,8 @@
 
                             <div class="publicar">
                                 <div> {{ form_widget(form_post.imagen) }}<i class="fa fa-camera fa-lg"  aria-hidden="true"></i></div>
-                                <div style="margin-right: 2%;"><button id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
-                                <div><button id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
+                                <div style="margin-right: 2%;"><button aria-label="Añadir iconos" id="addicons"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></button></div>
+                                <div><button aria-label="Añadir tags" id="addtags"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></button></div>
                                 <textarea class="tagarea"></textarea>
                                 <div>{{ form_widget(form_post.tema) }}</div>
                                 {{ form_widget(form_post.save) }}
@@ -219,7 +219,7 @@
                                          </div>
                                     </div>
                                     <div>
-                                        <a href="{{ path('showpost', { 'page': post.id })}}"><button>Ver Post</button></a>
+                                        <a href="{{ path('showpost', { 'page': post.id })}}"><button aria-label="Ver post">Ver Post</button></a>
                                     </div>
                                 </div>
                                 {% if(post.creador == user) %}
@@ -229,7 +229,7 @@
                                                 <i class="fa fa-cogs" aria-hidden="true"></i>
                                                 <ul class="submenu">
                                                     <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
-                                                    <li><button class="btn-deletePost" value="{{ post.id }}"><i class="fa fa-trash " aria-hidden="true"></i></button></li>
+                                                    <li><button aria-label="Borrar post" class="btn-deletePost" value="{{ post.id }}"><i class="fa fa-trash " aria-hidden="true"></i></button></li>
                                                 </ul>
                                             </li>
                                         </ul>
