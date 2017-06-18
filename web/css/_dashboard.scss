@@ -774,6 +774,11 @@
         a{
           text-decoration: none!important;
         }
+
+        a:visited{
+          text-decoration: none!important;
+          color: #247BA0!important;
+        }
       }
 
       .navmob-section:first-child{

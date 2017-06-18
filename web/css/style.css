@@ -1129,6 +1129,9 @@ footer {
         cursor: pointer; }
         .dashboardbdy .navigation-mobile .navmob-section a {
           text-decoration: none !important; }
+        .dashboardbdy .navigation-mobile .navmob-section a:visited {
+          text-decoration: none !important;
+          color: #247BA0 !important; }
       .dashboardbdy .navigation-mobile .navmob-section:first-child {
         border-left: none !important; }
     .dashboardbdy .navegation, .dashboardbdy .searchbox, .dashboardbdy .content_header li:nth-child(3) {
@@ -1680,6 +1683,9 @@ header .content_header > li:nth-child(4) img {
         height: 40px; }
         .profile-page-bdy .navigation-mobile .navmob-section a {
           text-decoration: none !important; }
+        .profile-page-bdy .navigation-mobile .navmob-section a:visited {
+          text-decoration: none !important;
+          color: #247BA0 !important; }
       .profile-page-bdy .navigation-mobile .navmob-section:first-child {
         border-left: none !important; }
     .profile-page-bdy .searchbox, .profile-page-bdy .content_header li:nth-child(3) {
