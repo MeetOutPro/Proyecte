@@ -313,17 +313,5 @@ $( document ).ready(function() {
         }
     });
 
-    $("#posts-responsive").click(function () {
-        $("#feed-profile").fadeIn(300);
-        $("#events-profile").fadeOut(0);
-        $("#events-responsive").css("border","none");
-        $(this).css("border-bottom","2px solid #247BA0");
-    })
 
-    $("#events-responsive").click(function () {
-        $("#events-profile").fadeIn(300);
-        $("#feed-profile").fadeOut(0);
-        $("#posts-responsive").css("border","none");
-        $(this).css("border-bottom","2px solid #247BA0");
-    })
 });
