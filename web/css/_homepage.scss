@@ -219,6 +219,10 @@ ul{
     .content{
       flex-direction: column;
     }
+
+    .menu-pestanyas-home{
+      display: none!important;
+    }
     form div:not(.buttonreg) input, .homepage form div:not(.buttonreg) label{
       position: relative;
     }
