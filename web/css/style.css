@@ -162,6 +162,8 @@ ul {
   @media only screen and (max-width: 767px) {
     .homepage .content {
       flex-direction: column; }
+    .homepage .menu-pestanyas-home {
+      display: none !important; }
     .homepage form div:not(.buttonreg) input, .homepage .homepage form div:not(.buttonreg) label {
       position: relative; }
     .homepage .content #hder .wrapper-hder {
