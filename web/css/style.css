@@ -1536,5 +1536,46 @@ header .content_header > li:nth-child(4) img {
           flex-grow: 2;
           height: 70px;
           border: 1px dashed black; }
+  @media only screen and (max-width: 767px) {
+    .profile-page-bdy .footer-home {
+      display: none; }
+    .profile-page-bdy .navigation-mobile {
+      font-family: "Montserrat", sans-serif;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: auto;
+      height: 60px;
+      z-index: 1;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ffffff;
+      box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px; }
+      .profile-page-bdy .navigation-mobile .navmob-section {
+        display: flex;
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        color: #247BA0;
+        border-left: 1px solid #247BA0;
+        height: 40px; }
+      .profile-page-bdy .navigation-mobile .navmob-section:first-child {
+        border-left: none !important; }
+    .profile-page-bdy .searchbox, .profile-page-bdy .content_header li:nth-child(3) {
+      display: none !important; }
+    .profile-page-bdy header .content_header {
+      height: 35px; }
+      .profile-page-bdy header .content_header li #logo {
+        width: 75px; }
+    .profile-page-bdy header .settings-menu {
+      display: none; }
+    .profile-page-bdy header .exit-menu {
+      text-align: right; }
+      .profile-page-bdy header .exit-menu img {
+        width: 30% !important; } }
 
 /*# sourceMappingURL=style.css.map */

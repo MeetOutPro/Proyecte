@@ -298,7 +298,7 @@ $( document ).ready(function() {
 
 
 
-
+    /* GUSTOS A LA HORA DE REGISTRARSE, ICONOS COMO CHECKBOX
     $(".register label").on("click",function(){
         var forlabel = $(this).attr("for");
         if($(".register #appbundle_user_tema #"+forlabel).is(':checked'))
@@ -312,6 +312,11 @@ $( document ).ready(function() {
             $("<img class='icono-gustos-yes' src='../img/icons/open-book-checked.png'/>").prependTo(".register label[for='appbundle_user_tema_1'] ");
         }
     });
+    */
+
+    
+
+    $("")
 
 
 });
