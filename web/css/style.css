@@ -520,6 +520,9 @@ footer {
     footer .footer-home li img {
       width: 70px; }
 
+.navigation-mobile {
+  display: none; }
+
 .p-activa-footer {
   background-color: #247ba0 !important;
   color: white !important;
@@ -537,8 +540,7 @@ footer {
   .home-head .header-home li img {
     width: 140px; }
   .home-head .header-home li:first-child {
-    text-align: left;
-    margin-left: 5%; }
+    text-align: center; }
   .home-head .header-home li:nth-child(3) {
     text-align: right;
     margin-right: 5%; }
@@ -1089,6 +1091,11 @@ footer {
       background-color: #ffffff;
       box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1);
       font-size: 14px; }
+      .dashboardbdy .navigation-mobile .p-activa-footer {
+        background-color: #247ba0 !important;
+        color: white !important;
+        border-radius: 10px !important;
+        transition: all 0.55s; }
       .dashboardbdy .navigation-mobile .navmob-section {
         display: flex;
         width: 30%;
@@ -1455,8 +1462,12 @@ header .content_header > li:nth-child(4) img {
             .profile-page-bdy .content .feed .content_feed .posts .post-row .post {
               width: 100%;
               display: flex;
-              align-items: center;
-              flex-direction: column; }
+              align-items: flex-start;
+              flex-direction: row; }
+              .profile-page-bdy .content .feed .content_feed .posts .post-row .post img {
+                width: 75px; }
+              .profile-page-bdy .content .feed .content_feed .posts .post-row .post div:first-child {
+                align-self: flex-start; }
               .profile-page-bdy .content .feed .content_feed .posts .post-row .post .post-content {
                 display: flex;
                 margin-left: 2%;
@@ -1478,11 +1489,12 @@ header .content_header > li:nth-child(4) img {
                       width: 70px;
                       height: 70px; } }
               .profile-page-bdy .content .feed .content_feed .posts .post-row .post .post-content .post-info {
-                display: flex;
-                margin-top: 5%; }
+                display: flex; }
                 .profile-page-bdy .content .feed .content_feed .posts .post-row .post .post-content .post-info img {
                   width: 30px;
                   height: 30px; }
+                .profile-page-bdy .content .feed .content_feed .posts .post-row .post .post-content .post-info div {
+                  margin-top: 75px !important; }
               .profile-page-bdy .content .feed .content_feed .posts .post-row .post > div:nth-child(2) {
                 width: 100%;
                 text-align: right;
