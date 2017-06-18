@@ -7,7 +7,7 @@
             <li>
                 <div class="searchbox" ">
                     <input type="text"/>
-                    <button>
+                    <button aria-label="Buscar">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -17,8 +17,8 @@
                 <a href="#"><img src="{{ asset('img/icons/icon-coins.png') }}" alt="Créditos"/></a>
             </li>
             <li>
-                <button><img src="{{ asset('img/icons/icon-settings.png') }}" alt="Configuración"/></button>
-                <a href="{{ path('fos_user_security_logout') }}"> <button><img src="{{ asset('img/icons/exit.png') }}" alt="MeetOut logo"/></button></a>
+                <button class="settings-menu"><img src="{{ asset('img/icons/icon-settings.png') }}" alt="Configuración"/></button>
+                <a href="{{ path('fos_user_security_logout') }}"> <button class="exit-menu"><img src="{{ asset('img/icons/exit.png') }}" alt="MeetOut logo"/></button></a>
             </li>
         </ul>
 

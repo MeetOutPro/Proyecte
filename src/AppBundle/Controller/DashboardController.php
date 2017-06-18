@@ -29,7 +29,7 @@ class DashboardController extends Controller
         $user = $this->getUser();
 
         if(!$user){
-           return $this->redirect('/');
+            return $this->redirect('/');
         }
 
         $user_temas = $this->getDoctrine()->getRepository('AppBundle:UserTemas')->findBy(array('user'=>$user->getId()));
@@ -53,8 +53,8 @@ class DashboardController extends Controller
 
         foreach ($posts as $post){
             if($post){
-                if (strlen($post->getDescripcion()) > 200)
-                    $post->setDescripcion(substr($post->getDescripcion(), 0, 200) . '...');
+                if (strlen($post->getDescripcion()) > 100)
+                    $post->setDescripcion(substr($post->getDescripcion(), 0, 100) . '...');
             }
         }
 

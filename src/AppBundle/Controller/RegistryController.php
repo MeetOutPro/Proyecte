@@ -15,9 +15,7 @@ use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
 class RegistryController extends BaseController
 {
-    /**
-     * @Route("/register", name="registerpage")
-     */
+
     public function registerAction(Request $request)
     {
         $session = $request->getSession();

@@ -22,8 +22,8 @@ class QuedadasRepository extends EntityRepository
                                     WITH di.quedada = q.id
                                     WHERE q.municipio IN(:provincia)
                                     ORDER BY q.fechaQuedada ASC")
-                                    ->setParameter('provincia',$provincia_user)
-                                     ->getResult();
+            ->setParameter('provincia',$provincia_user)
+            ->getResult();
 
         $quedadas = array();
 

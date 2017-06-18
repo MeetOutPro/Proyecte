@@ -36,7 +36,9 @@ class AsistentesRepository extends EntityRepository
         $quedadas = array();
 
         foreach ($events as $event){
-            array_push($quedadas,$event->getId());
+            if($event){
+                array_push($quedadas,$event->getId());
+            }
         }
 
         $em = $this->getEntityManager();

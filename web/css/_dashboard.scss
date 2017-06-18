@@ -1,4 +1,5 @@
 .dashboardbdy {
+  
   background-color:#f5f5f5;
   * {
     margin: 0;
@@ -14,6 +15,10 @@
     display: flex;
     margin-bottom: 2%;
 
+    .fa-camera{
+      color: #247BA0
+    }
+
     .navegation {
       width: 30%;
       display: flex;
@@ -25,6 +30,10 @@
       align-items: flex-end;
       flex-direction: column;
       width: 70%;
+    }
+
+    .tag-box{
+      display: none!important;
     }
   }
 
@@ -50,7 +59,10 @@
       border-radius: 2px;
     }
 
-    .content_feed
+    .content_feed {
+      width: 95%;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
       .posts {
         width: 100%;
         height: 900px;
@@ -65,23 +77,26 @@
           background-color: #fff;
           border-radius: 2px;
           display: flex;
-          > .settings{
-            >ul{
+          @media screen and (max-width: 767px) {
+            height: 200px;
+          }
+          > .settings {
+            > ul {
               position: relative;
-              >li{
-                >i{
+              > li {
+                > i {
                   cursor: pointer;
                 }
-                >ul{
+                > ul {
                   background-color: #fff;
                   border-radius: 2px;
                   border: 1px solid #c6c6c6;
-                  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+                  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
                   display: none;
                   position: absolute;
-                  right:0;
+                  right: 0;
                   padding: 20px;
-                  li{
+                  li {
                     margin-top: 10%;
                     margin-bottom: 10%;
                     cursor: pointer;
@@ -93,27 +108,39 @@
           .post {
             width: 100%;
             display: flex;
-            align-items: center;
-            div {
-              width: 15%;
+            align-items: flex-start;
+            flex-direction: row;
+            @media screen and (max-width: 767px) {
+              flex-direction: column;
+            }
+            img{
+              width: 75px;
+            }
+            div:first-child{
+              align-self: flex-start;
+            }
+            .post-content{
+              display: flex;
               margin-left: 2%;
               margin-right: 2%;
+              width: 100%;
+              @media screen and (max-width: 767px) {
+                width:100%;
+              }
+              >div:first-child{
+                width: 25%;
+              }
+              >div:nth-child(2){
+                width:75%;
+              }
               img {
                 border-radius: 100%;
                 width: 100px;
-                height:100px;
-              }
-              button {
-                background: #247BA0;
-                font-family: "Montserrat", sans-serif;
-                border-radius: .2em;
-                color: white;
-                cursor: pointer;
-                display: inline-block;
-                font-weight: bold;
-                padding: 0.75em 1.5em;
-                transition: all 0.55s;
-                border: none;
+                height: 100px;
+                @media screen and (max-width: 767px) {
+                  width: 70px;
+                  height: 70px;
+                }
               }
 
             }
@@ -121,25 +148,44 @@
               align-self: flex-end;
             }
             .post-content {
-              >div {
-                width: 100% !important;
-              }
               .post-info {
                 display: flex;
-                margin-top: 5%;
+
                 img {
                   width: 30px;
-                  height:30px;
+                  height: 30px;
+                }
+
+                div{
+                  margin-top: 5%;
                 }
               }
             }
             div:nth-child(2) {
               width: 70%;
             }
+            button {
+              background: #247BA0;
+              font-family: "Montserrat", sans-serif;
+              border-radius: .2em;
+              color: white;
+              cursor: pointer;
+              display: inline-block;
+              font-weight: bold;
+              padding: 0.75em 1.5em;
+              transition: all 0.55s;
+              border: none;
+              @media screen and (max-width: 767px) {
+                width: 100%;
+              }
+            }
+          }
+          .settings{
+            height:100%;
           }
         }
       }
-
+    }
   }
 
   .navegation .profile {
@@ -232,8 +278,7 @@
         justify-content: space-around;
 
         button {
-          width: 60px;
-
+          width: 100%;
           background-color: transparent;
           border: 0;
           color: #247BA0;
@@ -259,6 +304,7 @@
     .content_events .info_envent{
       margin-left: 5%;
       margin-right: 5%;
+      width: 70%;
 
       .info_site{
         margin-top: 5%;
@@ -573,6 +619,209 @@
       flex-direction: column;
     }
   }
+  
+  .navigation-mobile{
+    display: none;
+  }
+
+
+  @media only screen and (max-width: 767px) {
+    .footer-home{
+      display: none;
+    }
+
+    .events{
+      margin-top: -20px;
+    }
+    .content_events{
+      overflow: auto;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      font-family: 'Roboto', sans-serif;
+      color: #247BA0;
+      width: 100%;
+      height: 500px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      justify-content: center;
+      background-color: white;
+
+      h1{
+        display: none!important;
+      }
+    }
+
+    .content_events .event{
+      padding: 2%;
+      height:33%;
+      display: flex;
+      align-items: center;
+      text-align: justify;
+      .event-buttons{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+
+        button {
+          width: 60px;
+
+          background-color: transparent;
+          border: 0;
+          color: #247BA0;
+          cursor: pointer;
+          img{
+            width:20px;
+            height:20px;
+          }
+
+
+
+        }
+
+      }
+    }
+
+    .content_events img{
+      width:80px;
+      height:80px;
+      border-radius: 100px;
+    }
+
+    .content_events .info_envent{
+      margin-left: 5%;
+      margin-right: 5%;
+
+      .info_site{
+        margin-top: 5%;
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        div:first-child{
+          margin-right: 5%;
+          .profile-quedada{
+            cursor: pointer;
+            width:20px;
+            height: 20px;
+            margin-right: 5%;
+          }
+        }
+
+      }
+    }
+
+    .content_events .info_envent button{
+      background-color: transparent;
+      border: 0;
+    }
+
+    .content_events .info_envent .event-buttons{
+      text-align: right;
+    }
+
+    .content_events .info_envent button img{
+      width:20px;
+      height:20px;
+      cursor: pointer;
+    }
+
+
+
+
+
+
+    .menu-pestanyas{
+      display: none!important;
+    }
+    .navigation-mobile{
+      font-family:$font-stack;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: auto;
+      height: 60px;
+      z-index: 1;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ffffff;
+      box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+
+      .p-activa-footer{
+        background-color: #247ba0!important;
+        color: white!important;
+        border-radius: 10px!important;
+        transition: all 0.55s;
+      }
+
+
+      .navmob-section{
+        display: flex;
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        color: #247BA0;
+        border-left: 1px solid #247BA0;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .navmob-section:first-child{
+        border-left: none!important;
+      }
+    }
+
+    .navegation, .searchbox, .content_header li:nth-child(3){
+      display: none!important;
+    }
+
+    header {
+      .content_header{
+        height: 35px;
+
+        li #logo{
+          width:75px;
+        }
+      }
+      .settings-menu{
+        display: none;
+      }
+
+      .exit-menu{
+        text-align: right;
+        img{
+          width: 30%!important;
+        }
+      }
+
+    }
+
+    .content {
+      .feed {
+        overflow: hidden;
+        width: 95%;
+      }
+
+      .menu-pestanyas li:first-child {
+        flex: 1;
+      }
+
+      .menu-pestanyas li:last-child {
+        flex: 1;
+      }
+
+      .fa-camera {
+        color: #247BA0
+      }
+      .publicar .publicarpost {
+        margin-left: 1%;
+      }
+    }
+  }
+
 
 }
 

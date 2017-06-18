@@ -69,7 +69,7 @@
                                     <div>
                                         <p>Provincia: {{ quedada.municipio.nombre }}</p>
                                         <p>Lugar: {{ quedada.lugar }}</p>
-                                        <p>Dia y hora: {{quedada.fechaQuedada }}</p>
+                                        <p>Dia y hora: </p>
                                     </div>
                                 </div>
                             </div>
@@ -94,30 +94,6 @@
                         </div>
                     {% endif %}
                     {% endfor %}
-                </div>
-            </div>
-
-            <div class="suggestions">
-                <h1>SUGUERENCIAS</h1>
-                <div class="content_suggestions">
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                </div>
-                <div class="content_suggestions">
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
-                    <div class="suggestion"></div>
                 </div>
             </div>
         </aside>
@@ -191,29 +167,33 @@
                 </div>
 
                 <div class="posts">
-                        {% for post in posts %}
-                            {% if(post is not null) %}
+                    {% for post in posts %}
+                        {% if(post is not null) %}
                             <div class="post-row">
-
                                 <div class="post">
-                                    <div>
-                                        <img src="{{ asset(post.imagen[0].ruta) }}">
-                                    </div>
                                     <div class="post-content">
                                         <div>
-                                            <h2>{{ post.titulo }}</h2>
+                                            <img src="{{ asset(post.imagen[0].ruta) }}">
                                         </div>
                                         <div>
-                                            <span>{{ post.descripcion }}</span>
+                                            <div>
+                                                <h2>{{ post.titulo }}</h2>
+                                            </div>
+                                            <div>
+                                                <span>{{ post.descripcion }}</span>
+                                            </div>
+                                            <div class="post-info">
+                                                <div>
+                                                    <a href="{{ path('profilepage', { 'page': post.creador.id })}}"><img src="{{ asset(post.creador.imagen.ruta) }}" ></a>
+                                                </div>
+                                                <div>
+                                                    <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
+                                                </div>
+                                                <div>
+                                                    <butto><img src="{{ asset('img/icons/coffe.png') }}"  }}></butto>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="post-info">
-                                            <div>
-                                                <a href="{{ path('profilepage', { 'page': post.creador.id })}}"><img src="{{ asset(post.creador.imagen.ruta) }}" ><span>@{{ post.creador.username }}</span></a>
-                                            </div>
-                                            <div>
-                                                <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
-                                            </div>
-                                         </div>
                                     </div>
                                     <div>
                                         <a href="{{ path('showpost', { 'page': post.id })}}"><button>Ver Post</button></a>
@@ -234,8 +214,8 @@
 
                                 {% endif %}
                             </div>
-                            {% endif %}
-                        {% endfor %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
 
             </div>
