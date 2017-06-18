@@ -468,6 +468,16 @@
         color: #247BA0;
         border-left: 1px solid #247BA0;
         height: 40px;
+
+        a{
+          text-decoration: none!important;
+          color: #247BA0!important;
+        }
+
+        a:visited{
+          text-decoration: none!important;
+          color: #247BA0!important;
+        }
       }
 
       .navmob-section:first-child{
