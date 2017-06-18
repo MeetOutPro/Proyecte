@@ -733,7 +733,7 @@ footer {
         height: 100%;
         justify-content: space-around; }
         .dashboardbdy .navegation .events .content_events .event .event-buttons button {
-          width: 60px;
+          width: 100%;
           background-color: transparent;
           border: 0;
           color: #247BA0;
@@ -747,7 +747,8 @@ footer {
       border-radius: 100px; }
     .dashboardbdy .navegation .events .content_events .info_envent {
       margin-left: 5%;
-      margin-right: 5%; }
+      margin-right: 5%;
+      width: 70%; }
       .dashboardbdy .navegation .events .content_events .info_envent .info_site {
         margin-top: 5%;
         font-size: 0.8em;
