@@ -59,7 +59,10 @@
       border-radius: 2px;
     }
 
-    .content_feed
+    .content_feed {
+      width: 95%;
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
       .posts {
         width: 100%;
         height: 900px;
@@ -74,23 +77,26 @@
           background-color: #fff;
           border-radius: 2px;
           display: flex;
-          > .settings{
-            >ul{
+          @media screen and (max-width: 767px) {
+            height: 200px;
+          }
+          > .settings {
+            > ul {
               position: relative;
-              >li{
-                >i{
+              > li {
+                > i {
                   cursor: pointer;
                 }
-                >ul{
+                > ul {
                   background-color: #fff;
                   border-radius: 2px;
                   border: 1px solid #c6c6c6;
-                  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+                  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
                   display: none;
                   position: absolute;
-                  right:0;
+                  right: 0;
                   padding: 20px;
-                  li{
+                  li {
                     margin-top: 10%;
                     margin-bottom: 10%;
                     cursor: pointer;
@@ -102,53 +108,87 @@
           .post {
             width: 100%;
             display: flex;
-            align-items: center;
-            div {
-              width: 15%;
+            align-items: flex-start;
+            flex-direction: row;
+            @media screen and (max-width: 767px) {
+              flex-direction: column;
+            }
+            img{
+              width: 75px;
+            }
+            div:first-child{
+              align-self: flex-start;
+            }
+            .post-content{
+              display: flex;
               margin-left: 2%;
               margin-right: 2%;
+              width: 100%;
+              @media screen and (max-width: 767px) {
+                width:100%;
+              }
+              >div:first-child{
+                width: 25%;
+              }
+              >div:nth-child(2){
+                width:75%;
+              }
               img {
                 border-radius: 100%;
                 width: 100px;
-                height:100px;
-              }
-              button {
-                background: #247BA0;
-                font-family: "Montserrat", sans-serif;
-                border-radius: .2em;
-                color: white;
-                cursor: pointer;
-                display: inline-block;
-                font-weight: bold;
-                padding: 0.75em 1.5em;
-                transition: all 0.55s;
-                border: none;
+                height: 100px;
+                @media screen and (max-width: 767px) {
+                  width: 70px;
+                  height: 70px;
+                }
               }
 
             }
-            > div:nth-child(3){
-              align-self: flex-end;
-            }
             .post-content {
-              >div {
-                width: 100% !important;
-              }
               .post-info {
                 display: flex;
-                margin-top: 5%;
+
                 img {
                   width: 30px;
-                  height:30px;
+                  height: 30px;
+                }
+
+                div{
+                  margin-top: 5%;
                 }
               }
             }
-            >div:nth-child(2) {
-              width: 70%;
+            >div:nth-child(2){
+              width:25%;
+              text-align: right;
+              margin-top: 5%;
+              align-self: flex-end;
+              @media screen and (max-width: 767px) {
+                width: 100%;
+              }
             }
+            button {
+              background: #247BA0;
+              font-family: "Montserrat", sans-serif;
+              border-radius: .2em;
+              color: white;
+              cursor: pointer;
+              display: inline-block;
+              font-weight: bold;
+              padding: 0.75em 1.5em;
+              transition: all 0.55s;
+              border: none;
+              @media screen and (max-width: 767px) {
+                width: 100%;
+              }
+            }
+          }
+          .settings{
+            height:100%;
           }
         }
       }
-
+    }
   }
 
   .navegation .profile {

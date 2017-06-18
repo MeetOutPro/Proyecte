@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Asistentes;
 use AppBundle\Entity\DetalleImagen;
 use AppBundle\Entity\DetalleImagenQuedada;
 use AppBundle\Entity\Imagenes;
@@ -14,6 +15,7 @@ use AppBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class DashboardController extends Controller
@@ -27,7 +29,7 @@ class DashboardController extends Controller
         $user = $this->getUser();
 
         if(!$user){
-            $this->redirect('/');
+            return $this->redirect('/');
         }
 
         $user_temas = $this->getDoctrine()->getRepository('AppBundle:UserTemas')->findBy(array('user'=>$user->getId()));
@@ -48,15 +50,30 @@ class DashboardController extends Controller
         $quedadas = $em->getRepository('AppBundle:Quedadas')
             ->get_quedadas($user);
 
+        $joinevents = $em->getRepository('AppBundle:Asistentes')->RelationExistbyArray($quedadas,$user);
+
         foreach ($posts as $post){
             if($post){
-                if (strlen($post->getDescripcion()) > 200)
-                    $post->setDescripcion(substr($post->getDescripcion(), 0, 200) . '...');
+                if (strlen($post->getDescripcion()) > 100)
+                    $post->setDescripcion(substr($post->getDescripcion(), 0, 100) . '...');
             }
         }
 
         foreach ($quedadas as $quedada){
             if($quedada){
+
+                if($joinevents){
+                    foreach ($joinevents as $joinevent){
+
+                        if($quedada == $joinevent->getQuedada()){
+                            $quedada->joined = 1;
+                        }
+
+                    }
+                }
+
+                $quedada->setFechaQuedada( date_format($quedada->getFechaQuedada(),'Y-m-d H:i:s'));
+
                 if (strlen($quedada->getDescripcion()) > 50)
                     $quedada->setDescripcion(substr($quedada->getDescripcion(), 0, 50) . '...');
             }
@@ -190,8 +207,6 @@ class DashboardController extends Controller
             $em->persist($quedada);
             $em->flush();
 
-            $em = $this->getDoctrine()->getManager();
-
             foreach ( $inputs->getimagen() as $imagen){
 
                 $imagen_obj = new Imagenes();
@@ -210,11 +225,70 @@ class DashboardController extends Controller
                 $em->flush();
             }
 
+            $asistente = new Asistentes();
+            $asistente->setQuedada($quedada);
+            $asistente->setAsistentes($user);
+            $em->persist($asistente);
+            $em->flush();
 
             return $this->redirect('/dashboard/');
         }
 
         return  $form_quedada->createView();
+    }
+
+    public function joinEventAction(Request $request){
+
+        $data = $request->request->all();
+
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($data['user']);
+
+        $event = $this->getDoctrine()->getRepository('AppBundle:Quedadas')->find($data['event']);
+
+        $join = $this->getDoctrine()->getRepository('AppBundle:Asistentes')
+            ->RelationExistbyId($event,$user);
+
+        if(!$join){
+
+            $joining = new Asistentes();
+
+            $joining->setAsistentes($user);
+
+            $joining->setQuedada($event);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($joining);
+            $em->flush();
+
+            return new JsonResponse(true);
+        }
+
+        return new JsonResponse(false);
+
+    }
+
+    public function unjoinEventAction(Request $request){
+
+        $data = $request->request->all();
+
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($data['user']);
+
+        $event = $this->getDoctrine()->getRepository('AppBundle:Quedadas')->find($data['event']);
+
+        $join = $this->getDoctrine()->getRepository('AppBundle:Asistentes')
+            ->RelationExistbyId($event,$user);
+
+        if($join){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($join[0]);
+            $em->flush();
+
+            return new JsonResponse(true);
+        }
+
+        return new JsonResponse(false);
+
     }
 
 

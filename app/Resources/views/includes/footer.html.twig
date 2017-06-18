@@ -12,7 +12,7 @@
 
     <div class="navigation-mobile">
         <ul class="navmob-section home-btn">
-            <li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Inicio</li>
+            <a href="{{ path('dashboardpage')}}"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Inicio</li></a>
         </ul>
 
         <ul class="navmob-section events-btn">
@@ -24,7 +24,7 @@
         </ul>
 
         <ul class="navmob-section profile-btn">
-            <li><i class="fa fa-user fa-lg" aria-hidden="true"></i> Perfil</li>
+            <a href="{{ path('profilepage', { 'page': user.id })}}"><li><i class="fa fa-user fa-lg" aria-hidden="true"></i> Perfil</li></a>
         </ul>
 
     </div>

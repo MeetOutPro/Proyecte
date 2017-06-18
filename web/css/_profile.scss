@@ -143,12 +143,7 @@
         width: 95%;
         background-color: white;
         box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-        @media screen and (max-width: 767px) {
-          width: 100%;
-        }
         .posts {
-
-
           width: 100%;
           height: 900px;
           overflow: auto;
@@ -195,6 +190,9 @@
               display: flex;
               align-items: flex-start;
               flex-direction: row;
+              @media screen and (max-width: 767px) {
+                flex-direction: column;
+              }
                 img{
                   width: 75px;
                 }
@@ -236,14 +234,18 @@
                   }
 
                   div{
-                    margin-top: 75px !important;
+                    margin-top: 5%;
                   }
                 }
               }
               >div:nth-child(2){
-                width:100%;
+                width:25%;
                 text-align: right;
                 margin-top: 5%;
+                align-self: flex-end;
+                @media screen and (max-width: 767px) {
+                  width: 100%;
+                }
               }
               button {
                 background: #247BA0;
@@ -274,8 +276,9 @@
       flex-direction: column;
       align-items: flex-end;
       @media screen and (max-width: 767px) {
-        width: 100%;
+        width: 95%;
         display: none;
+        align-self: center;
       }
 
       .events {
@@ -305,6 +308,8 @@
           background-color: white;
           @media screen and (max-width: 767px) {
             padding-top: 5%;
+            width: 95%;
+            align-self: center;
           }
         }
 
