@@ -232,8 +232,7 @@
         justify-content: space-around;
 
         button {
-          width: 60px;
-
+          width: 100%;
           background-color: transparent;
           border: 0;
           color: #247BA0;
@@ -259,6 +258,7 @@
     .content_events .info_envent{
       margin-left: 5%;
       margin-right: 5%;
+      width: 70%;
 
       .info_site{
         margin-top: 5%;
