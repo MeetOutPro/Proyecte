@@ -520,6 +520,12 @@ footer {
     footer .footer-home li img {
       width: 70px; }
 
+.p-activa-footer {
+  background-color: #247ba0 !important;
+  color: white !important;
+  border-radius: 10px !important;
+  transition: all 0.55s; }
+
 .home-head .header-home {
   background-color: #247BA0;
   display: flex;
@@ -1083,11 +1089,6 @@ footer {
       background-color: #ffffff;
       box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1);
       font-size: 14px; }
-      .dashboardbdy .navigation-mobile .p-activa-footer {
-        background-color: #247ba0 !important;
-        color: white !important;
-        border-radius: 10px !important;
-        transition: all 0.55s; }
       .dashboardbdy .navigation-mobile .navmob-section {
         display: flex;
         width: 30%;

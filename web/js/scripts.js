@@ -311,11 +311,12 @@ $( document ).ready(function() {
 
 
     $(".navmob-section.home").addClass("p-activa-footer");
-
     $(".navigation-mobile > ul").on("click",function () {
         $(".navigation-mobile > ul").removeClass("p-activa-footer");
         $(this).addClass("p-activa-footer");
-        if($(this).hasClass("events-btn"))
+
+
+        if($(this).hasClass("events-btn") && $("body").hasClass("dashboardbdy"))
         {
             $(".new_post").css("display","none");
             $(".new_event").css("display","block");
@@ -324,7 +325,7 @@ $( document ).ready(function() {
             $(".events").css("display","block");
 
 
-        }else if($(this).hasClass("home-btn")){
+        }else if($(this).hasClass("home-btn") && $("body").hasClass("dashboardbdy")){
             $(".new_post").css("display","block");
             $(".new_event").css("display","none");
 
