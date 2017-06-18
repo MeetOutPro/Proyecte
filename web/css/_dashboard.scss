@@ -770,6 +770,10 @@
         border-left: 1px solid #247BA0;
         height: 40px;
         cursor: pointer;
+
+        a{
+          text-decoration: none!important;
+        }
       }
 
       .navmob-section:first-child{
