@@ -61,36 +61,47 @@
                         <input type="hidden" value="{{ user.id }}" id="user_login">
                     </div>
                 {% endif %}
+                <div class="menu-responsive">
+                    <ul>
+                        <li id="posts-responsive">
+                            Posts
+                        </li>
+                        <li id="events-responsive">
+                            Eventos
+                        </li>
+                    </ul>
+                </div>
             </aside>
 
 
-            <section class="feed">
+            <section id="feed-profile" class="feed">
                 <div class="content_feed">
                     <div class="posts">
                         {% for post in posts %}
                             {% if(post is not null) %}
                                 <div class="post-row">
-
                                     <div class="post">
-                                        <div>
-                                            <img src="{{ asset(post.imagen[0].ruta) }}">
-                                        </div>
                                         <div class="post-content">
                                             <div>
-                                                <h2>{{ post.titulo }}</h2>
+                                                <img src="{{ asset(post.imagen[0].ruta) }}">
                                             </div>
                                             <div>
-                                                <span>{{ post.descripcion }}</span>
-                                            </div>
-                                            <div class="post-info">
                                                 <div>
-                                                    <a href="{{ path('profilepage', { 'page': post.creador.id })}}"><img src="{{ asset(post.creador.imagen.ruta) }}" ><span>@{{ post.creador.username }}</span></a>
+                                                    <h2>{{ post.titulo }}</h2>
                                                 </div>
                                                 <div>
-                                                    <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
+                                                    <span>{{ post.descripcion }}</span>
                                                 </div>
-                                                <div>
-                                                    <butto><img src="{{ asset('img/icons/coffe.png') }}"  }}></butto>
+                                                <div class="post-info">
+                                                    <div>
+                                                        <a href="{{ path('profilepage', { 'page': post.creador.id })}}"><img src="{{ asset(post.creador.imagen.ruta) }}" ></a>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{{ asset(post.tema.imagen.ruta) }}"  }}>
+                                                    </div>
+                                                    <div>
+                                                        <butto><img src="{{ asset('img/icons/coffe.png') }}"  }}></butto>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,10 +131,10 @@
             </section>
 
 
-            <section class="profile-right">
+            <section id="events-profile" class="profile-right">
                 <div class="events">
-                    <h1>TUS EVENTOS</h1>
                     <div class="content_events">
+                        <h1>EVENTOS</h1>
                         {% for quedada in quedadas %}
                             {% if(quedada is not null) %}
                                 <div class="event">
