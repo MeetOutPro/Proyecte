@@ -300,13 +300,9 @@ ul{
     .btn-isesionpc{
       display: none;
     }
-  }
-}
 
-
-
-@media only screen and (max-width: 767px) {
-  footer, footer .footer-home{
-    display: none!important;
+    footer, footer .footer-home{
+      display: none!important;
+    }
   }
 }
