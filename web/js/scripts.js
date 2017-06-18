@@ -9,12 +9,6 @@ $( document ).ready(function() {
             var heightfinal = heightw - (heighth + heightf);
         }
 
-
-
-        console.log($( window ).height());
-        console.log(heighth);
-        console.log(heightf);
-        console.log(heightw);
         $(".content").css("height",heightfinal+"px");
         $(".register").css("height",heightfinal+"px");
 
@@ -314,9 +308,29 @@ $( document ).ready(function() {
     });
     */
 
-    
 
-    $("")
 
+    $(".navmob-section.home").addClass("p-activa-footer");
+
+    $(".navigation-mobile > ul").on("click",function () {
+        $(".navigation-mobile > ul").removeClass("p-activa-footer");
+        $(this).addClass("p-activa-footer");
+        if($(this).hasClass("events-btn"))
+        {
+            $(".new_post").css("display","none");
+            $(".new_event").css("display","block");
+            $(".posts, .Outstanding").css("display","none");
+            $(".events").insertAfter($(".posts"));
+            $(".events").css("display","block");
+
+
+        }else if($(this).hasClass("home-btn")){
+            $(".new_post").css("display","block");
+            $(".new_event").css("display","none");
+
+            $(".events").css("display","none");;
+            $(".posts, .Outstanding").css("display","block");
+        }
+    });
 
 });
