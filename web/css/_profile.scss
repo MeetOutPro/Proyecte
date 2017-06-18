@@ -160,6 +160,9 @@
             background-color: #fff;
             border-radius: 2px;
             display: flex;
+            @media screen and (max-width: 400px) {
+              height: 200px;
+            }
             > .settings {
               > ul {
                 position: relative;
@@ -228,6 +231,7 @@
               >div:nth-child(2){
                 width:100%;
                 text-align: right;
+                margin-top: 5%;
               }
             button {
               background: #247BA0;
