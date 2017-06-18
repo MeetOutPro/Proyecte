@@ -69,27 +69,12 @@
                                     <div>
                                         <p>Provincia: {{ quedada.municipio.nombre }}</p>
                                         <p>Lugar: {{ quedada.lugar }}</p>
-                                        <p>Dia y hora: {{quedada.fechaQuedada }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="event-buttons">
-                                {% if(quedada.joined is defined) %}
-                                    <button><img src="{{ asset('img/icons/error.png') }}"></button>
-                                    <button id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar " value="{{ quedada.id }}" >
-                                        <img src="{{ asset('img/icons/add-user.png') }}">
-                                        <div><i class="fa fa-check" aria-hidden="true"></i></div>
-                                    </button>
-                                    <button id="btn-participar_{{ quedada.id }}" class="btn-participar" value="{{ quedada.id }}" style="display: none"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
-                                {% else %}
-                                    <button><img src="{{ asset('img/icons/error.png') }}"></button>
-                                    <button id="btn-noparticipar_{{quedada.id}}" class="btn-noparticipar" value="{{ quedada.id }}" style="display: none" >
-                                        <img src="{{ asset('img/icons/add-user.png') }}">
-                                        <div><i class="fa fa-check" aria-hidden="true"></i></div>
-                                    </button>
-                                    <button id="btn-participar_{{ quedada.id }}" class="btn-participar " value="{{ quedada.id }}"><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
-                                {% endif %}
-                                <input type="hidden" value="{{ user.id }}" id="user_login">
+                                <button><img src="{{ asset('img/icons/error.png') }}"></button>
+                                <button><img src="{{ asset('img/icons/add-user.png') }}"> Participar</button>
                             </div>
                         </div>
                     {% endif %}
@@ -246,8 +231,4 @@
     </div>
 </div>
 
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('ajax/dashboardController.js') }}"></script>
 {% endblock %}

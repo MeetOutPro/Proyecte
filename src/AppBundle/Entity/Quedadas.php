@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Quedadas
  *
  * @ORM\Table(name="quedadas", indexes={@ORM\Index(name="FK_quedadas_user", columns={"creador"}), @ORM\Index(name="FK_quedadas_municipio", columns={"municipio"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\QuedadasRepository")
  */
 class Quedadas
 {
