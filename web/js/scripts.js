@@ -1,9 +1,23 @@
 $( document ).ready(function() {
+        var heightw = $( window ).height();
+
         var heighth = $(".home-head").height();
         var heightf = $(".footer-home").height();
-        var heightw = $( document ).height() - (heighth + heightf);
+        if(heightw<768){
+            var heightfinal = heightw - heighth;
+        }else{
+            var heightfinal = heightw - (heighth + heightf);
+        }
 
-        $(".content").css("height",heightw+"px");
+
+
+        console.log($( window ).height());
+        console.log(heighth);
+        console.log(heightf);
+        console.log(heightw);
+        $(".content").css("height",heightfinal+"px");
+        $(".register").css("height",heightfinal+"px");
+
 
 
 /*
@@ -208,8 +222,8 @@ $( document ).ready(function() {
         $('body').addClass('modal-active');
     })
 
-    $('#modal-container').click(function(){
-        $(this).addClass('out');
+    $('.closemodal img').click(function(){
+        $('#modal-container').addClass('out');
         $('body').removeClass('modal-active');
     });
 
@@ -246,10 +260,58 @@ $( document ).ready(function() {
 
     });
 
+    $(".p-registro").addClass("pestanya-activa");
+    $(".p-login").addClass("pestanya-default");
+    $(".form-login").css("display","none");
+    $(".menu-pestanyas-home > li").on("click",function () {
+        var pestanya_click=$(this).attr("class");
+
+        if($(this).hasClass("p-registro"))
+        {
+            $(".p-registro").removeClass("pestanya-default");
+            $(".p-registro").addClass("pestanya-activa")
+
+            $(".p-login").removeClass("pestanya-activa");
+            $(".p-login").addClass("pestanya-default");
+
+            $(".form-registro-home").css("display","block");
+            $(".form-login").css("display","none");
+        }else if($(this).hasClass("p-login"))
+        {
+            $(".p-login").removeClass("pestanya-default");
+            $(".p-login").addClass("pestanya-activa")
+
+            $(".p-registro").removeClass("pestanya-activa");
+            $(".p-registro").addClass("pestanya-default");
+
+            $(".form-registro-home").css("display","none");
+            $(".form-login").css("display","block");
+        }
+
+    });
+
     $(".post-settings",this).hover(function () {
         $(".submenu",this).fadeToggle(1);
     })
 
     $('.datepicker').datepicker();
+
+
+
+
+    $(".register label").on("click",function(){
+        var forlabel = $(this).attr("for");
+        if($(".register #appbundle_user_tema #"+forlabel).is(':checked'))
+        {
+            $(".register #appbundle_user_tema #"+forlabel).removeAttr('checked');
+            $(".register label[for='"+forlabel+"']").remove(".icono-gustos-yes");
+            $("<img class='icono-gustos-not' src='../img/icons/open-book.png'/>").prependTo(".register label[for='appbundle_user_tema_1'] ");
+        }else{
+            $(".register #appbundle_user_tema #"+forlabel).attr('checked','checked');
+            $(".register label[for='"+forlabel+"']").remove( ".icono-gustos-not");
+            $("<img class='icono-gustos-yes' src='../img/icons/open-book-checked.png'/>").prependTo(".register label[for='appbundle_user_tema_1'] ");
+        }
+    });
+
 
 });
