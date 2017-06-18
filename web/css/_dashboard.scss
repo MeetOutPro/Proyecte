@@ -1,4 +1,5 @@
 .dashboardbdy {
+  
   background-color:#f5f5f5;
   * {
     margin: 0;
@@ -14,6 +15,10 @@
     display: flex;
     margin-bottom: 2%;
 
+    .fa-camera{
+      color: #247BA0
+    }
+
     .navegation {
       width: 30%;
       display: flex;
@@ -25,6 +30,10 @@
       align-items: flex-end;
       flex-direction: column;
       width: 70%;
+    }
+
+    .tag-box{
+      display: none!important;
     }
   }
 
@@ -573,6 +582,100 @@
       flex-direction: column;
     }
   }
+  
+  .navigation-mobile{
+    display: none;
+  }
+
+
+  @media only screen and (max-width: 767px) {
+    .footer-home{
+      display: none;
+    }
+    .navigation-mobile{
+      font-family:$font-stack;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: auto;
+      height: 60px;
+      z-index: 1;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ffffff;
+      box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+
+      .navmob-section{
+        display: flex;
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        color: #247BA0;
+        border-left: 1px solid #247BA0;
+        height: 40px;
+      }
+
+      .navmob-section:first-child{
+        border-left: none!important;
+      }
+    }
+
+    .navegation, .searchbox, .content_header li:nth-child(3){
+      display: none!important;
+    }
+
+    header {
+      .content_header{
+        height: 35px;
+
+        li #logo{
+          width:75px;
+        }
+      }
+      .settings-menu{
+        display: none;
+      }
+
+      .exit-menu{
+        text-align: right;
+        img{
+          width: 30%!important;
+        }
+      }
+
+    }
+
+    .content {
+      .feed{
+        overflow: hidden;
+        width: 95%;
+      }
+
+      .menu-pestanyas li:first-child{
+        flex:1;
+      }
+
+      .menu-pestanyas li:last-child{
+        flex:1;
+      }
+
+      .fa-camera{
+        color: #247BA0
+      }
+      .publicar .publicarpost{
+        margin-left:1%;
+      }
+      
+    }
+
+
+
+  }
+
 
 }
 
