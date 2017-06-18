@@ -11,21 +11,79 @@
       justify-content: center;
       align-items: center;
       .form-der{
+        #appbundle_user_tema input{
+          display: none;
+        }
+        label[for='appbundle_user_tema_1'] img{
+          width:4%;
+        }
 
+        .save{
+          background: #247BA0;
+          font-family: "Montserrat", sans-serif;
+          border-radius: .2em;
+          color: white;
+          cursor: pointer;
+          display: inline-block;
+          font-weight: bold;
+          padding: 1em 1.5em;
+          transition: all 0.55s;
+          border: none;
+          padding-bottom: 20px;
+        }
       }
       .form-izq{
+        label {
+          display: inline-block !important;
+          color: #247BA0 !important;
+          float: left !important;
+          clear: left !important;
+          width: 190px !important;
+          text-align: left !important;
+        }
 
+        #appbundle_user_imagenprofile{
+          border-bottom:none!important;
+        }
+
+        div:not(.save):not(#appbundle_user_imagenprofile)  {
+          position: relative;
+          width: 100%;
+          height: 30px;
+          margin-top: 35px;
+        }
+        div:not(.save):not(#appbundle_user_imagenprofile)  input {
+          width: 100%;
+          padding: 5px;
+          background: none;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #3f88c5;
+          color: black;
+          font-family:$font-stack;
+        }
+        div:not(.save):not(#appbundle_user_imagenprofile)  input, div:not(.save):not(#appbundle_user_imagenprofile)  label {
+          position: absolute;
+          width: 100%;
+        }
+
+        #appbundle_user{
+          margin:0!important;
+        }
       }
+
+
       section{
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: left;
         padding: 5%;
-        margin-left: 5%;
-        margin-right: 5%;
+        margin: 5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
         width:40%;
-        height:600px;
+        height:575px;
         background-color: white;
         box-shadow: 0 2px 3px rgba(0,0,0,.1);
 
@@ -40,7 +98,6 @@
           }
           input{
             border: 0;
-            height:50px;
             font-size: 0.8em;
             border-bottom: 1px solid #247BA0;
           }
