@@ -1,166 +1,65 @@
 .profile-page-bdy {
   background-color: #f5f5f5;
-    * {
-      margin: 0;
-      padding: 0;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-    ul {
-      list-style: none;
-    }
+  ul {
+    list-style: none;
+  }
 
-    .content {
-      margin-top: 2%;
-      width: 100%;
-      display: flex;
-      margin-bottom: 2%;
-
-      .navegation {
-        height:400px;
-        width: 20%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
-      .feed {
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-        width: 50%;
-      }
-    }
-
-  .feed {
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+  .content {
+    margin-top: 2%;
     width: 100%;
+    display: flex;
+    margin-bottom: 2%;
 
-    .content_feed {
-      width: 95%;
-      background-color: white;
+    @media screen and (max-width: 400px) {
+      flex-direction: column;
+      margin-top: 0;
+    }
+    .navegation {
+      height: 400px;
+      width: 20%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      font-family: 'Roboto', sans-serif;
+      color: #247BA0;
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-      .posts {
+      text-align: center;
+      background-color: white;
+      margin-left: 2%;
+      @media screen and (max-width: 400px) {
         width: 100%;
-        height: 900px;
-        overflow: auto;
-        .post-row {
-          padding: 5%;
-          height: 150px;
-          border: 1px solid #c6c6c6;
-          font-family: "Montserrat", sans-serif;
-          font-size: 16px;
-          font-weight: 300;
-          background-color: #fff;
-          border-radius: 2px;
-          display: flex;
-          > .settings {
-            > ul {
-              position: relative;
-              > li {
-                > i {
-                  cursor: pointer;
-                }
-                > ul {
-                  background-color: #fff;
-                  border-radius: 2px;
-                  border: 1px solid #c6c6c6;
-                  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
-                  display: none;
-                  position: absolute;
-                  right: 0;
-                  padding: 20px;
-                  li {
-                    margin-top: 10%;
-                    margin-bottom: 10%;
-                    cursor: pointer;
-                  }
-                }
-              }
-            }
-          }
-          .post {
-            width: 100%;
+        height: auto;
+        margin: 0;
+        padding-bottom: 0;
+        margin-bottom: 5%;
+      }
+      .menu-responsive {
+        display: none;
+        @media screen and (max-width: 400px) {
+          margin-top: 10%;
+          display: block;
+          width: 100%;
+          ul {
             display: flex;
-            align-items: center;
-            div {
-              width: 15%;
-              margin-left: 2%;
-              margin-right: 2%;
-              img {
-                border-radius: 100%;
-                width: 100px;
-                height: 100px;
-              }
-              button {
-                background: #247BA0;
-                font-family: "Montserrat", sans-serif;
-                border-radius: .2em;
-                color: white;
-                cursor: pointer;
-                display: inline-block;
-                font-weight: bold;
-                padding: 0.75em 1.5em;
-                transition: all 0.55s;
-                border: none;
-              }
-
+            width: 100%;
+            #posts-responsive{
+              border-bottom: 2px solid #247BA0;
             }
-            >div:nth-child(3) {
-              align-self: flex-end;
-            }
-            .post-content {
-              > div {
-                width: 100% !important;
-              }
-              .post-info {
-                display: flex;
-                margin-top: 5%;
-                img {
-                  width: 30px;
-                  height: 30px;
-                }
-              }
-            }
-            >div:nth-child(2) {
-              width: 70%;
+            li {
+              width: 50%;
             }
           }
         }
       }
-    }
-
-    .content_feed .new_post {
-      width: 100%;
-      height: 150px;
-    }
-
-    .content_feed .Outstanding {
-      width: 100%;
-      height: 150px;
-    }
-
-    .content_feed .posts {
-      width: 100%;
-      height: 900px;
-    }
-
-  }
-
- .navegation  {
-
-   padding-top: 2%;
-   padding-bottom: 2%;
-   font-family: 'Roboto', sans-serif;
-   color: #247BA0;
-   width: 100%;
-   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-   text-align: center;
-   background-color: white;
-   margin-left: 2%;
-
-    .profile {
-      width: 100%;
+      .profile {
+        width: 100%;
         .info_profile {
           display: flex;
           align-items: center;
@@ -175,195 +74,333 @@
           width: 50%;
           height: 150px;
         }
-    }
+      }
 
-    .user_profile {
-      margin-top: 5%;
-      text-align: center;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      #btn-unfollow{
-        background: #33DDAD;
-        i{
+      .user_profile {
+        margin-top: 5%;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        #btn-unfollow {
+          background: #33DDAD;
+          i {
+            margin-left: 5%;
+          }
+        }
+        button {
           margin-left: 5%;
+          margin-right: 5%;
+          width: 50%;
+          background: #247BA0;
+          font-family: "Montserrat", sans-serif;
+          border-radius: .2em;
+          color: white;
+          cursor: pointer;
+          display: inline-block;
+          font-weight: bold;
+          padding: 0.75em 1.5em;
+          transition: all 0.55s;
+          border: none;
         }
       }
-      button{
-        margin-left: 5%;
-        margin-right: 5%;
-        width: 50%;
-        background: #247BA0;
-        font-family: "Montserrat", sans-serif;
-        border-radius: .2em;
-        color: white;
-        cursor: pointer;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.75em 1.5em;
-        transition: all 0.55s;
-        border: none;
+
+      .user_profile h3:first-child {
+        margin-top: 2%;
+      }
+      .user_profile h3:last-child {
+        margin-top: $margin-default;
+      }
+
+      .pleasures_profile {
+        margin-top: 5%;
+      }
+
+      .pleasures_profile img {
+        width: 40px;
+      }
+
+      .people_profile {
+        width: 100%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .people_profile * {
+        flex-grow: 1;
       }
     }
-
-   .user_profile h3:first-child{
-     margin-top:2%;
-   }
-   .user_profile h3:last-child{
-     margin-top:$margin-default;
-   }
-
-   .pleasures_profile{
-     margin-top: 5%;
-   }
-
-    .pleasures_profile img {
-      width: 40px;
-    }
-
-    .people_profile {
-      width:100%;
-      margin-top: 5%;
+    .feed {
       display: flex;
-      justify-content: center;
-    }
+      align-items: flex-end;
+      flex-direction: column;
+      width: 50%;
+      @media screen and (max-width: 400px) {
+        width: 100%;
+      }
+      .content_feed {
+        width: 95%;
+        background-color: white;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        @media screen and (max-width: 400px) {
+          width: 100%;
+        }
+        .posts {
+          width: 100%;
+          height: 900px;
+          overflow: auto;
+          .post-row {
+            padding: 5%;
+            height: 150px;
+            border: 1px solid #c6c6c6;
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            background-color: #fff;
+            border-radius: 2px;
+            display: flex;
+            @media screen and (max-width: 400px) {
+              height: 200px;
+            }
+            > .settings {
+              > ul {
+                position: relative;
+                > li {
+                  > i {
+                    cursor: pointer;
+                  }
+                  > ul {
+                    background-color: #fff;
+                    border-radius: 2px;
+                    border: 1px solid #c6c6c6;
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    padding: 20px;
+                    li {
+                      margin-top: 10%;
+                      margin-bottom: 10%;
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+            }
+            .post {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              .post-content{
+                display: flex;
+                margin-left: 2%;
+                margin-right: 2%;
+                width: 100%;
+                @media screen and (max-width: 400px) {
+                  width:100%;
+                }
+                >div:first-child{
+                  width: 25%;
+                }
+                >div:nth-child(2){
+                  width:75%;
+                }
+                img {
+                  border-radius: 100%;
+                  width: 100px;
+                  height: 100px;
+                  @media screen and (max-width: 400px) {
+                    width: 70px;
+                    height: 70px;
+                  }
+                }
 
-    .people_profile * {
-      flex-grow: 1;
-    }
-  }
-
-}
-.profile-right {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  .events {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-
-    h1{
-      align-self: center;
-    }
-
-    .content_events {
-      overflow: auto;
-      padding-bottom: 5%;
-      font-family: 'Roboto', sans-serif;
-      color: #247BA0;
-      width: 100%;
-      height: 500px;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      justify-content: center;
-      background-color: white;
-    }
-
-    .content_events .event {
-      width: 100%;
-      height: 33%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: justify;
-    }
-
-    .content_events .event .content_img {
-      margin-left: 2%;
-    }
-
-    .content_events img {
-      width: 80px;
-      height: 80px;
-      border-radius: 100px;
-    }
-
-    .content_events {
-
-      .info_envent {
-        margin-left: 5%;
-        margin-right: 5%;
-        .info_site {
-          margin-top: 5%;
-          font-size: 0.6em;
-          display: flex;
-          align-items: center;
-          div:first-child {
-            margin-right: 5%;
-            .profile-quedada {
+              }
+              .post-content {
+                .post-info {
+                  display: flex;
+                  margin-top: 5%;
+                  img {
+                    width: 30px;
+                    height: 30px;
+                  }
+                }
+              }
+              >div:nth-child(2){
+                width:100%;
+                text-align: right;
+                margin-top: 5%;
+              }
+            button {
+              background: #247BA0;
+              font-family: "Montserrat", sans-serif;
+              border-radius: .2em;
+              color: white;
               cursor: pointer;
-              width: 20px;
-              height: 20px;
-              margin-right: 5%;
+              display: inline-block;
+              font-weight: bold;
+              padding: 0.75em 1.5em;
+              transition: all 0.55s;
+              border: none;
+              @media screen and (max-width: 400px) {
+                width: 100%;
+              }
+            }
+          }
+            .settings{
+              height:100%;
             }
           }
         }
       }
     }
-
-    .content_events .info_envent button {
-      background-color: transparent;
-      border: 0;
-    }
-
-    .content_events .info_envent .event-buttons {
-      text-align: right;
-    }
-
-    .content_events .info_envent button img {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-
-    .event-buttons{
+    .profile-right {
+      width: 30%;
       display: flex;
       flex-direction: column;
-      height: 100%;
-      justify-content: space-around;
+      align-items: flex-end;
+      @media screen and (max-width: 400px) {
+        width: 100%;
+        display: none;
+      }
 
-      button {
-        width: 60px;
-        height: 40px;;
-        background-color: transparent;
-        border: 0;
-        color: #247BA0;
-        cursor: pointer;
-        img{
-          width:20px;
-          height:20px;
+      .events {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        @media screen and (max-width: 400px) {
+          width: 100%;
+        }
+        h1{
+          align-self: center;
+        }
+
+        .content_events {
+          overflow: auto;
+          padding-bottom: 5%;
+          font-family: 'Roboto', sans-serif;
+          color: #247BA0;
+          width: 100%;
+          height: 500px;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          justify-content: center;
+          background-color: white;
+          @media screen and (max-width: 400px) {
+            padding-top: 5%;
+          }
+        }
+
+        .content_events .event {
+          width: 100%;
+          height: 33%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: justify;
+        }
+
+        .content_events .event .content_img {
+          margin-left: 2%;
+        }
+
+        .content_events img {
+          width: 80px;
+          height: 80px;
+          border-radius: 100px;
+        }
+
+        .content_events {
+
+          .info_envent {
+            margin-left: 5%;
+            margin-right: 5%;
+            .info_site {
+              margin-top: 5%;
+              font-size: 0.6em;
+              display: flex;
+              align-items: center;
+              div:first-child {
+                margin-right: 5%;
+                .profile-quedada {
+                  cursor: pointer;
+                  width: 20px;
+                  height: 20px;
+                  margin-right: 5%;
+                }
+              }
+            }
+          }
+        }
+
+        .content_events .info_envent button {
+          background-color: transparent;
+          border: 0;
+        }
+
+        .content_events .info_envent .event-buttons {
+          text-align: right;
+        }
+
+        .content_events .info_envent button img {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        .event-buttons{
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          justify-content: space-around;
+
+          button {
+            width: 60px;
+            height: 40px;;
+            background-color: transparent;
+            border: 0;
+            color: #247BA0;
+            cursor: pointer;
+            img{
+              width:20px;
+              height:20px;
+            }
+          }
+        }
+      }
+
+      .suggestions {
+        text-align: center;
+        margin-top: 10%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-family: 'Roboto', sans-serif;
+        @media screen and (max-width: 400px) {
+          width: 100%;
+        }
+        h1{
+          align-self: center;
+        }
+
+
+        .content_suggestions {
+          width: 100%;
+        }
+
+        .content_suggestions .suggestion {
+          flex-grow: 2;
+          height: 70px;
+          border: 1px dashed black;
         }
       }
     }
   }
-
-  .suggestions {
-    text-align: center;
-    margin-top: 10%;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-family: 'Roboto', sans-serif;
-    h1{
-      align-self: center;
-    }
-
-
-    .content_suggestions {
-      width: 100%;
-    }
-
-    .content_suggestions .suggestion {
-      flex-grow: 2;
-      height: 70px;
-      border: 1px dashed black;
-    }
-  }
 }
+
