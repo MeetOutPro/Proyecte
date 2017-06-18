@@ -189,36 +189,33 @@
               width: 100%;
               display: flex;
               align-items: center;
-              div {
-                width: 15%;
+              flex-direction: column;
+              .post-content{
+                display: flex;
                 margin-left: 2%;
                 margin-right: 2%;
+                width: 100%;
+                @media screen and (max-width: 400px) {
+                  width:100%;
+                }
+                >div:first-child{
+                  width: 25%;
+                }
+                >div:nth-child(2){
+                  width:75%;
+                }
                 img {
                   border-radius: 100%;
                   width: 100px;
                   height: 100px;
-                }
-                button {
-                  background: #247BA0;
-                  font-family: "Montserrat", sans-serif;
-                  border-radius: .2em;
-                  color: white;
-                  cursor: pointer;
-                  display: inline-block;
-                  font-weight: bold;
-                  padding: 0.75em 1.5em;
-                  transition: all 0.55s;
-                  border: none;
+                  @media screen and (max-width: 400px) {
+                    width: 70px;
+                    height: 70px;
+                  }
                 }
 
               }
-              > div:nth-child(3) {
-                align-self: flex-end;
-              }
               .post-content {
-                > div {
-                  width: 100% !important;
-                }
                 .post-info {
                   display: flex;
                   margin-top: 5%;
@@ -228,9 +225,28 @@
                   }
                 }
               }
-              > div:nth-child(2) {
-                width: 70%;
+              >div:nth-child(2){
+                width:100%;
+                text-align: right;
               }
+            button {
+              background: #247BA0;
+              font-family: "Montserrat", sans-serif;
+              border-radius: .2em;
+              color: white;
+              cursor: pointer;
+              display: inline-block;
+              font-weight: bold;
+              padding: 0.75em 1.5em;
+              transition: all 0.55s;
+              border: none;
+              @media screen and (max-width: 400px) {
+                width: 100%;
+              }
+            }
+          }
+            .settings{
+              height:100%;
             }
           }
         }
