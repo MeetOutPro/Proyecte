@@ -61,10 +61,20 @@
                         <input type="hidden" value="{{ user.id }}" id="user_login">
                     </div>
                 {% endif %}
+                <div class="menu-responsive">
+                    <ul>
+                        <li id="posts-responsive">
+                            Posts
+                        </li>
+                        <li id="events-responsive">
+                            Eventos
+                        </li>
+                    </ul>
+                </div>
             </aside>
 
 
-            <section class="feed">
+            <section id="feed-profile" class="feed">
                 <div class="content_feed">
                     <div class="posts">
                         {% for post in posts %}
@@ -120,10 +130,10 @@
             </section>
 
 
-            <section class="profile-right">
+            <section id="events-profile" class="profile-right">
                 <div class="events">
-                    <h1>TUS EVENTOS</h1>
                     <div class="content_events">
+                        <h1>EVENTOS</h1>
                         {% for quedada in quedadas %}
                             {% if(quedada is not null) %}
                                 <div class="event">
