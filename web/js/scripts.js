@@ -347,4 +347,18 @@ $( document ).ready(function() {
         $("#posts-responsive").css("border","none");
         $(this).css("border-bottom","2px solid #247BA0");
     })
+
+            if( !$(this).val() ) {
+                $("#appbundle_user label").css("font-size","13px");
+                $("#appbundle_user label").css("top","-25px");
+            }else {
+                $("#appbundle_user label").css("font-size", "17px");
+                $("#appbundle_user label").css("top", "0px");
+            }
+   
+
+
+
+
+
 });
