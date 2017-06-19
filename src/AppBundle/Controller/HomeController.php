@@ -27,9 +27,9 @@ class HomeController extends BaseController
             return $this->redirect("/dashboard");
         }
 
-        $form_register  = $this->registerAction($request);
+        $form_register  = $this->createForm(RegistrationHomeType::class,$user);
 
-        $form_login     = $this->loginAction($request);
+        $form_login     = $this->createForm(LoginType::class,$user);
 
         $data = array(
             'form_register' => $form_register->createView(),
@@ -55,10 +55,10 @@ class HomeController extends BaseController
 
             $session->set('user',$inputs);
 
-            return $this->redirect('/register');
+            return $this->redirect('/register/');
         }
 
-        return $form;
+        return $this->redirect('/');
 
     }
 
