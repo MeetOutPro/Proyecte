@@ -23,8 +23,6 @@ class RegistrationHomeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $user = $options['data'];
-
         $builder
             ->add('username',TextType::class, array('label'=> 'Nombre de usuario'))
             ->add('email',EmailType::class, array('label'=> 'Email'))
